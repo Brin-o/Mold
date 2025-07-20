@@ -1,0 +1,119 @@
+[gd_scene load_steps=8 format=3 uid="uid://dl7u1gj7xawq2"]
+
+[ext_resource type="Texture2D" uid="uid://ccd6ypl6u2xix" path="res://Sprites/MO_WALL.JPG" id="1_5hfv0"]
+[ext_resource type="Texture2D" uid="uid://bdus5sylbkl88" path="res://Sprites/mld_x1.png" id="3_m0rpm"]
+[ext_resource type="Texture2D" uid="uid://ci3d3ryhosf6p" path="res://Sprites/mld_x4.png" id="4_c6xj6"]
+[ext_resource type="Texture2D" uid="uid://brjpbvja5dsbw" path="res://Sprites/mld_connected.png" id="5_6bw2v"]
+[ext_resource type="Script" uid="uid://b3l0mj4x13pyr" path="res://buttoner.gd" id="5_gxmxl"]
+[ext_resource type="Script" uid="uid://b6lc6r8vmormr" path="res://prompter.gd" id="6_gxmxl"]
+[ext_resource type="FontFile" uid="uid://dra4uit0cvyoj" path="res://W95font.otf" id="6_kem5a"]
+
+[node name="Control" type="Node"]
+metadata/_edit_horizontal_guides_ = [-96.0]
+
+[node name="BG" type="TextureRect" parent="."]
+offset_right = 800.0
+offset_bottom = 600.0
+texture = ExtResource("1_5hfv0")
+metadata/_edit_lock_ = true
+
+[node name="Window Collection" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="connected" type="TextureRect" parent="Window Collection"]
+visible = false
+layout_mode = 0
+offset_left = 274.0
+offset_top = 53.0
+offset_right = 655.333
+offset_bottom = 339.0
+texture = ExtResource("5_6bw2v")
+expand_mode = 3
+
+[node name="x1" type="TextureRect" parent="Window Collection"]
+offset_left = 430.0
+offset_top = 24.0
+offset_right = 716.0
+offset_bottom = 310.0
+texture = ExtResource("3_m0rpm")
+expand_mode = 3
+
+[node name="Button" type="Button" parent="Window Collection/x1"]
+layout_mode = 0
+offset_left = 113.0
+offset_top = 120.0
+offset_right = 170.0
+offset_bottom = 181.0
+text = "1"
+script = ExtResource("5_gxmxl")
+
+[node name="x2" type="TextureRect" parent="Window Collection"]
+visible = false
+layout_mode = 2
+offset_left = 113.0
+offset_top = 53.0
+offset_right = 432.0
+offset_bottom = 339.0
+texture = ExtResource("4_c6xj6")
+expand_mode = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="MousePos" type="Label" parent="AudioStreamPlayer"]
+unique_name_in_owner = true
+modulate = Color(0, 0, 0, 1)
+offset_right = 387.0
+offset_bottom = 151.0
+text = "test 1234"
+metadata/_edit_lock_ = true
+
+[node name="Prompter" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 48.0
+offset_top = 248.0
+offset_right = 339.0
+offset_bottom = 558.0
+
+[node name="ColorRect" type="ColorRect" parent="Prompter"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Prompter/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PromptText" type="RichTextLabel" parent="Prompter"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("6_kem5a")
+theme_override_font_sizes/normal_font_size = 16
+text = "Vitae sed omnis architecto impedit aut aperiam. Veritatis sed voluptatum voluptatum recusandae modi vel natus. Dolorem nobis repudiandae a animi sequi non non repellendus. Voluptates saepe dolorem nisi quod non sapiente."
+script = ExtResource("6_gxmxl")
+
+[connection signal="pressed" from="Window Collection/x1/Button" to="Window Collection/x1/Button" method="_on_pressed"]
