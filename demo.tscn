@@ -34,6 +34,7 @@ texture = ExtResource("5_6bw2v")
 expand_mode = 3
 
 [node name="x1" type="TextureRect" parent="Window Collection"]
+layout_mode = 0
 offset_left = 430.0
 offset_top = 24.0
 offset_right = 716.0
