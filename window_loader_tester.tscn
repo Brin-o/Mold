@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://br82govkkpcch"]
+[gd_scene load_steps=3 format=3 uid="uid://o88vjgt3v4td"]
 
 [ext_resource type="Script" uid="uid://4lgtxb88n2kw" path="res://Scripts/text_loader.gd" id="1_2bme2"]
-[ext_resource type="Script" uid="uid://bxb4qkrn3gtjc" path="res://draggable_window.gd" id="2_jwhqa"]
+[ext_resource type="Script" path="res://draggable_window.gd" id="2_jwhqa"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -13,14 +13,24 @@ offset_bottom = 2188.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_right = 408.0
-offset_bottom = 85.0
+offset_left = 207.0
+offset_top = 276.0
+offset_right = 620.0
+offset_bottom = 311.0
+color = Color(0.187176, 0.187176, 0.187176, 1)
+script = ExtResource("2_jwhqa")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
+layout_mode = 0
+offset_top = 34.0
+offset_right = 412.0
+offset_bottom = 119.0
 text = "test test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st te"
 script = ExtResource("1_2bme2")
 
-[node name="ColorRect" type="ColorRect" parent="RichTextLabel"]
+[node name="ColorRect" type="ColorRect" parent="ColorRect/RichTextLabel"]
 z_index = -3
 layout_mode = 1
 anchors_preset = 15
@@ -29,15 +39,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
-
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 207.0
-offset_top = 276.0
-offset_right = 670.0
-offset_bottom = 311.0
-color = Color(0.187176, 0.187176, 0.187176, 1)
-script = ExtResource("2_jwhqa")
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="ColorRect"]
 layout_mode = 0
