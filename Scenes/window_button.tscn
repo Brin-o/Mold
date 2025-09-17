@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cv8dpvvpbfijo"]
+
+[ext_resource type="Script" uid="uid://bwl4fi8712sab" path="res://Scripts/window_button.gd" id="1_ogpmm"]
+
+[node name="WindowButton" type="Button"]
+text = "Window"
+script = ExtResource("1_ogpmm")

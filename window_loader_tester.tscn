@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://o88vjgt3v4td"]
+[gd_scene load_steps=2 format=3 uid="uid://o88vjgt3v4td"]
 
-[ext_resource type="Script" uid="uid://4lgtxb88n2kw" path="res://Scripts/text_loader.gd" id="1_2bme2"]
-[ext_resource type="Script" path="res://draggable_window.gd" id="2_jwhqa"]
+[ext_resource type="PackedScene" uid="uid://bhlf3cc2pe73e" path="res://Scenes/window.tscn" id="1_2bme2"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -13,38 +12,9 @@ offset_bottom = 2188.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Window" parent="." instance=ExtResource("1_2bme2")]
 layout_mode = 0
-offset_left = 207.0
-offset_top = 276.0
-offset_right = 620.0
-offset_bottom = 311.0
-color = Color(0.187176, 0.187176, 0.187176, 1)
-script = ExtResource("2_jwhqa")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
-layout_mode = 0
-offset_top = 34.0
-offset_right = 412.0
-offset_bottom = 119.0
-text = "test test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st te"
-script = ExtResource("1_2bme2")
-
-[node name="ColorRect" type="ColorRect" parent="ColorRect/RichTextLabel"]
-z_index = -3
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-metadata/_edit_lock_ = true
-
-[node name="Label" type="Label" parent="ColorRect"]
-layout_mode = 0
-offset_left = 33.0
-offset_top = 7.0
-offset_right = 401.0
-offset_bottom = 30.0
-text = "drag me"
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 413.0
+offset_bottom = 35.0
