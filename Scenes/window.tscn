@@ -42,8 +42,8 @@ text = "_"
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_top = 40.0
-offset_bottom = 240.0
+offset_top = 34.0
+offset_bottom = 234.0
 grow_horizontal = 2
 text = "test test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st tetest test te st te"
 script = ExtResource("2_30sqi")
@@ -57,6 +57,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+show_behind_parent = true
+layout_mode = 0
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 416.0
+offset_bottom = 236.0
+mouse_filter = 2
 metadata/_edit_lock_ = true
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
