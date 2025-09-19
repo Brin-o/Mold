@@ -57,6 +57,10 @@ offset_top = 102.0
 offset_right = 731.0
 offset_bottom = 137.0
 
+[node name="Contents" parent="WindowContainer/Window" index="3"]
+offset_top = 40.0
+offset_bottom = 240.0
+
 [node name="Window2" parent="WindowContainer" instance=ExtResource("2_0bhed")]
 layout_mode = 0
 offset_left = 145.0

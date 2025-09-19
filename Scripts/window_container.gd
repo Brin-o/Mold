@@ -24,8 +24,10 @@ func minimize_or_restore_window(window):
 		restore_window(window)
 	else:
 		minimize_window(window)
-func restore_window(window):
+func restore_window(window : Control):
+	window.visible = true
 	pass
 	
-func minimize_window(window):
+func minimize_window(window:Control):
+	window.visible=false
 	pass
