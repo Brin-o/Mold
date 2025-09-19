@@ -5,3 +5,5 @@
 [node name="WindowButton" type="Button"]
 text = "Window"
 script = ExtResource("1_ogpmm")
+
+[connection signal="button_up" from="." to="." method="_on_button_up"]

@@ -33,7 +33,7 @@ offset_bottom = 37.0
 grow_horizontal = 2
 script = ExtResource("2_c6xj6")
 
-[node name="Container" type="HBoxContainer" parent="TopBar"]
+[node name="PillContainer" type="HBoxContainer" parent="TopBar"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

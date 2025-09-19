@@ -19,15 +19,13 @@ func gather_click_singals():
 			w.click.connect(move_window_to_top)
 			
 
-func minimize_or_restore_window(window_name):
-	var target_window = get_node(window_name)
-	if target_window.visible == false:
-		restore_window(window_name)
+func minimize_or_restore_window(window):
+	if window.visible == false:
+		restore_window(window)
 	else:
-		minimize_window(window_name)
-
-func restore_window(window_name):
+		minimize_window(window)
+func restore_window(window):
 	pass
 	
-func minimize_window(window_name):
+func minimize_window(window):
 	pass
