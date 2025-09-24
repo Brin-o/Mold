@@ -1,0 +1,135 @@
+[gd_scene load_steps=6 format=3 uid="uid://bhlf3cc2pe73e"]
+
+[ext_resource type="Script" uid="uid://bxb4qkrn3gtjc" path="res://draggable_window.gd" id="1_0xhjo"]
+[ext_resource type="Theme" uid="uid://dggnc44ywb5kn" path="res://myOStheme.tres" id="2_0slyu"]
+[ext_resource type="Texture2D" uid="uid://ck43j05056ff0" path="res://Sprites/window_border_outer_slim.png" id="2_ec1xs"]
+[ext_resource type="FontFile" uid="uid://xohm45b7njn7" path="res://monogram-extended.ttf" id="3_0slyu"]
+[ext_resource type="StyleBox" uid="uid://c4v67pvjcdvrd" path="res://GUI Skin/button_style_normal.tres" id="4_gs3ir"]
+
+[node name="Window_Title" type="ColorRect"]
+z_index = 1
+z_as_relative = false
+offset_left = 205.0
+offset_top = 280.0
+offset_right = 405.0
+offset_bottom = 298.0
+script = ExtResource("1_0xhjo")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ec1xs")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 10
+
+[node name="Title" type="Label" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_right = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_0slyu")
+theme_type_variation = &"HeaderLarge"
+text = "drag medrag medrag medrag me"
+vertical_alignment = 1
+
+[node name="Close" type="Button" parent="."]
+layout_mode = 0
+offset_left = 201.0
+offset_top = -4.0
+offset_right = 223.0
+offset_bottom = 18.0
+theme = ExtResource("2_0slyu")
+theme_override_fonts/font = ExtResource("3_0slyu")
+theme_override_styles/normal = ExtResource("4_gs3ir")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Close"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ec1xs")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 10
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Close"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Minimize" type="Button" parent="."]
+layout_mode = 0
+offset_left = 224.0
+offset_top = -4.0
+offset_right = 246.0
+offset_bottom = 18.0
+theme = ExtResource("2_0slyu")
+theme_override_fonts/font = ExtResource("3_0slyu")
+theme_override_styles/normal = ExtResource("4_gs3ir")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Minimize"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ec1xs")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 10
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Minimize"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "_"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+show_behind_parent = true
+layout_mode = 0
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 416.0
+offset_bottom = 236.0
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="button_up" from="Close" to="." method="_on_close_button_up"]
+[connection signal="button_up" from="Minimize" to="." method="_on_minimize_button_up"]
