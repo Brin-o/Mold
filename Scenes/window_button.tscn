@@ -1,9 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://cv8dpvvpbfijo"]
+[gd_scene load_steps=4 format=3 uid="uid://cv8dpvvpbfijo"]
 
+[ext_resource type="Theme" uid="uid://dggnc44ywb5kn" path="res://myOStheme.tres" id="1_7gcbw"]
 [ext_resource type="Script" uid="uid://bwl4fi8712sab" path="res://Scripts/window_button.gd" id="1_ogpmm"]
+[ext_resource type="Texture2D" uid="uid://ck43j05056ff0" path="res://Sprites/window_border_outer_slim.png" id="2_ma10j"]
 
 [node name="WindowButton" type="Button"]
+offset_right = 100.0
+offset_bottom = 21.0
+theme = ExtResource("1_7gcbw")
 text = "Window"
 script = ExtResource("1_ogpmm")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ma10j")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
 
 [connection signal="button_up" from="." to="." method="_on_button_up"]

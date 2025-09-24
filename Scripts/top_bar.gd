@@ -1,6 +1,6 @@
 extends ColorRect
 
-@onready var wContainer : WindowContainer = $"../WindowContainer"
+@onready var wContainer : ManagerWindows = $"../ManagerWindows"
 @onready var wButton = preload("res://Scenes/window_button.tscn")
 @onready var pContainer = $PillContainer
 
@@ -11,12 +11,13 @@ func _ready() -> void:
 
 func populate_windows():
 	for w in wContainer.get_children():
-		if w is mWindow:
+		if w.get_child(0) is wTitlebar:
 			var button : wButton = wButton.instantiate()
 			pContainer.add_child(button)
 			button.assingedWindow = w
-			button.name = "Pill_" + w.name
-			button.text = w.name
+			w.get_child(0).assignedPill = button
+			button.name = "Pill_" + w.get_child(0).name
+			button.text = w.get_child(0).name
 	populate_pill_connections()
 	pass
 

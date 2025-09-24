@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://bi3cqwsqi01u2"]
+
+[ext_resource type="Script" uid="uid://lhte85pynwcv" path="res://Scenes/window_parent.gd" id="1_0slyu"]
+[ext_resource type="PackedScene" uid="uid://bhlf3cc2pe73e" path="res://Scenes/window_title.tscn" id="1_hjewq"]
+[ext_resource type="PackedScene" uid="uid://dsw6bnsescj30" path="res://Scenes/window_contents.tscn" id="2_nfq5s"]
+[ext_resource type="Texture2D" uid="uid://bfjgume4y7tnj" path="res://Sprites/diagonal_pattern.png" id="3_30sqi"]
+
+[node name="Window" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 93.0
+offset_top = 41.0
+offset_right = -392.0
+offset_bottom = -92.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0slyu")
+
+[node name="Window_Title" parent="." instance=ExtResource("1_hjewq")]
+z_index = 0
+layout_mode = 0
+offset_left = -0.5
+offset_top = 1.0
+offset_right = 199.5
+offset_bottom = 19.0
+
+[node name="Window Contents" parent="." instance=ExtResource("2_nfq5s")]
+layout_mode = 0
+offset_top = 21.0
+offset_right = 315.0
+offset_bottom = 466.5
+metadata/_edit_lock_ = true
+
+[node name="Shadow" type="Control" parent="."]
+visible = false
+show_behind_parent = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Shadow"]
+modulate = Color(0.00351917, 0.00351917, 0.00351917, 1)
+layout_mode = 0
+offset_left = -5.0
+offset_top = 15.0
+offset_right = 321.0
+offset_bottom = 472.0
+texture = ExtResource("3_30sqi")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="Shadow"]
+modulate = Color(0.00351917, 0.00351917, 0.00351917, 1)
+layout_mode = 0
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 247.0
+offset_bottom = 25.0
+texture = ExtResource("3_30sqi")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1

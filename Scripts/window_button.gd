@@ -1,7 +1,7 @@
 class_name wButton extends Button
 
 signal btn_up (node)
-var assingedWindow : mWindow
+var assingedWindow 
 
 
 
