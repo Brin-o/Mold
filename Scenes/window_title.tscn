@@ -6,8 +6,7 @@
 [ext_resource type="FontFile" uid="uid://xohm45b7njn7" path="res://monogram-extended.ttf" id="3_0slyu"]
 [ext_resource type="StyleBox" uid="uid://c4v67pvjcdvrd" path="res://GUI Skin/button_style_normal.tres" id="4_gs3ir"]
 
-[node name="Window_Title" type="ColorRect"]
-z_as_relative = false
+[node name="Titlebar" type="ColorRect"]
 offset_left = 205.0
 offset_top = 280.0
 offset_right = 405.0

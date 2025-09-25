@@ -27,7 +27,8 @@ func fit_to_children():
 func _input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		var top :Control= get_viewport().gui_get_hovered_control()
-		print(top.get_parent_control())
+		#print(top.get_parent_control())
 		if top == self or top.is_ancestor_of(self) or self.is_ancestor_of(top):
 			print("click from " + name)
+			click.emit(self)
 			#emit_signal("click")
