@@ -1,12 +1,36 @@
-[gd_scene load_steps=2 format=3 uid="uid://0vajpje4e6dx"]
+[gd_scene load_steps=4 format=3 uid="uid://0vajpje4e6dx"]
 
 [ext_resource type="Script" uid="uid://cwwovciohl3ox" path="res://Scripts/icon.gd" id="1_7vlay"]
+[ext_resource type="Texture2D" uid="uid://bg4d6gaufbqwc" path="res://Sprites/File_Text_32.png" id="2_mremn"]
+[ext_resource type="Theme" uid="uid://dggnc44ywb5kn" path="res://myOStheme.tres" id="3_udduw"]
 
 [node name="icon" type="Control"]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 3
-anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -1536.0
+offset_bottom = -1136.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7vlay")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 14.5
+offset_top = 3.0
+offset_right = 46.5
+offset_bottom = 35.0
+texture = ExtResource("2_mremn")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 2.5
+offset_top = 34.0
+offset_right = 62.5
+offset_bottom = 63.0
+theme = ExtResource("3_udduw")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -2
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 3
+text = "1234567890
+1234567890"

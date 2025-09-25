@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dl7u1gj7xawq2"]
+[gd_scene load_steps=7 format=3 uid="uid://dl7u1gj7xawq2"]
 
 [ext_resource type="Texture2D" uid="uid://ccd6ypl6u2xix" path="res://Sprites/MO_WALL.JPG" id="1_5hfv0"]
 [ext_resource type="PackedScene" uid="uid://bi3cqwsqi01u2" path="res://Scenes/window.tscn" id="2_0bhed"]
 [ext_resource type="Script" uid="uid://66yaun8bbg7" path="res://Scripts/top_bar.gd" id="2_c6xj6"]
 [ext_resource type="Script" uid="uid://dg6utj5k25ubf" path="res://Scripts/manager_windows.gd" id="2_m0rpm"]
 [ext_resource type="Texture2D" uid="uid://ck43j05056ff0" path="res://Sprites/window_border_outer_slim.png" id="3_6bw2v"]
+[ext_resource type="PackedScene" uid="uid://yonnipy72fjn" path="res://Scenes/folder_icon.tscn" id="6_kem5a"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -15,9 +16,11 @@ metadata/_edit_horizontal_guides_ = [-96.0]
 
 [node name="BG" type="TextureRect" parent="."]
 z_index = -5
+layout_mode = 0
 offset_right = 800.0
 offset_bottom = 600.0
 texture = ExtResource("1_5hfv0")
+metadata/_edit_lock_ = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
@@ -38,6 +41,7 @@ offset_bottom = 24.0
 grow_horizontal = 2
 color = Color(0.925734, 0.925734, 0.925734, 1)
 script = ExtResource("2_c6xj6")
+metadata/_edit_lock_ = true
 
 [node name="PillContainer" type="HBoxContainer" parent="TopBar"]
 layout_mode = 1
@@ -64,11 +68,13 @@ patch_margin_right = 3
 patch_margin_bottom = 3
 
 [node name="ManagerWindows" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("2_m0rpm")
+metadata/_edit_lock_ = true
 
 [node name="Window" parent="ManagerWindows" instance=ExtResource("2_0bhed")]
 layout_mode = 1
@@ -90,3 +96,32 @@ offset_left = 384.0
 offset_top = 60.0
 offset_right = 344.0
 offset_bottom = 20.0
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 81.0
+offset_right = 281.0
+offset_bottom = 221.0
+columns = 4
+
+[node name="icon2" parent="GridContainer" instance=ExtResource("6_kem5a")]
+layout_mode = 2
+
+[node name="icon3" parent="GridContainer" instance=ExtResource("6_kem5a")]
+layout_mode = 2
+
+[node name="icon4" parent="GridContainer" instance=ExtResource("6_kem5a")]
+layout_mode = 2
+
+[node name="icon5" parent="GridContainer" instance=ExtResource("6_kem5a")]
+layout_mode = 2
+
+[node name="icon6" parent="GridContainer" instance=ExtResource("6_kem5a")]
+layout_mode = 2
+
+[node name="icon7" parent="GridContainer" instance=ExtResource("6_kem5a")]
+layout_mode = 2
+
+[node name="icon8" parent="GridContainer" instance=ExtResource("6_kem5a")]
+layout_mode = 2

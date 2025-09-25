@@ -1,3 +1,3 @@
-class_name Icon extends Control
+class_name Icon extends Button
 
 var  file_path : String
