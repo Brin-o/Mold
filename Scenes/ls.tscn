@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6ugirq113rpc"]
+
+[ext_resource type="Script" uid="uid://cbled8p3xi4ts" path="res://ls.gd" id="1_hluij"]
+[ext_resource type="PackedScene" uid="uid://0vajpje4e6dx" path="res://Scenes/icon.tscn" id="2_hamj4"]
+
+[node name="Root" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hluij")
+icon_scene = ExtResource("2_hamj4")
