@@ -61,3 +61,5 @@ offset_bottom = 25.0
 texture = ExtResource("3_30sqi")
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
+
+[editable path="Titlebar"]

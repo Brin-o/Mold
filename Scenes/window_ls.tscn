@@ -1,0 +1,96 @@
+[gd_scene load_steps=8 format=3 uid="uid://xsdsyss1if2p"]
+
+[ext_resource type="Script" uid="uid://l6vjsf7i6duj" path="res://Scripts/window_ls.gd" id="1_ktkx8"]
+[ext_resource type="PackedScene" uid="uid://bhlf3cc2pe73e" path="res://Scenes/window_title.tscn" id="2_8xebi"]
+[ext_resource type="Texture2D" uid="uid://cqjuj1yq6dtil" path="res://Sprites/window_border_outer.png" id="3_2nu5p"]
+[ext_resource type="Script" uid="uid://cbled8p3xi4ts" path="res://ls.gd" id="4_00loy"]
+[ext_resource type="Texture2D" uid="uid://bfjgume4y7tnj" path="res://Sprites/diagonal_pattern.png" id="4_ktkx8"]
+[ext_resource type="PackedScene" uid="uid://0vajpje4e6dx" path="res://Scenes/icon.tscn" id="5_3berv"]
+[ext_resource type="PackedScene" uid="uid://yonnipy72fjn" path="res://Scenes/folder_icon.tscn" id="6_c3toa"]
+
+[node name="Window" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 93.0
+offset_top = 41.0
+offset_right = -392.0
+offset_bottom = -92.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ktkx8")
+
+[node name="Titlebar" parent="." instance=ExtResource("2_8xebi")]
+layout_mode = 0
+offset_left = -0.5
+offset_top = 1.0
+offset_right = 199.5
+offset_bottom = 19.0
+
+[node name="Shadow" type="Control" parent="."]
+show_behind_parent = true
+z_index = -1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Shadow"]
+modulate = Color(0.00351917, 0.00351917, 0.00351917, 1)
+layout_mode = 0
+offset_left = -5.0
+offset_top = 15.0
+offset_right = 297.0
+offset_bottom = 183.0
+texture = ExtResource("4_ktkx8")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="Shadow"]
+modulate = Color(0.00351917, 0.00351917, 0.00351917, 1)
+layout_mode = 0
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 247.0
+offset_bottom = 25.0
+texture = ExtResource("4_ktkx8")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="WindowBG" type="ColorRect" parent="."]
+show_behind_parent = true
+layout_mode = 0
+offset_top = 21.0
+offset_right = 289.0
+offset_bottom = 175.0
+color = Color(0.929412, 0.929412, 0.929412, 1)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="WindowBG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_2nu5p")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+metadata/_edit_lock_ = true
+
+[node name="GridContainer" type="GridContainer" parent="WindowBG"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 11.0
+offset_right = 279.0
+offset_bottom = 143.0
+columns = 4
+script = ExtResource("4_00loy")
+icon_scene = ExtResource("5_3berv")
+folder_scene = ExtResource("6_c3toa")

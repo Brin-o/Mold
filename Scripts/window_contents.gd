@@ -12,15 +12,16 @@ func load_text(filename = "test"):
 	print(path)
 	var file = FileAccess.open(path , FileAccess.READ)
 	var content = file.get_as_text()
+	get_parent().set_titlebar_label(filename)
 	return content
 
 func try_to_add_image(filename = "test"):
 	var path = "res://Texts/" + filename + ".png"
 	var img_file = FileAccess.open(path , FileAccess.READ)
 	if img_file == null:
-		print("no image")
+		printerr("no image")
 	else:
-		print("Adding image at the front of the text!")
+		#print("Adding image at the front of the text!")
 		text += "[img]" + path + "[/img]" 
 		text += "\n"
 	pass

@@ -45,3 +45,6 @@ func _on_mouse_entered() -> void:
 
 func _on_mouse_exited() -> void:
 	canMove = false
+	
+func set_titlebar_label(label_text = "none"):
+	$Title.text = label_text

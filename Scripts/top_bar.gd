@@ -1,4 +1,4 @@
-extends ColorRect
+class_name tBar extends ColorRect
 
 @onready var wContainer : ManagerWindows = $"../ManagerWindows"
 @onready var wButton = preload("res://Scenes/window_button.tscn")
@@ -17,11 +17,11 @@ func populate_windows():
 			button.assingedWindow = w
 			w.get_child(0).assignedPill = button
 			button.name = "Pill_" + w.get_child(0).name
-			button.text = w.get_child(0).name
-	populate_pill_connections()
+			button.text = w.name
+	_populate_pill_connections()
 	pass
 
-func populate_pill_connections():
+func _populate_pill_connections():
 	for p in pContainer.get_children():
 		if p is wButton:
 			p.btn_up.connect(minimize_or_restore_window)
@@ -31,6 +31,6 @@ func populate_pill_connections():
 
 func minimize_or_restore_window(btnSender:wButton):
 	#print("test")
-	print("coming from ", btnSender)
+	#print("coming from ", btnSender)
 	wContainer.minimize_or_restore_window(btnSender.assingedWindow)
 	pass

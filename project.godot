@@ -21,6 +21,10 @@ window/size/viewport_width=1600
 window/size/viewport_height=1200
 window/stretch/scale=2.0
 
+[global_group]
+
+window_manager="a group to call the window manager"
+
 [input]
 
 l_click={

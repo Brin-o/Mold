@@ -2,6 +2,7 @@ class_name window_parent extends Control
 
 signal click (sending_window)
 var canMove : bool
+#var window_name = "GenericWindow"
 
 
 func _ready():
@@ -32,3 +33,8 @@ func _input(event):
 			print("click from " + name)
 			click.emit(self)
 			#emit_signal("click")
+
+
+func set_titlebar_label(label_text):
+	#window_name = label_text
+	$Titlebar.set_titlebar_label(label_text)
