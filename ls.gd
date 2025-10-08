@@ -35,7 +35,8 @@ func add_folder_files(dir_path = "res://Texts", icon_parent = self):
 			var icon : Icon = icon_scene.instantiate()
 			icon.name = file + "_icon"
 			icon_parent.add_child(icon)
-			icon.file_path = "res://Texts/" + file
+			
+			icon.file_path = dir_path + "/" + file
 			icon.setup_icon(file)
 	pass
 

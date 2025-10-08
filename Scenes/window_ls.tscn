@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://cqjuj1yq6dtil" path="res://Sprites/window_border_outer.png" id="3_2nu5p"]
 [ext_resource type="Script" uid="uid://cbled8p3xi4ts" path="res://ls.gd" id="4_00loy"]
 [ext_resource type="Texture2D" uid="uid://bfjgume4y7tnj" path="res://Sprites/diagonal_pattern.png" id="4_ktkx8"]
-[ext_resource type="PackedScene" uid="uid://0vajpje4e6dx" path="res://Scenes/icon.tscn" id="5_3berv"]
 [ext_resource type="PackedScene" uid="uid://yonnipy72fjn" path="res://Scenes/folder_icon.tscn" id="6_c3toa"]
+[ext_resource type="PackedScene" uid="uid://bwdnbcurrtm4i" path="res://Scenes/icon_.tscn" id="6_ktkx8"]
 
 [node name="Window" type="Control"]
 layout_mode = 3
@@ -92,5 +92,5 @@ offset_right = 279.0
 offset_bottom = 143.0
 columns = 4
 script = ExtResource("4_00loy")
-icon_scene = ExtResource("5_3berv")
+icon_scene = ExtResource("6_ktkx8")
 folder_scene = ExtResource("6_c3toa")

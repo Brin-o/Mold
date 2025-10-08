@@ -1,14 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://dl7u1gj7xawq2"]
+[gd_scene load_steps=8 format=3 uid="uid://dl7u1gj7xawq2"]
 
 [ext_resource type="Texture2D" uid="uid://ccd6ypl6u2xix" path="res://Sprites/MO_WALL.JPG" id="1_5hfv0"]
-[ext_resource type="PackedScene" uid="uid://bi3cqwsqi01u2" path="res://Scenes/window.tscn" id="2_0bhed"]
 [ext_resource type="Script" uid="uid://66yaun8bbg7" path="res://Scripts/top_bar.gd" id="2_c6xj6"]
 [ext_resource type="Script" uid="uid://dg6utj5k25ubf" path="res://Scripts/manager_windows.gd" id="2_m0rpm"]
 [ext_resource type="Texture2D" uid="uid://ck43j05056ff0" path="res://Sprites/window_border_outer_slim.png" id="3_6bw2v"]
-[ext_resource type="PackedScene" uid="uid://xsdsyss1if2p" path="res://Scenes/window_ls.tscn" id="6_884kg"]
+[ext_resource type="PackedScene" uid="uid://bwdnbcurrtm4i" path="res://Scenes/icon_.tscn" id="5_884kg"]
 [ext_resource type="Script" uid="uid://cbled8p3xi4ts" path="res://ls.gd" id="6_gxmxl"]
 [ext_resource type="PackedScene" uid="uid://yonnipy72fjn" path="res://Scenes/folder_icon.tscn" id="6_kem5a"]
-[ext_resource type="PackedScene" uid="uid://0vajpje4e6dx" path="res://Scenes/icon.tscn" id="7_n4w22"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -71,7 +69,6 @@ patch_margin_right = 3
 patch_margin_bottom = 3
 
 [node name="Desktop" type="GridContainer" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 141.0
 offset_top = 81.0
@@ -79,28 +76,12 @@ offset_right = 281.0
 offset_bottom = 221.0
 columns = 4
 script = ExtResource("6_gxmxl")
-icon_scene = ExtResource("7_n4w22")
+icon_scene = ExtResource("5_884kg")
 folder_scene = ExtResource("6_kem5a")
 
 [node name="ManagerWindows" type="Control" parent="." groups=["window_manager"]]
 unique_name_in_owner = true
-layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("2_m0rpm")
-
-[node name="Window2" parent="ManagerWindows" instance=ExtResource("2_0bhed")]
-visible = false
-layout_mode = 1
-offset_left = 168.0
-offset_top = 142.0
-offset_right = 128.0
-offset_bottom = 102.0
-
-[node name="Window4" parent="ManagerWindows" instance=ExtResource("6_884kg")]
-layout_mode = 1
-offset_left = 351.0
-offset_top = 349.0
-offset_right = 311.0
-offset_bottom = 309.0

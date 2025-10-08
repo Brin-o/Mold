@@ -2,6 +2,7 @@ class_name ManagerWindows extends Control
 
 
 var folder_window = load("res://Scenes/window_ls.tscn")
+var content_window = load("res://Scenes/window.tscn")
 @onready var tBar : tBar = $"../TopBar"
 
 func _ready():
@@ -16,15 +17,14 @@ func move_window_to_top(window):
 			pass
 		else:
 			get_child(i).get_node("Shadow").visible = false
-	print("click from ", window.name)
 	pass
 
 
 func gather_click_singals():
 	for w in get_children():
 		if w is window_parent:
-			print("Connecting click from " + w.name)
-			w.click.connect(move_window_to_top)	
+			if !w.click.is_connected(move_window_to_top):
+				w.click.connect(move_window_to_top)	
 	pass
 			
 
@@ -43,9 +43,21 @@ func minimize_window(window:Control):
 	
 func create_new_folder_window(folder_path):
 	var new_folder_window : window_ls = folder_window.instantiate()
-	print("folder path: ", folder_path)
 	add_child(new_folder_window)
 	new_folder_window.load_ls(folder_path)
 	gather_click_singals()
 	tBar.populate_windows()
+	move_window_to_top(new_folder_window)
+	new_folder_window.center_to_screen()
+	pass
+	
+func create_new_content_window(content_path):
+	var new_content_window : window_parent = content_window.instantiate()
+	add_child(new_content_window)
+	new_content_window.load_content(content_path)
+	gather_click_singals()
+	tBar.populate_windows()
+	move_window_to_top(new_content_window)
+	new_content_window.fit_height()
+	new_content_window.center_to_screen()
 	pass

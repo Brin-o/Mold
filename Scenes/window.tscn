@@ -30,7 +30,8 @@ z_index = 1
 layout_mode = 0
 offset_top = 21.0
 offset_right = 315.0
-offset_bottom = 466.5
+offset_bottom = 274.0
+fit_content = true
 metadata/_edit_lock_ = true
 
 [node name="Shadow" type="Control" parent="."]
@@ -40,7 +41,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Shadow"]
+[node name="Base" type="NinePatchRect" parent="Shadow"]
 modulate = Color(0.00351917, 0.00351917, 0.00351917, 1)
 layout_mode = 0
 offset_left = -5.0
@@ -51,7 +52,7 @@ texture = ExtResource("3_30sqi")
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 
-[node name="NinePatchRect2" type="NinePatchRect" parent="Shadow"]
+[node name="Top" type="NinePatchRect" parent="Shadow"]
 modulate = Color(0.00351917, 0.00351917, 0.00351917, 1)
 layout_mode = 0
 offset_left = -5.0
