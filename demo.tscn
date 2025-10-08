@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dl7u1gj7xawq2"]
 
-[ext_resource type="Texture2D" uid="uid://ccd6ypl6u2xix" path="res://Sprites/MO_WALL.JPG" id="1_5hfv0"]
+[ext_resource type="Texture2D" uid="uid://d0bvppvbuguqk" path="res://Sprites/Wallpapers/128.png" id="1_gxmxl"]
 [ext_resource type="Script" uid="uid://66yaun8bbg7" path="res://Scripts/top_bar.gd" id="2_c6xj6"]
 [ext_resource type="Script" uid="uid://dg6utj5k25ubf" path="res://Scripts/manager_windows.gd" id="2_m0rpm"]
 [ext_resource type="Texture2D" uid="uid://ck43j05056ff0" path="res://Sprites/window_border_outer_slim.png" id="3_6bw2v"]
@@ -11,17 +11,17 @@
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 800.0
-offset_bottom = 600.0
+offset_right = 900.0
+offset_bottom = 540.0
 metadata/_edit_horizontal_guides_ = [-96.0]
 
 [node name="BG" type="TextureRect" parent="."]
 z_index = -5
 layout_mode = 0
-offset_right = 800.0
-offset_bottom = 600.0
-texture = ExtResource("1_5hfv0")
-metadata/_edit_lock_ = true
+offset_right = 964.0
+offset_bottom = 723.0
+texture = ExtResource("1_gxmxl")
+stretch_mode = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
@@ -38,11 +38,11 @@ metadata/_edit_lock_ = true
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
+offset_right = 60.0
 offset_bottom = 24.0
 grow_horizontal = 2
 color = Color(0.925734, 0.925734, 0.925734, 1)
 script = ExtResource("2_c6xj6")
-metadata/_edit_lock_ = true
 
 [node name="PillContainer" type="HBoxContainer" parent="TopBar"]
 layout_mode = 1
