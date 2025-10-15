@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjen2hvdx6ya0"]
+
+[ext_resource type="Script" uid="uid://c5s5obths0r0f" path="res://Scripts/Decoder.gd" id="1_ps512"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 537.0
+offset_bottom = 450.0
+bbcode_enabled = true
+text = "Ñtest
+test\\Ñ"
+fit_content = true
+script = ExtResource("1_ps512")
+section1coded = Array[String]([">> suppression-pulse detected. (self-quench loop γ) 
+>> COLONY IDENTIFIED.
+>> SIGNAL: coherence loss; self-suppression ∆ +0.9s.", "[00:13:57] >> SIGNAL: hesitant doublet; two hyphal regions conflict (phase offset). VOC: trace chloroanisole.", "[00:14:42] >> SIGNAL: swallow-like amplitude collapse (analogous to human stifle).", "[00:15:07] >> VOC: brief ethanol spike after human odor signature increase in vicinity.", "[00:16:42] >> SIGNAL: aborted exhalation-like burst; waveform clipped by suppression node.", "[00:17:59] >> SIGNAL: synchronous lull; slow-wave building. Coherence gradually improving."])
+section1decoded = Array[String](["	→ INTERPRETATION: “—away.” ALT: “not you” ", "	→ INTERPRETATION: “heard?”", "	→ INTERPRETATION: “—don’t tell.  ALT: “quiet.” “—don’t tell.”", "	→ INTERPRETATION: *unwelcoming of odor change (conf 0.44)", "	→ INTERPRETATION: “sorry” (conf 0.20) NOTE: rendering likely projection by model.", "	→ INTERPRETATION: “…quiet…good.” (conf 0.37)"])
