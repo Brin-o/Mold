@@ -1,0 +1,145 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8ddm0v08pbst"]
+
+[ext_resource type="Theme" uid="uid://dggnc44ywb5kn" path="res://myOStheme.tres" id="1_5pl8v"]
+[ext_resource type="Texture2D" uid="uid://cqjuj1yq6dtil" path="res://Sprites/window_border_outer.png" id="3_2o86e"]
+[ext_resource type="Texture2D" uid="uid://ck43j05056ff0" path="res://Sprites/window_border_outer_slim.png" id="4_mg422"]
+
+[node name="Window Contents" type="Control"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 3
+anchors_preset = 0
+offset_top = 19.0
+offset_right = 217.0
+offset_bottom = 200.0
+theme = ExtResource("1_5pl8v")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_2o86e")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.929412, 0.929412, 0.929412, 1)
+metadata/_edit_lock_ = true
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CheckBox" type="CheckBox" parent="Control"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 15.0
+offset_right = 38.0
+offset_bottom = 39.0
+
+[node name="SpinBox" type="SpinBox" parent="Control"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 31.0
+offset_right = 180.0
+offset_bottom = 52.0
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = 35.0
+offset_right = 156.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_mg422")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="ColorRect" type="ColorRect" parent="Control/NinePatchRect2"]
+visible = false
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.95815676, 0.95815676, 0.95815676, 1)
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 20.0
+offset_right = 86.0
+offset_bottom = 33.0
+text = "HUMIDITY"
+
+[node name="NinePatchRect3" type="NinePatchRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = 48.0
+offset_right = -22.0
+offset_bottom = -98.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_mg422")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="ColorRect" type="ColorRect" parent="NinePatchRect3"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.95815676, 0.95815676, 0.95815676, 1)
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 136.0
+offset_right = 152.0
+offset_bottom = 160.0
+text = "TRANSCODE"

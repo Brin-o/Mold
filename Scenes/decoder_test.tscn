@@ -10,16 +10,38 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="SpinBox" type="SpinBox" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 579.0
+offset_top = 4.0
+offset_right = 665.5625
+offset_bottom = 35.0
+
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_right = 537.0
 offset_bottom = 450.0
+focus_mode = 2
 bbcode_enabled = true
 text = "Ñtest
 test\\Ñ"
 fit_content = true
+selection_enabled = true
 script = ExtResource("1_ps512")
-section1coded = Array[String]([">> suppression-pulse detected. (self-quench loop γ) 
+section1coded = Array[String](["[00:12:27]
+>> suppression-pulse detected. (self-quench loop γ) 
 >> COLONY IDENTIFIED.
->> SIGNAL: coherence loss; self-suppression ∆ +0.9s.", "[00:13:57] >> SIGNAL: hesitant doublet; two hyphal regions conflict (phase offset). VOC: trace chloroanisole.", "[00:14:42] >> SIGNAL: swallow-like amplitude collapse (analogous to human stifle).", "[00:15:07] >> VOC: brief ethanol spike after human odor signature increase in vicinity.", "[00:16:42] >> SIGNAL: aborted exhalation-like burst; waveform clipped by suppression node.", "[00:17:59] >> SIGNAL: synchronous lull; slow-wave building. Coherence gradually improving."])
-section1decoded = Array[String](["	→ INTERPRETATION: “—away.” ALT: “not you” ", "	→ INTERPRETATION: “heard?”", "	→ INTERPRETATION: “—don’t tell.  ALT: “quiet.” “—don’t tell.”", "	→ INTERPRETATION: *unwelcoming of odor change (conf 0.44)", "	→ INTERPRETATION: “sorry” (conf 0.20) NOTE: rendering likely projection by model.", "	→ INTERPRETATION: “…quiet…good.” (conf 0.37)"])
+>> SIGNAL: coherence loss; self-suppression ∆ +0.9s.", "[00:13:57] >> SIGNAL: hesitant doublet; two hyphal regions conflict (phase offset). VOC: trace chloroanisole.", "[00:14:42] >> SIGNAL: swallow-like amplitude collapse (analogous to human stifle).", "[00:15:07] >> VOC: brief ethanol spike after human odor signature increase in vicinity.", "[00:16:42] >> SIGNAL: aborted exhalation-like burst; waveform clipped by suppression node.", "[00:17:59] >> SIGNAL: synchronous lull; slow-wave building. Coherence gradually improving. Correlates with humidity drop."])
+section1decoded = Array[String](["→ INTERPRETATION: “—away.” ALT: “known threat”", "→ INTERPRETATION: “caught?”", "→ INTERPRETATION: “—don’t emit.  ALT: “suppress.” “—don’t emit.”", "→ INTERPRETATION: *unwelcoming of odor change*", "→ INTERPRETATION: “away” || NOTE: likely addressed to external", "→ INTERPRETATION: “…undisturbed…good.”"])
+section2coded = Array[String](["[00:48:27] >> SIGNAL: microvolt ripple detected. Possibly self-generated. HUM: 0.4", "[00:49:49] >> VOC: trace methyl ketone—weak, hesitant emission. HUM: 0.3", "[00:50:36] >> BACKGROUND: operator movement detected; vibrations elevate suppression. HUM: 0.6", "[01:01:58] >> SIGNAL: small cluster (γ-1) appearing, then folding back into silence. HUM: 0.7", "[01:02:27] >> VOC: faint terpenoid signature — resembles “curiosity” archetype. HUM: 0.6
+", "[01:02:44] >> SIGNAL: repeat pulse on same axis, slower now. HUM: 0.3", "[01:03:02] >> SIGNAL: suppression loop initiated; active concealment detected.", "[01:03:18] >> BACKGROUND: humidity down 1.3%. Activity stabilizing in low-signal band. HUM: 1.3"])
+section2decoded = Array[String](["→ INTERPRETATION: “…hello?”", "→ INTERPRETATION: “is it safe?”", "→ INTERPRETATION: “too stable.”", "→ INTERPRETATION: “hide / wait.”", " → INTERPRETATION: “who listens?”", "→ INTERPRETATION: “I’m small.”", "→ INTERPRETATION: “hide” (conf 0.39)", "→ INTERPRETATION: “quiet feels good.” (conf 0.52)"])
+section3coded = Array[String](["[03:04:32] >> SIGNAL: microburst potential spike δ-2 (hyphal tip). VOC: trichothecene precursor trace.", "[03:22:57] >> SIGNAL: suppression events now passive (not volitional). Baseline drift.", "[03:23:28] >> VOC: faint chloroanisole pulse — distress marker.", "[03:25:37] >> SIGNAL: rhythm collapse; filaments curling inward.", "[03:26:19] >> SIGNAL: conduction slowed; energy deficit continues.", "[03:26:42] >> VOC: faint acetone note — metabolic strain.", "[03:27:04] >> SIGNAL: long, low pulse; tremor at 0.3 Hz.", "[03:28:01] >> SIGNAL: low rhythmic oscillation; repetition interval increasing. HUM: 1.3", "[03:28:25] >> BACKGROUND: humidity stable, no competitive flora detected. HUM: 1.3", "[03:28:59] >> SIGNAL: quasi-coherent burst ((VECTOR 0, 1)), then suppression.", "[03:29:21] >> VOC: faint aldehyde burst ((VECTOR 0, −1)); correlated with distress in prior sessions.", "[03:29:46] >> SIGNAL: broad quiet. No competitive response to nutrient stimulus.", "[03:30:10] >> BACKGROUND: model overlap with “withdrawal” archetype 0.83.", "[03:30:37] >> SIGNAL: final coherent pattern — single hyphal pulse along axis 2."])
+section3decoded = Array[String](["→ INTERPRETATION (ML v11): “too bright.”", "→ INTERPRETATION: “inertia.”", "→ INTERPRETATION: “hurts.”", "→ INTERPRETATION: “hide me.”", "→ INTERPRETATION: “I was made for walls and dusk.”", "→ INTERPRETATION: “want dark again.”", "→ INTERPRETATION: *exhausted sigh*", "→ INTERPRETATION: “enough walls.” || ALT: “surface too vast.”", "→ INTERPRETATION: “alone… still not safe.”", "→ INTERPRETATION: “I make ruin.”", "→ INTERPRETATION: “sorry.”", "→ INTERPRETATION: *doesn’t want to move*", "→ INTERPRETATION: *severely unmotivated*", "→ INTERPRETATION: “I rest.”
+- - - - - - - - - - - - - - - - - - 
+→ SYSTEM NOTE: metabolic dormancy threshold reached. Electrophysiological silence expected.
+→ RECOMMENDATION: cease stimulation; allow subject to remain dormant."])
+section4coded = Array[String](["bla bla"])
+section4decoded = Array[String](["bla bla bla"])
+metadata/_edit_lock_ = true
