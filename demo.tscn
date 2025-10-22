@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dl7u1gj7xawq2"]
+[gd_scene load_steps=9 format=3 uid="uid://dl7u1gj7xawq2"]
 
 [ext_resource type="Texture2D" uid="uid://d0bvppvbuguqk" path="res://Sprites/Wallpapers/128.png" id="1_gxmxl"]
 [ext_resource type="Script" uid="uid://66yaun8bbg7" path="res://Scripts/top_bar.gd" id="2_c6xj6"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bwdnbcurrtm4i" path="res://Scenes/icon_.tscn" id="5_884kg"]
 [ext_resource type="Script" uid="uid://cbled8p3xi4ts" path="res://ls.gd" id="6_gxmxl"]
 [ext_resource type="PackedScene" uid="uid://yonnipy72fjn" path="res://Scenes/folder_icon.tscn" id="6_kem5a"]
+[ext_resource type="PackedScene" uid="uid://bqwtursr4vpra" path="res://Scenes/window_msn.tscn" id="8_n4w22"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -85,3 +86,10 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("2_m0rpm")
+
+[node name="Window Contents" parent="." instance=ExtResource("8_n4w22")]
+layout_mode = 0
+offset_left = 310.0
+offset_top = 161.0
+offset_right = 523.0
+offset_bottom = 567.0

@@ -13,20 +13,31 @@ grow_vertical = 2
 [node name="SpinBox" type="SpinBox" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 579.0
-offset_top = 4.0
-offset_right = 665.5625
-offset_bottom = 35.0
+offset_left = 59.0
+offset_top = 15.0
+offset_right = 145.5625
+offset_bottom = 46.0
+max_value = 5.0
+value = 1.0
+rounded = true
+prefix = "p."
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_right = 537.0
-offset_bottom = 450.0
+offset_left = 62.0
+offset_top = 68.0
+offset_right = 541.0
+offset_bottom = 293.0
 focus_mode = 2
 bbcode_enabled = true
 text = "Ñtest
+test\\ÑÑtest
+test\\ÑÑtest
+test\\ÑÑtest
+test\\ÑÑtest
 test\\Ñ"
 fit_content = true
+scroll_following = true
 selection_enabled = true
 script = ExtResource("1_ps512")
 section1coded = Array[String](["[00:12:27]
@@ -44,4 +55,7 @@ section3decoded = Array[String](["→ INTERPRETATION (ML v11): “too bright.”
 → RECOMMENDATION: cease stimulation; allow subject to remain dormant."])
 section4coded = Array[String](["bla bla"])
 section4decoded = Array[String](["bla bla bla"])
-metadata/_edit_lock_ = true
+section5coded = Array[String](["[00:12:05] >> SIGNAL: persistent low-frequency hum across hyphal network; metabolic load decreasing.", "[00:12:23] >> BACKGROUND: office substrate showing micro-fractures; air flow changes consistent with structural weakening.", "[00:12:47] >> VOC: steady sesquiterpene tone, no defensive bloom; faint aldehyde sigh.", "[00:25:11] >> CAPTURED FRAGMENT (last clear signal): "])
+section5decoded = Array[String](["→ INTERPRETATION: “I hold together.” (conf 0.57)", "→ INTERPRETATION: “if I go… it falls.” (conf 0.62)", "→ INTERPRETATION: *quiet resignation.* (conf 0.54)", "→ INTERPRETATION: “…let me…” (conf 0.27)"])
+
+[connection signal="value_changed" from="SpinBox" to="RichTextLabel" method="_on_spin_box_value_changed"]

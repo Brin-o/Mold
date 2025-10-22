@@ -8,7 +8,7 @@ var mPos : Vector2
 var offset : Vector2
 var canMove : bool
 @onready var whole_window : Control = get_parent()
-var assignedPill
+var assignedPill : wButton
 
 
 func _ready():
@@ -48,3 +48,6 @@ func _on_mouse_exited() -> void:
 	
 func set_titlebar_label(label_text = "none"):
 	$Title.text = label_text
+
+
+	

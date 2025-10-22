@@ -1,0 +1,222 @@
+[gd_scene load_steps=8 format=3 uid="uid://bqwtursr4vpra"]
+
+[ext_resource type="Theme" uid="uid://dggnc44ywb5kn" path="res://myOStheme.tres" id="1_xbyvk"]
+[ext_resource type="Script" uid="uid://4lgtxb88n2kw" path="res://Scripts/window_contents.gd" id="2_afndr"]
+[ext_resource type="Texture2D" uid="uid://cqjuj1yq6dtil" path="res://Sprites/window_border_outer.png" id="3_vqywn"]
+[ext_resource type="Texture2D" uid="uid://dd5wo738wqfi1" path="res://Sprites/msn_bg.png" id="4_hkebb"]
+[ext_resource type="Texture2D" uid="uid://ddxi4ndpaj8xc" path="res://Sprites/froggy.png" id="5_nkoqe"]
+[ext_resource type="Texture2D" uid="uid://cc18exjf7ucg" path="res://Sprites/network-error.png" id="6_a4p8k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gs3ir"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+
+[node name="Window Contents" type="RichTextLabel"]
+offset_top = 19.0
+offset_right = 213.0
+offset_bottom = 425.0
+theme = ExtResource("1_xbyvk")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gs3ir")
+bbcode_enabled = true
+script = ExtResource("2_afndr")
+
+[node name="MainBorder" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_vqywn")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.929412, 0.929412, 0.929412, 1)
+metadata/_edit_lock_ = true
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="."]
+modulate = Color(0.19780003, 0.36335, 0.86, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 7.0
+offset_right = -6.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_hkebb")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 56.0
+offset_right = 36.0
+offset_bottom = 57.0
+color = Color(0.5370113, 0.5370113, 0.5370113, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 174.0
+offset_top = 56.0
+offset_right = 202.0
+offset_bottom = 57.0
+color = Color(0.5370113, 0.5370113, 0.5370113, 1)
+
+[node name="Pfp Area" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 12.0
+offset_top = 15.0
+offset_right = 133.0
+offset_bottom = 50.0
+
+[node name="Mode" type="ColorRect" parent="Pfp Area"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 9.0
+offset_right = 76.0
+offset_bottom = 17.0
+color = Color(0.5370113, 0.5370113, 0.5370113, 1)
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Pfp Area/Mode"]
+layout_mode = 0
+offset_left = 7.0
+offset_right = 79.0
+offset_bottom = 13.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "offline mode"
+
+[node name="UserID" type="ColorRect" parent="Pfp Area"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 18.0
+offset_right = 97.0
+offset_bottom = 28.0
+color = Color(0.5370113, 0.5370113, 0.5370113, 1)
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Pfp Area/UserID"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = -3.0
+offset_right = 77.0
+offset_bottom = 10.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "ID:432918"
+metadata/_edit_lock_ = true
+
+[node name="PFP" type="TextureRect" parent="Pfp Area"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_top = 2.0
+offset_right = 32.0
+offset_bottom = 34.0
+texture = ExtResource("5_nkoqe")
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Pfp Area"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 33.0
+offset_bottom = 33.0
+texture = ExtResource("5_nkoqe")
+metadata/_edit_lock_ = true
+
+[node name="Status" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 181.0
+offset_top = 24.0
+offset_right = 213.0
+offset_bottom = 56.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_a4p8k")
+
+[node name="ColorRect4" type="ColorRect" parent="Status"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = -12.5
+offset_top = -10.0
+offset_right = 44.99997
+offset_bottom = 42.499992
+
+[node name="NinePatchRect3" type="NinePatchRect" parent="Status"]
+modulate = Color(0.19780003, 0.36335, 0.86, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.367
+anchor_top = 0.20600002
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -24.244
+offset_top = -19.092001
+offset_right = 12.9999695
+offset_bottom = 10.499992
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_hkebb")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="Label" type="Label" parent="Status"]
+visible = false
+layout_mode = 0
+offset_left = -18.0
+offset_top = 9.0
+offset_right = 36.0
+offset_bottom = 22.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "status"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect5" type="ColorRect" parent="Status"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = -37.500008
+offset_right = 17.0
+offset_bottom = -12.500008
+color = Color(0.19215687, 0.3647059, 0.85882354, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 50.5
+offset_right = 289.42856
+offset_bottom = 69.5
+scale = Vector2(0.7, 0.7)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "CONTACTS"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_lock_ = true

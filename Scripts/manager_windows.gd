@@ -12,10 +12,14 @@ func move_window_to_top(window):
 	move_child(window, get_child_count())
 	for i in get_child_count():
 		get_child(i).z_index = i*2
+		get_child(i)
 		if i == get_child_count()-1:
+			#TOP WINDOW
 			get_child(i).get_node("Shadow").visible = true
-			pass
+			get_child(i).get_node("Titlebar").assignedPill.highlight()
 		else:
+			#NON TOP WINDOW
+			get_child(i).get_node("Titlebar").assignedPill.clear_highlight()
 			get_child(i).get_node("Shadow").visible = false
 	pass
 

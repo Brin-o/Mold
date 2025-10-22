@@ -1,13 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://cv8dpvvpbfijo"]
+[gd_scene load_steps=5 format=3 uid="uid://cv8dpvvpbfijo"]
 
 [ext_resource type="Theme" uid="uid://dggnc44ywb5kn" path="res://myOStheme.tres" id="1_7gcbw"]
 [ext_resource type="Script" uid="uid://bwl4fi8712sab" path="res://Scripts/window_button.gd" id="1_ogpmm"]
 [ext_resource type="Texture2D" uid="uid://ck43j05056ff0" path="res://Sprites/window_border_outer_slim.png" id="2_ma10j"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7gcbw"]
+bg_color = Color(0.16206557, 0.1620656, 0.16206548, 1)
+
 [node name="WindowButton" type="Button"]
 offset_right = 100.0
 offset_bottom = 21.0
 theme = ExtResource("1_7gcbw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_7gcbw")
 text = "Window"
 script = ExtResource("1_ogpmm")
 
