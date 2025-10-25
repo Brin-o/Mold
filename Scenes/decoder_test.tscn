@@ -36,7 +36,6 @@ test\\ÑÑtest
 test\\ÑÑtest
 test\\ÑÑtest
 test\\Ñ"
-fit_content = true
 scroll_following = true
 selection_enabled = true
 script = ExtResource("1_ps512")

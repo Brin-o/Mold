@@ -71,6 +71,7 @@ func _process(delta: float) -> void:
 	pass
 	
 func display_page(page, decoded := false):
+	text=""
 	if page == 0:
 		text = section0
 	else:
@@ -78,10 +79,13 @@ func display_page(page, decoded := false):
 		#print(currentPageCoded)
 		var currentPageDecoded = get("section"+str(page)+"decoded")
 		#print(currentPageDecoded)
-		var combined_string = String("\n").join(currentPageCoded)
-		text = combined_string
+		#var combined_string = String("\n").join(currentPageCoded)
+		for l in currentPageCoded:
+			text += l +"\n"
+			await get_tree().create_timer(0.1).timeout
+			pass
+		#text = combined_string
 		if(decoded):
-			print("decoding!")
 			decode_whole_section(currentPageCoded, currentPageDecoded)
 	pass
 	
