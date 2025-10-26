@@ -59,3 +59,11 @@ func fit_height():
 	$Shadow/Base.size.y = ySize + 10
 	fit_to_children()
 	pass
+
+
+func _paging_value_changed(value: float) -> void:
+	var log : decoded_log = get_tree().get_first_node_in_group("log")
+	if(log == null): 
+		print("cant find log!")
+		return
+	log.set_page(value, $Transcoder/Paging/SpinBox)

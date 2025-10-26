@@ -1,0 +1,172 @@
+[gd_scene load_steps=8 format=3 uid="uid://cdgk7fgrm0qu8"]
+
+[ext_resource type="Script" uid="uid://dmj0ijsb2kitk" path="res://Scenes/window_log.gd" id="1_airs1"]
+[ext_resource type="PackedScene" uid="uid://bhlf3cc2pe73e" path="res://Scenes/window_title.tscn" id="2_hs6va"]
+[ext_resource type="Texture2D" uid="uid://bfjgume4y7tnj" path="res://Sprites/diagonal_pattern.png" id="3_6yogm"]
+[ext_resource type="Theme" uid="uid://dggnc44ywb5kn" path="res://myOStheme.tres" id="4_0y66w"]
+[ext_resource type="Script" uid="uid://c5s5obths0r0f" path="res://Scripts/decoded_log.gd" id="5_airs1"]
+[ext_resource type="Texture2D" uid="uid://cqjuj1yq6dtil" path="res://Sprites/window_border_outer.png" id="6_ebpm6"]
+[ext_resource type="Texture2D" uid="uid://ck43j05056ff0" path="res://Sprites/window_border_outer_slim.png" id="7_usmee"]
+
+[node name="Log" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 93.0
+offset_top = 41.0
+offset_right = -418.0
+offset_bottom = -201.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_airs1")
+
+[node name="Titlebar" parent="." instance=ExtResource("2_hs6va")]
+layout_mode = 0
+offset_left = -0.5
+offset_top = 1.0
+offset_right = 199.5
+offset_bottom = 19.0
+
+[node name="Title" parent="Titlebar" index="1"]
+text = "LOG_2309"
+
+[node name="Shadow" type="Control" parent="."]
+show_behind_parent = true
+z_index = -1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Shadow"]
+modulate = Color(0.00351917, 0.00351917, 0.00351917, 1)
+layout_mode = 0
+offset_left = -5.0
+offset_top = 15.0
+offset_right = 456.0
+offset_bottom = 304.0
+texture = ExtResource("3_6yogm")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="Shadow"]
+modulate = Color(0.00351917, 0.00351917, 0.00351917, 1)
+layout_mode = 0
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 247.0
+offset_bottom = 25.0
+texture = ExtResource("3_6yogm")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Log" type="Control" parent="." groups=["log"]]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 3
+anchors_preset = 0
+offset_top = 19.0
+offset_right = 444.0
+offset_bottom = 292.0
+theme = ExtResource("4_0y66w")
+script = ExtResource("5_airs1")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Log"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 5.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_ebpm6")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="ColorRect" type="ColorRect" parent="Log"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 6.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.929412, 0.929412, 0.929412, 1)
+
+[node name="NinePatchRect3" type="NinePatchRect" parent="Log"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = 48.0
+offset_right = -22.0
+offset_bottom = -98.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_usmee")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="ColorRect" type="ColorRect" parent="Log/NinePatchRect3"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.958157, 0.958157, 0.958157, 1)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="Log"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 444.0
+offset_bottom = 273.0
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Log/ColorRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Log/ColorRect2/MarginContainer"]
+clip_contents = false
+layout_mode = 2
+theme = ExtResource("4_0y66w")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "CONTEXT: Signal recording from a mold colony from the genus Stachybotrys, species S. chartarum, inhabiting the walls of Osmo/Za. Observations began on 02012010. Signals are provided SANS interpretation.
+Recent: Connect the log to an interpreter, version 0.32 or higher.
+
+LOCATION: Slovenska cesta 52, 1000 Ljubljana.
+
+DATE: 23092024 "
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="Log/ColorRect2/MarginContainer/RichTextLabel" to="Log" method="_on_rich_text_label_visibility_changed"]
+
+[editable path="Titlebar"]

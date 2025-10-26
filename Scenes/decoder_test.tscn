@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjen2hvdx6ya0"]
+[gd_scene load_steps=3 format=3 uid="uid://cjen2hvdx6ya0"]
 
-[ext_resource type="Script" uid="uid://c5s5obths0r0f" path="res://Scripts/Decoder.gd" id="1_ps512"]
+[ext_resource type="Script" uid="uid://c5s5obths0r0f" path="res://Scripts/decoded_log.gd" id="1_ps512"]
+[ext_resource type="PackedScene" uid="uid://b8ddm0v08pbst" path="res://Scenes/window_decoder.tscn" id="1_urih5"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -10,12 +11,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Window Contents" parent="." instance=ExtResource("1_urih5")]
+offset_left = 328.0
+offset_top = 149.0
+offset_right = 545.0
+offset_bottom = 330.0
+
+[node name="SpinBox" parent="Window Contents/Paging" index="1"]
+offset_top = -1.0
+offset_bottom = 20.0
+
 [node name="SpinBox" type="SpinBox" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 59.0
 offset_top = 15.0
-offset_right = 145.5625
+offset_right = 145.562
 offset_bottom = 46.0
 max_value = 5.0
 value = 1.0
@@ -26,8 +37,9 @@ prefix = "p."
 layout_mode = 0
 offset_left = 62.0
 offset_top = 68.0
-offset_right = 541.0
+offset_right = 356.0
 offset_bottom = 293.0
+scale = Vector2(0.5, 0.5)
 focus_mode = 2
 bbcode_enabled = true
 text = "Ñtest
@@ -57,4 +69,7 @@ section4decoded = Array[String](["bla bla bla"])
 section5coded = Array[String](["[00:12:05] >> SIGNAL: persistent low-frequency hum across hyphal network; metabolic load decreasing.", "[00:12:23] >> BACKGROUND: office substrate showing micro-fractures; air flow changes consistent with structural weakening.", "[00:12:47] >> VOC: steady sesquiterpene tone, no defensive bloom; faint aldehyde sigh.", "[00:25:11] >> CAPTURED FRAGMENT (last clear signal): "])
 section5decoded = Array[String](["→ INTERPRETATION: “I hold together.” (conf 0.57)", "→ INTERPRETATION: “if I go… it falls.” (conf 0.62)", "→ INTERPRETATION: *quiet resignation.* (conf 0.54)", "→ INTERPRETATION: “…let me…” (conf 0.27)"])
 
+[connection signal="value_changed" from="Window Contents/Paging/SpinBox" to="Window Contents" method="_on_spin_box_value_changed"]
 [connection signal="value_changed" from="SpinBox" to="RichTextLabel" method="_on_spin_box_value_changed"]
+
+[editable path="Window Contents"]

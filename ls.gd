@@ -29,9 +29,9 @@ func add_folder_files(dir_path = "res://Texts", icon_parent = self):
 	if dir == null: printerr("Could not open folder in dir ... ", dir_path); return
 	for file: String in dir.get_files():
 		if (file.contains(".import") == false): 
-			print("ADDING:")
-			print("-> ", file)
-			print("--------")
+			#print("ADDING:")
+			#print("-> ", file)
+			#print("--------")
 			var icon : Icon = icon_scene.instantiate()
 			icon.name = file + "_icon"
 			icon_parent.add_child(icon)
