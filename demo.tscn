@@ -20,7 +20,7 @@ metadata/_edit_horizontal_guides_ = [-96.0]
 [node name="BG" type="TextureRect" parent="."]
 z_index = -5
 layout_mode = 0
-offset_right = 964.0
+offset_right = 959.0
 offset_bottom = 723.0
 texture = ExtResource("1_gxmxl")
 stretch_mode = 1
@@ -74,8 +74,8 @@ patch_margin_bottom = 3
 layout_mode = 0
 offset_left = 141.0
 offset_top = 81.0
-offset_right = 281.0
-offset_bottom = 221.0
+offset_right = 820.0
+offset_bottom = 476.0
 columns = 4
 script = ExtResource("6_gxmxl")
 icon_scene = ExtResource("5_884kg")
@@ -88,14 +88,14 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("2_m0rpm")
 
-[node name="Window" parent="ManagerWindows" instance=ExtResource("8_n4w22")]
+[node name="Transcoder" parent="ManagerWindows" instance=ExtResource("8_n4w22")]
 layout_mode = 1
 offset_left = 492.0
 offset_top = 189.0
 offset_right = 452.0
 offset_bottom = 149.0
 
-[node name="TranscodeWindow" parent="ManagerWindows" instance=ExtResource("9_884kg")]
+[node name="Log" parent="ManagerWindows" instance=ExtResource("9_884kg")]
 layout_mode = 1
 offset_left = 71.0
 offset_top = 323.0

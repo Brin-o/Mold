@@ -62,7 +62,6 @@ axis_stretch_vertical = 1
 
 [node name="Transcoder" type="Control" parent="." groups=["transcoder"]]
 self_modulate = Color(0, 0, 0, 1)
-layout_mode = 3
 anchors_preset = 0
 offset_top = 19.0
 offset_right = 240.0
@@ -131,9 +130,9 @@ prefix = "p."
 
 [node name="Label" type="Label" parent="Transcoder/Paging"]
 layout_mode = 0
-offset_left = 43.0
+offset_left = 34.0
 offset_top = 3.0
-offset_right = 91.0
+offset_right = 82.0
 offset_bottom = 16.0
 text = "PAGING"
 
@@ -157,9 +156,9 @@ color = Color(0.344076, 0.344076, 0.344076, 1)
 
 [node name="CheckBox" type="CheckBox" parent="Transcoder/Humidity"]
 layout_mode = 0
-offset_left = 19.0
+offset_left = 8.0
 offset_top = -2.0
-offset_right = 43.0
+offset_right = 32.0
 offset_bottom = 22.0
 metadata/_edit_group_ = true
 
@@ -171,54 +170,162 @@ offset_bottom = 21.0
 max_value = 1.0
 step = 0.05
 alignment = 2
+editable = false
 
 [node name="Label" type="Label" parent="Transcoder/Humidity"]
 layout_mode = 0
-offset_left = 43.0
+offset_left = 34.0
 offset_top = 3.0
-offset_right = 91.0
+offset_right = 82.0
 offset_bottom = 16.0
 text = "HUMIDITY"
 
-[node name="Humidity3" type="Control" parent="Transcoder"]
+[node name="Movement" type="Control" parent="Transcoder"]
 anchors_preset = 0
 offset_left = 12.0
 offset_top = 94.0
 offset_right = 228.0
 offset_bottom = 114.0
 
-[node name="ColorRect" type="ColorRect" parent="Transcoder/Humidity3"]
+[node name="ColorRect" type="ColorRect" parent="Transcoder/Movement"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -3.0
-offset_bottom = 2.0
+offset_bottom = 28.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.344076, 0.344076, 0.344076, 1)
 
-[node name="CheckBox" type="CheckBox" parent="Transcoder/Humidity3"]
+[node name="CheckBox" type="CheckBox" parent="Transcoder/Movement"]
 layout_mode = 0
-offset_left = 19.0
+offset_left = 8.0
 offset_top = -2.0
-offset_right = 43.0
+offset_right = 32.0
 offset_bottom = 22.0
 
-[node name="SpinBox" type="SpinBox" parent="Transcoder/Humidity3"]
+[node name="SpinBox" type="SpinBox" parent="Transcoder/Movement"]
+visible = false
 layout_mode = 0
 offset_left = 131.0
 offset_right = 196.0
 offset_bottom = 21.0
 alignment = 2
 
-[node name="Label" type="Label" parent="Transcoder/Humidity3"]
+[node name="Label" type="Label" parent="Transcoder/Movement"]
 layout_mode = 0
-offset_left = 43.0
+offset_left = 34.0
 offset_top = 3.0
-offset_right = 91.0
+offset_right = 82.0
 offset_bottom = 16.0
-text = "??? nekaj?'?"
+text = "MOVEMENT"
+
+[node name="Options" type="Control" parent="Transcoder/Movement"]
+anchors_preset = 0
+offset_left = 5.0
+offset_top = 23.0
+offset_right = 211.0
+offset_bottom = 47.0
+
+[node name="OptionButton" type="OptionButton" parent="Transcoder/Movement/Options"]
+layout_mode = 0
+offset_right = 38.0
+offset_bottom = 21.0
+disabled = true
+selected = 1
+allow_reselect = true
+item_count = 5
+popup/item_0/text = "/"
+popup/item_0/id = 0
+popup/item_1/text = "↑"
+popup/item_1/id = 1
+popup/item_2/text = "↓"
+popup/item_2/id = 2
+popup/item_3/text = "→"
+popup/item_3/id = 3
+popup/item_4/text = "←"
+popup/item_4/id = 4
+
+[node name="OptionButton2" type="OptionButton" parent="Transcoder/Movement/Options"]
+layout_mode = 0
+offset_left = 42.0
+offset_right = 80.0
+offset_bottom = 21.0
+disabled = true
+selected = 1
+allow_reselect = true
+item_count = 5
+popup/item_0/text = "/"
+popup/item_0/id = 0
+popup/item_1/text = "↑"
+popup/item_1/id = 1
+popup/item_2/text = "↓"
+popup/item_2/id = 2
+popup/item_3/text = "→"
+popup/item_3/id = 3
+popup/item_4/text = "←"
+popup/item_4/id = 4
+
+[node name="OptionButton3" type="OptionButton" parent="Transcoder/Movement/Options"]
+layout_mode = 0
+offset_left = 84.0
+offset_right = 122.0
+offset_bottom = 21.0
+disabled = true
+selected = 1
+allow_reselect = true
+item_count = 5
+popup/item_0/text = "/"
+popup/item_0/id = 0
+popup/item_1/text = "↑"
+popup/item_1/id = 1
+popup/item_2/text = "↓"
+popup/item_2/id = 2
+popup/item_3/text = "→"
+popup/item_3/id = 3
+popup/item_4/text = "←"
+popup/item_4/id = 4
+
+[node name="OptionButton4" type="OptionButton" parent="Transcoder/Movement/Options"]
+layout_mode = 0
+offset_left = 126.0
+offset_right = 164.0
+offset_bottom = 21.0
+disabled = true
+selected = 1
+allow_reselect = true
+item_count = 5
+popup/item_0/text = "/"
+popup/item_0/id = 0
+popup/item_1/text = "↑"
+popup/item_1/id = 1
+popup/item_2/text = "↓"
+popup/item_2/id = 2
+popup/item_3/text = "→"
+popup/item_3/id = 3
+popup/item_4/text = "←"
+popup/item_4/id = 4
+
+[node name="OptionButton5" type="OptionButton" parent="Transcoder/Movement/Options"]
+layout_mode = 0
+offset_left = 168.0
+offset_right = 206.0
+offset_bottom = 21.0
+disabled = true
+selected = 1
+allow_reselect = true
+item_count = 5
+popup/item_0/text = "/"
+popup/item_0/id = 0
+popup/item_1/text = "↑"
+popup/item_1/id = 1
+popup/item_2/text = "↓"
+popup/item_2/id = 2
+popup/item_3/text = "→"
+popup/item_3/id = 3
+popup/item_4/text = "←"
+popup/item_4/id = 4
 
 [node name="NinePatchRect3" type="NinePatchRect" parent="Transcoder"]
 visible = false
@@ -261,7 +368,7 @@ offset_right = 162.0
 offset_bottom = 176.0
 text = "TRANSCODE"
 
-[node name="ColorRect2" type="ColorRect" parent="Transcoder"]
+[node name="ErrorOutput" type="ColorRect" parent="Transcoder"]
 layout_mode = 0
 offset_left = 12.0
 offset_top = 176.0
@@ -269,7 +376,7 @@ offset_right = 228.0
 offset_bottom = 199.0
 color = Color(0, 0, 0, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="Transcoder/ColorRect2"]
+[node name="Margin" type="MarginContainer" parent="Transcoder/ErrorOutput"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -281,7 +388,7 @@ theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Transcoder/ColorRect2/MarginContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Transcoder/ErrorOutput/Margin"]
 clip_contents = false
 layout_mode = 2
 theme = ExtResource("4_culov")
@@ -291,6 +398,7 @@ vertical_alignment = 1
 [connection signal="value_changed" from="Transcoder/Paging/SpinBox" to="." method="_paging_value_changed"]
 [connection signal="toggled" from="Transcoder/Humidity/CheckBox" to="Transcoder" method="_humidity_toggled"]
 [connection signal="value_changed" from="Transcoder/Humidity/SpinBox" to="Transcoder" method="_humidity_changed"]
+[connection signal="toggled" from="Transcoder/Movement/CheckBox" to="Transcoder" method="_on_check_box_toggled"]
 [connection signal="button_down" from="Transcoder/Button" to="Transcoder" method="_on_button_button_down"]
 
 [editable path="Titlebar"]

@@ -2,12 +2,15 @@ class_name decoded_log extends Control
 
 @onready var rtl = $ColorRect2/MarginContainer/RichTextLabel
 var decoder_step = 0
-signal error_output(error_text)
 
 @export_multiline var section0 = "CONTEXT: Signal recording from a mold colony from the genus Stachybotrys, species S. chartarum, inhabiting the walls of Osmo/Za. Observations began on 02012010. Signals are provided SANS interpretation.
-Recent: Connect the log to an interpreter, version 0.32 or higher.
+
 LOCATION: Slovenska cesta 52, 1000 Ljubljana.
-DATE: 23092024 "
+
+DATE: 23092024
+
+>> Connect the log to an TRANSCOFER, version 0.32 or higher to move to next page.
+"
 
 @export_multiline var section1coded: Array[String] = [
 	"[00:12:27]>> suppression-pulse detected. (self-quench loop γ) 
@@ -30,14 +33,15 @@ DATE: 23092024 "
 	]
 	
 @export_multiline var section2coded: Array[String] = [
-	"[00:48:27] >> SIGNAL: microvolt ripple detected. Possibly self-generated. HUM: 0.4",
-	"[00:49:49] >> VOC: trace methyl ketone—weak, hesitant emission. HUM: 0.3",
-	"[00:50:36] >> BACKGROUND: operator movement detected; vibrations elevate suppression. HUM: 0.6",
-	"[01:01:58] >> SIGNAL: small cluster (γ-1) appearing, then folding back into silence. HUM: 0.7",
-	"[01:02:27] >> VOC: faint terpenoid signature — resembles “curiosity” archetype. HUM: 0.6",
-	"[01:02:44] >> SIGNAL: repeat pulse on same axis, slower now. HUM: 0.3",
-	"[01:03:02] >> SIGNAL: suppression loop initiated; active concealment detected.",
-	"[01:03:18] >> BACKGROUND: humidity down 1.3%. Activity stabilizing in low-signal band. HUM: 1.3"
+	"[00:48:10] >> STARTING HUMIDITY: 1.2
+	[00:48:27] >> SIGNAL: microvolt ripple detected. Possibly self-generated. HUM. CHANGE: -0.4",
+	"[00:49:49] >> VOC: trace methyl ketone—weak, hesitant emission. HUM. CHANGE: -0.1",
+	"[00:50:36] >> BACKGROUND: operator movement detected; vibrations elevate suppression. HUM. CHANGE: 0.0",
+	"[01:01:58] >> SIGNAL: small cluster (γ-1) appearing, then folding back into silence. HUM. CHANGE: +0.7",
+	"[01:02:27] >> VOC: faint terpenoid signature — resembles “curiosity” archetype. HUM. CHANGE: -0.5",
+	"[01:02:44] >> SIGNAL: repeat pulse on same axis, slower now. HUM. CHANGE: 0.0",
+	"[01:03:02] >> SIGNAL: suppression loop initiated; active concealment detected. HUM. CHANGE: 0.0",
+	"[01:03:18] >> BACKGROUND: humidity down 1.3%. Activity stabilizing in low-signal band. HUM. CHANGE: +0.2"
 	]
 @export_multiline var section2decoded: Array[String] = [
 	"→ INTERPRETATION: “…hello?”",
@@ -94,6 +98,7 @@ func display_page(page, decoded := false):
 	rtl.text=""
 	if page == 0:
 		rtl.text = section0
+		error_output("USE PG TO CHANGE PAGE")
 	else:
 		var currentPageCoded = get("section"+str(page)+"coded")
 		#print(currentPageCoded)
@@ -130,36 +135,40 @@ func set_page(value, spinbox : SpinBox) -> void:
 	decoder_step = int(value)
 	spinbox.editable = false
 	rtl.text = "..."
+	error_output("LOADING NEW PAGE.")
 	await get_tree().create_timer(0.2).timeout
 	rtl.text = ".."
+	error_output("LOADING NEW PAGE..")
 	await get_tree().create_timer(0.2).timeout
 	rtl.text = "."
+	error_output("LOADING NEW PAGE...")
 	await get_tree().create_timer(0.2).timeout
 	display_page(decoder_step)
+	var s = "PAGE " + str(decoder_step) +" LOADED"
+	error_output(s)
+
 	spinbox.editable = true
 	pass # Replace with function body.
 
 
 func transcode(humidity: Variant) -> void:
 	if not visible:
-		error_output.emit("Log is not open.")
+		error_output("Log is not open.")
 		print("Log is not open")
 		return
-	
-	print("Transcoding at ", decoder_step)
+
 	var currentPageCoded = get("section"+str(decoder_step)+"coded")
 	var currentPageDecoded = get("section"+str(decoder_step)+"decoded")
-	print("Transcoding at ", currentPageCoded)
 	match decoder_step:
 		0:
 			print("NO SIGNAL TO TRANSCODE")
-			error_output.emit("NO SIGNAL TO TRANSCODE")
+			error_output("NO SIGNAL TO TRANSCODE")
 		1:
 			decode_whole_section(currentPageCoded, currentPageDecoded)
 		2:
-			if humidity == 1:
+			if humidity == 1.1:
 				decode_whole_section(currentPageCoded, currentPageDecoded)
-			else: error_output.emit("HUMIDITY VALUE NOT VALID")
+			else: error_output("HUMIDITY VALUE NOT VALID")
 		3:
 			pass
 		4:
@@ -169,6 +178,14 @@ func transcode(humidity: Variant) -> void:
 #func error_output():
 	#print("bad input!")
 	#pass
+	
+func error_output(message):
+	var transcoder : Transcoder = get_tree().get_first_node_in_group("transcoder")
+	if(transcoder == null): 
+		print("cant find transcoder!")
+		return
+	else:
+		transcoder.display_error(message)
 
 
 func _on_rich_text_label_visibility_changed() -> void:

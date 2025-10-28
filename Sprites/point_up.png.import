@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb51o6i1mk2w7"
-path="res://.godot/imported/folder_blue.png-9a743f4ca04fc6c3abe94288d6798560.ctex"
+uid="uid://c77s13b071waj"
+path="res://.godot/imported/point_up.png-68da0635112946490868ce5ac5008c6d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/folder_blue.png"
-dest_files=["res://.godot/imported/folder_blue.png-9a743f4ca04fc6c3abe94288d6798560.ctex"]
+source_file="res://Sprites/point_up.png"
+dest_files=["res://.godot/imported/point_up.png-68da0635112946490868ce5ac5008c6d.ctex"]
 
 [params]
 

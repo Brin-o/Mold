@@ -62,7 +62,6 @@ axis_stretch_vertical = 1
 
 [node name="Log" type="Control" parent="." groups=["log"]]
 self_modulate = Color(0, 0, 0, 1)
-layout_mode = 3
 anchors_preset = 0
 offset_top = 19.0
 offset_right = 444.0
