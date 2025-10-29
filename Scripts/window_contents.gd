@@ -24,8 +24,36 @@ func load_text(text_path):
 	print("Path is: " + text_path)
 	var file = FileAccess.open(text_path , FileAccess.READ)
 	var content = file.get_as_text()
+	
+	# Check for [DONTFIT] tag at the very start of the file
+	var has_dontfit_tag = content.begins_with("[DONTFIT]")
+	# Disable RichTextLabel auto-resize when opting out
+	fit_content = not has_dontfit_tag
+	
+	# Strip the tag from content if present
+	if has_dontfit_tag:
+		content = content.substr("[DONTFIT]".length())
+	
+	# Toggle parent window auto-fit based on tag presence
+	var parent = get_parent()
+	if parent and parent.has_method("set_auto_fit_height"):
+		parent.set_auto_fit_height(not has_dontfit_tag)
+		# Trigger appropriate sizing update
+		if has_dontfit_tag:
+			# When disabling auto-fit, ensure Shadow/Base is updated
+			call_deferred("_trigger_parent_fit")
+		else:
+			# When enabling auto-fit, trigger height fitting
+			if parent.has_method("fit_height"):
+				parent.call_deferred("fit_height")
+	
 	set_window_name(text_path)
 	text += content
+
+func _trigger_parent_fit():
+	var parent = get_parent()
+	if parent and parent.has_method("fit_to_children"):
+		parent.fit_to_children()
 
 
 func try_to_add_image(image_path):

@@ -1,7 +1,7 @@
 class_name window_parent extends Control
 
-@export var auto_fit_height: bool = false
-@export var auto_fit_on_ready: bool = false
+@export var auto_fit_height: bool = true
+@export var auto_fit_on_ready: bool = true
 
 signal click (sending_window)
 var canMove : bool
