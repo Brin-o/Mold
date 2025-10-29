@@ -20,7 +20,7 @@ func open_folder():
 func open_content():
 	print("Opening file – s1 ICON " + file_path)
 	var wm : ManagerWindows = get_tree().get_first_node_in_group("window_manager")
-	wm.create_new_content_window(file_path)
+	if (wm != null): wm.create_new_content_window(file_path)
 	pass
 
 func _on_button_up() -> void:
