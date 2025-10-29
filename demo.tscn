@@ -21,8 +21,8 @@ metadata/_edit_horizontal_guides_ = [-96.0]
 [node name="BG" type="TextureRect" parent="."]
 z_index = -5
 layout_mode = 0
-offset_right = 960.0
-offset_bottom = 540.0
+offset_right = 1544.0
+offset_bottom = 1267.0
 texture = ExtResource("1_gxmxl")
 stretch_mode = 1
 
@@ -39,10 +39,11 @@ metadata/_edit_lock_ = true
 
 [node name="TopBar" type="ColorRect" parent="."]
 layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_right = 60.0
-offset_bottom = 24.0
+anchors_preset = -1
+anchor_right = 1.067
+anchor_bottom = 0.044000003
+offset_right = -0.30004883
+offset_bottom = 0.23999786
 grow_horizontal = 2
 color = Color(0.925734, 0.925734, 0.925734, 1)
 script = ExtResource("2_c6xj6")
