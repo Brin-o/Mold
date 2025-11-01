@@ -12,13 +12,12 @@ func _ready():
 	if auto_fit_on_ready:
 		fit_to_children()
 	mouse_filter = Control.MOUSE_FILTER_STOP  # Don’t block children
-	# Keep Shadow/Base in sync with Contents when not auto-fitting height
-	if has_node("Contents"):
-		var contents: Control = $Contents
-		if contents:
-			contents.resized.connect(_on_contents_resized)
-			contents.minimum_size_changed.connect(_on_contents_minimum_size_changed)
-			call_deferred("_update_shadow_base_size")
+	# Keep Shadow/Base in sync with inner content when not auto-fitting height
+	var inner := _get_inner_contents_control()
+	if inner:
+		inner.resized.connect(_on_contents_resized)
+		inner.minimum_size_changed.connect(_on_contents_minimum_size_changed)
+		call_deferred("_update_shadow_base_size")
 
 
 func center_to_screen():
@@ -76,9 +75,13 @@ func fit_height():
 	if not auto_fit_height:
 		_update_shadow_base_size()
 		return
-	print($Contents.get_minimum_size())
-	var ySize = $Contents.get_minimum_size().y
-	$Contents.size.y = $Contents.get_minimum_size().y
+	var inner := _get_inner_contents_control()
+	if inner == null:
+		return
+	print(inner.get_minimum_size())
+	var ySize = inner.get_minimum_size().y
+	if has_node("Contents"):
+		$Contents.size.y = ySize
 	$Shadow/Base.size.y = ySize + 10
 	fit_to_children()
 	pass
@@ -96,12 +99,14 @@ func _on_contents_minimum_size_changed() -> void:
 func _update_shadow_base_size() -> void:
 	if auto_fit_height:
 		return
-	if not has_node("Shadow/Base") or not has_node("Contents"):
+	if not has_node("Shadow/Base"):
 		return
 	var base: Control = $Shadow/Base
-	var contents: Control = $Contents
-	# Match Base to current Contents size when auto-fit is disabled
-	var new_size = contents.size
+	var inner := _get_inner_contents_control()
+	if inner == null:
+		return
+	# Match Base to current inner content size when auto-fit is disabled
+	var new_size = inner.size
 	new_size.x += 10
 	new_size.y += 10
 	base.size = new_size
@@ -113,3 +118,25 @@ func _paging_value_changed(value: float) -> void:
 		print("cant find log!")
 		return
 	log.set_page(value, $Transcoder/Paging/SpinBox)
+
+# Helpers
+func _get_contents_root() -> Control:
+	if has_node("Contents"):
+		return $Contents
+	return null
+
+func _get_inner_contents_control() -> Control:
+	var root := _get_contents_root()
+	if root == null:
+		return null
+	# Try to find a RichTextLabel descendant first
+	var stack: Array = [root]
+	while stack.size() > 0:
+		var node = stack.pop_back()
+		if node is RichTextLabel:
+			return node
+		for child in node.get_children():
+			if child is Node:
+				stack.push_back(child)
+	# Fallback to the root contents control
+	return root
