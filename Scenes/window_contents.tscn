@@ -24,6 +24,7 @@ test test te st tetest test te st tetest test te st tetest test te st tetest tes
 script = ExtResource("2_uvdp6")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
+z_index = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -52,3 +53,8 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.929412, 0.929412, 0.929412, 1)
 metadata/_edit_lock_ = true
+
+[node name="HackyPixel" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 420.0
+offset_bottom = 1.0
