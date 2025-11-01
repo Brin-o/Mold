@@ -17,7 +17,6 @@ func move_window_to_top(window):
 		get_child(i)
 		if i == get_child_count()-1:
 			#TOP WINDOW
-			print("TOP WINDOW IS ", get_child(i))
 			get_child(i).get_node("Shadow").visible = true
 			get_child(i).get_node("Titlebar").assignedPill.highlight()
 		else:

@@ -1,11 +1,11 @@
 class_name tBar extends ColorRect
 
 @onready var wContainer : ManagerWindows = $"../ManagerWindows"
-@onready var wButton = preload("res://Scenes/window_button.tscn")
-@onready var pContainer = $PillContainer
+@onready var wButton = preload("res://Scenes/window_button_pill.tscn")
+@onready var pContainer = $ScrollContainer/PillContainer
 
 func _ready() -> void:
-	wButton = preload("res://Scenes/window_button.tscn")
+	wButton = preload("res://Scenes/window_button_pill.tscn")
 	populate_windows()
 
 

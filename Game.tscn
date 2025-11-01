@@ -1,15 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://dl7u1gj7xawq2"]
+[gd_scene load_steps=13 format=3 uid="uid://dl7u1gj7xawq2"]
 
 [ext_resource type="Texture2D" uid="uid://d0bvppvbuguqk" path="res://Sprites/Wallpapers/128.png" id="1_gxmxl"]
 [ext_resource type="Script" uid="uid://66yaun8bbg7" path="res://Scripts/top_bar.gd" id="2_c6xj6"]
 [ext_resource type="Script" uid="uid://dg6utj5k25ubf" path="res://Scripts/manager_windows.gd" id="2_m0rpm"]
 [ext_resource type="Texture2D" uid="uid://ck43j05056ff0" path="res://Sprites/window_border_outer_slim.png" id="3_6bw2v"]
+[ext_resource type="Theme" uid="uid://dggnc44ywb5kn" path="res://myOStheme.tres" id="4_yhmtn"]
 [ext_resource type="PackedScene" uid="uid://bwdnbcurrtm4i" path="res://Scenes/icon_.tscn" id="5_884kg"]
+[ext_resource type="Script" uid="uid://ccct2l28hr4dp" path="res://Scripts/simulated_time.gd" id="5_gwjdr"]
+[ext_resource type="Texture2D" uid="uid://bghveff46eo" path="res://Sprites/triangle_24px.png" id="6_gwjdr"]
 [ext_resource type="Script" uid="uid://cbled8p3xi4ts" path="res://ls.gd" id="6_gxmxl"]
 [ext_resource type="PackedScene" uid="uid://yonnipy72fjn" path="res://Scenes/folder_icon.tscn" id="6_kem5a"]
 [ext_resource type="PackedScene" uid="uid://8aua683p265y" path="res://Scenes/icon_decoder.tscn" id="7_d4o4o"]
 [ext_resource type="PackedScene" uid="uid://cb2g22pam50a8" path="res://Scenes/icon_log.tscn" id="8_gdsc3"]
-[ext_resource type="Script" uid="uid://c4khsgvld0g0l" path="res://Scripts/Screenshoter.gd" id="10_d4o4o"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -48,19 +50,21 @@ grow_horizontal = 2
 color = Color(0.925734, 0.925734, 0.925734, 1)
 script = ExtResource("2_c6xj6")
 
-[node name="PillContainer" type="HBoxContainer" parent="TopBar"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_lock_ = true
+[node name="ScrollContainer" type="ScrollContainer" parent="TopBar"]
+layout_mode = 0
+offset_left = 25.0
+offset_right = 838.0
+offset_bottom = 24.0
+vertical_scroll_mode = 0
+
+[node name="PillContainer" type="HBoxContainer" parent="TopBar/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="NinePatchRect" type="NinePatchRect" parent="TopBar"]
 visible = false
-layout_mode = 1
-anchors_preset = 15
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_bottom = 4.0
@@ -71,6 +75,66 @@ patch_margin_left = 3
 patch_margin_top = 3
 patch_margin_right = 3
 patch_margin_bottom = 3
+
+[node name="ConrerL" type="Control" parent="TopBar"]
+modulate = Color(0.29954746, 0.29954746, 0.29954743, 1)
+anchors_preset = 0
+offset_right = 35.0
+offset_bottom = 24.0
+
+[node name="Triangle" type="TextureRect" parent="TopBar/ConrerL"]
+layout_mode = 0
+offset_left = 23.0
+offset_right = 36.0
+offset_bottom = 24.0
+texture = ExtResource("6_gwjdr")
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="TopBar/ConrerL"]
+layout_mode = 0
+offset_right = 23.0
+offset_bottom = 24.0
+metadata/_edit_lock_ = true
+
+[node name="ConrerR" type="Control" parent="TopBar"]
+modulate = Color(0.29954746, 0.29954746, 0.29954743, 1)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -12.0
+offset_right = 35.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(-1, 1)
+
+[node name="Triangle" type="TextureRect" parent="TopBar/ConrerR"]
+layout_mode = 0
+offset_left = 123.0
+offset_right = 136.0
+offset_bottom = 24.0
+texture = ExtResource("6_gwjdr")
+
+[node name="ColorRect" type="ColorRect" parent="TopBar/ConrerR"]
+layout_mode = 0
+offset_right = 124.092834
+offset_bottom = 24.0
+metadata/_edit_lock_ = true
+
+[node name="Time" type="Label" parent="TopBar"]
+layout_mode = 0
+offset_left = 839.0
+offset_top = 6.0
+offset_right = 947.0
+offset_bottom = 19.0
+theme = ExtResource("4_yhmtn")
+text = "12:30 - 31.10.2025"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_gwjdr")
 
 [node name="Desktop" type="GridContainer" parent="."]
 layout_mode = 0
@@ -95,9 +159,4 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("2_m0rpm")
-
-[node name="Control" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("10_d4o4o")
+metadata/_edit_lock_ = true
