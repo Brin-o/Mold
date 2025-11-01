@@ -3,6 +3,8 @@ class_name ManagerWindows extends Control
 
 var folder_window = load("res://Scenes/window_ls.tscn")
 var content_window = load("res://Scenes/window.tscn")
+var decoder_window = load("res://Scenes/window_decoder.tscn")
+var log_window = load("res://Scenes/window_log.tscn")
 @onready var tBar : tBar = $"../TopBar"
 
 func _ready():
@@ -15,6 +17,7 @@ func move_window_to_top(window):
 		get_child(i)
 		if i == get_child_count()-1:
 			#TOP WINDOW
+			print("TOP WINDOW IS ", get_child(i))
 			get_child(i).get_node("Shadow").visible = true
 			get_child(i).get_node("Titlebar").assignedPill.highlight()
 		else:
@@ -64,4 +67,27 @@ func create_new_content_window(content_path):
 	move_window_to_top(new_content_window)
 	new_content_window.fit_height()
 	new_content_window.center_to_screen()
+	pass
+	
+	
+func open_or_focus_decoder():
+	var decoder = get_node_or_null("Decoder")
+	if(decoder == null):
+		decoder = decoder_window.instantiate()
+		add_child(decoder)
+		gather_click_singals()
+		tBar.populate_windows()
+	move_window_to_top(decoder)
+	decoder.center_to_screen()
+	pass
+	
+func open_or_focus_log():
+	var log_w = get_node_or_null("Log")
+	if(log_w == null):
+		log_w = log_window.instantiate()
+		add_child(log_w)
+		gather_click_singals()
+		tBar.populate_windows()
+	move_window_to_top(log_w)
+	log_w.center_to_screen()
 	pass
