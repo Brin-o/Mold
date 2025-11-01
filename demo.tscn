@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bwdnbcurrtm4i" path="res://Scenes/icon_.tscn" id="5_884kg"]
 [ext_resource type="Script" uid="uid://cbled8p3xi4ts" path="res://ls.gd" id="6_gxmxl"]
 [ext_resource type="PackedScene" uid="uid://yonnipy72fjn" path="res://Scenes/folder_icon.tscn" id="6_kem5a"]
-[ext_resource type="PackedScene" uid="uid://b0alklmuhb58a" path="res://Scenes/window_transcoder.tscn" id="8_n4w22"]
-[ext_resource type="PackedScene" uid="uid://cdgk7fgrm0qu8" path="res://Scenes/window_log.tscn" id="9_884kg"]
+[ext_resource type="PackedScene" uid="uid://8aua683p265y" path="res://Scenes/icon_decoder.tscn" id="7_d4o4o"]
+[ext_resource type="PackedScene" uid="uid://cb2g22pam50a8" path="res://Scenes/icon_log.tscn" id="8_gdsc3"]
 [ext_resource type="Script" uid="uid://c4khsgvld0g0l" path="res://Scripts/Screenshoter.gd" id="10_d4o4o"]
 
 [node name="Control" type="Control"]
@@ -83,26 +83,18 @@ script = ExtResource("6_gxmxl")
 icon_scene = ExtResource("5_884kg")
 folder_scene = ExtResource("6_kem5a")
 
+[node name="decoder" parent="Desktop" instance=ExtResource("7_d4o4o")]
+layout_mode = 2
+
+[node name="log" parent="Desktop" instance=ExtResource("8_gdsc3")]
+layout_mode = 2
+
 [node name="ManagerWindows" type="Control" parent="." groups=["window_manager"]]
 unique_name_in_owner = true
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("2_m0rpm")
-
-[node name="Transcoder" parent="ManagerWindows" instance=ExtResource("8_n4w22")]
-layout_mode = 1
-offset_left = 492.0
-offset_top = 189.0
-offset_right = 452.0
-offset_bottom = 149.0
-
-[node name="Log" parent="ManagerWindows" instance=ExtResource("9_884kg")]
-layout_mode = 1
-offset_left = 71.0
-offset_top = 323.0
-offset_right = 31.0
-offset_bottom = 283.0
 
 [node name="Control" type="Control" parent="."]
 anchors_preset = 0

@@ -62,7 +62,7 @@ func try_to_add_image(image_path):
 		printerr("no image")
 	else:
 		#print("Adding image at the front of the text!")
-		text += "[img={300}]" + image_path + "[/img]" 
+		text += "[img={315}]" + image_path + "[/img]" 
 		text += "\n"
 		set_window_name(image_path)
 	pass

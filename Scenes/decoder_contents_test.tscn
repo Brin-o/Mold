@@ -1,0 +1,205 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8ddm0v08pbst"]
+
+[ext_resource type="Theme" uid="uid://dggnc44ywb5kn" path="res://myOStheme.tres" id="1_ci8ys"]
+[ext_resource type="Script" uid="uid://dlyd3uxv8dw51" path="res://Scripts/transcoder.gd" id="2_oeupc"]
+[ext_resource type="Texture2D" uid="uid://cqjuj1yq6dtil" path="res://Sprites/window_border_outer.png" id="3_41sn6"]
+[ext_resource type="Texture2D" uid="uid://ck43j05056ff0" path="res://Sprites/window_border_outer_slim.png" id="4_vbs4f"]
+
+[node name="Transcoder" type="Control"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 3
+anchors_preset = 0
+offset_top = 19.0
+offset_right = 217.0
+offset_bottom = 200.0
+theme = ExtResource("1_ci8ys")
+script = ExtResource("2_oeupc")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_41sn6")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.929412, 0.929412, 0.929412, 1)
+metadata/_edit_lock_ = true
+
+[node name="Paging" type="Control" parent="."]
+anchors_preset = 0
+offset_top = 17.0
+offset_right = 216.0
+offset_bottom = 37.0
+
+[node name="ColorRect" type="ColorRect" parent="Paging"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -3.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.344076, 0.344076, 0.344076, 1)
+
+[node name="SpinBox" type="SpinBox" parent="Paging"]
+layout_mode = 0
+offset_left = 146.0
+offset_right = 196.0
+offset_bottom = 21.0
+max_value = 5.0
+rounded = true
+prefix = "p."
+
+[node name="Label" type="Label" parent="Paging"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 3.0
+offset_right = 91.0
+offset_bottom = 16.0
+text = "PAGING"
+
+[node name="Humidity" type="Control" parent="."]
+anchors_preset = 0
+offset_top = 55.0
+offset_right = 216.0
+offset_bottom = 75.0
+
+[node name="ColorRect" type="ColorRect" parent="Humidity"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -3.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.344076, 0.344076, 0.344076, 1)
+
+[node name="CheckBox" type="CheckBox" parent="Humidity"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = -2.0
+offset_right = 43.0
+offset_bottom = 22.0
+metadata/_edit_group_ = true
+
+[node name="SpinBox" type="SpinBox" parent="Humidity"]
+layout_mode = 0
+offset_left = 146.0
+offset_right = 196.0
+offset_bottom = 21.0
+max_value = 1.0
+step = 0.05
+suffix = "%"
+
+[node name="Label" type="Label" parent="Humidity"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 3.0
+offset_right = 91.0
+offset_bottom = 16.0
+text = "HUMIDITY"
+
+[node name="Humidity3" type="Control" parent="."]
+anchors_preset = 0
+offset_top = 97.0
+offset_right = 216.0
+offset_bottom = 117.0
+
+[node name="ColorRect" type="ColorRect" parent="Humidity3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -3.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.344076, 0.344076, 0.344076, 1)
+
+[node name="CheckBox" type="CheckBox" parent="Humidity3"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = -2.0
+offset_right = 43.0
+offset_bottom = 22.0
+
+[node name="SpinBox" type="SpinBox" parent="Humidity3"]
+layout_mode = 0
+offset_left = 146.0
+offset_right = 196.0
+offset_bottom = 21.0
+
+[node name="Label" type="Label" parent="Humidity3"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 3.0
+offset_right = 91.0
+offset_bottom = 16.0
+text = "??? nekaj?'?"
+
+[node name="NinePatchRect3" type="NinePatchRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = 48.0
+offset_right = -22.0
+offset_bottom = -98.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_vbs4f")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="ColorRect" type="ColorRect" parent="NinePatchRect3"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.958157, 0.958157, 0.958157, 1)
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 136.0
+offset_right = 152.0
+offset_bottom = 160.0
+text = "TRANSCODE"
+
+[connection signal="toggled" from="Humidity/CheckBox" to="." method="_humidity_toggled"]
+[connection signal="value_changed" from="Humidity/SpinBox" to="." method="_humidity_changed"]
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

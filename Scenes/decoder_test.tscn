@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cjen2hvdx6ya0"]
 
 [ext_resource type="Script" uid="uid://c5s5obths0r0f" path="res://Scripts/decoded_log.gd" id="1_ps512"]
-[ext_resource type="PackedScene" uid="uid://b8ddm0v08pbst" path="res://Scenes/window_decoder.tscn" id="1_urih5"]
+[ext_resource type="PackedScene" uid="uid://b8ddm0v08pbst" path="res://Scenes/decoder_contents_test.tscn" id="1_urih5"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
