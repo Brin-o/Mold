@@ -1,7 +1,7 @@
 class_name Icon extends Button
 
 var  file_path : String
-enum ICONTYPE {FILE, FOLDER, APP_DECODER, APP_LOG}
+enum ICONTYPE {FILE, FOLDER, APP_DECODER, APP_LOG, APP_MSN}
 @export var icon_type : ICONTYPE
 
 var icon_img = load("res://Sprites/colorscm.png")
@@ -45,6 +45,9 @@ func _on_button_up() -> void:
 	if icon_type == ICONTYPE.APP_LOG:
 		print("opening log")
 		open_log()
+	if icon_type == ICONTYPE.APP_MSN:
+		print("opening msn")
+		open_msn()
 		
 		
 func open_decoder():
@@ -57,3 +60,7 @@ func open_log():
 	var wm : ManagerWindows = get_tree().get_first_node_in_group("window_manager")
 	if (wm != null): wm.open_or_focus_log()
 	pass
+
+func open_msn():
+	var wm : ManagerWindows = get_tree().get_first_node_in_group("window_manager")
+	if (wm != null): wm.open_or_focus_msn()

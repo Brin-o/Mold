@@ -4,6 +4,8 @@ class_name ManagerWindows extends Control
 var folder_window = load("res://Scenes/window_ls.tscn")
 var content_window = load("res://Scenes/window.tscn")
 var decoder_window = load("res://Scenes/window_decoder.tscn")
+var chatlog_window = load("res://Scenes/Chat/window_chatlog.tscn")
+var msn_window = load("res://Scenes/Chat/window_msn.tscn")
 var log_window = load("res://Scenes/window_log.tscn")
 @onready var tBar : tBar = $"../TopBar"
 
@@ -89,4 +91,27 @@ func open_or_focus_log():
 		tBar.populate_windows()
 	move_window_to_top(log_w)
 	log_w.center_to_screen()
+	pass
+	
+func open_chatlog(path):
+	var chatlog_w      = chatlog_window.instantiate()
+	var chat : ChatLog = chatlog_w.get_node("Chat")
+	
+	add_child(chatlog_w)
+	gather_click_singals()
+	tBar.populate_windows()
+	move_window_to_top(chatlog_w)
+	chatlog_w.center_to_screen()
+	chat.load_chat(path)
+	pass
+	
+func open_or_focus_msn():
+	var msn_w = get_node_or_null("WindowMSN")
+	if(msn_w == null):
+		msn_w = msn_window.instantiate()
+		add_child(msn_w)
+		gather_click_singals()
+		tBar.populate_windows()
+	move_window_to_top(msn_w)
+	msn_w.center_to_screen()
 	pass

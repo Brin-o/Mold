@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://bqwtursr4vpra"]
+[gd_scene load_steps=10 format=3 uid="uid://bqwtursr4vpra"]
 
-[ext_resource type="Theme" uid="uid://dggnc44ywb5kn" path="res://myOStheme.tres" id="1_xbyvk"]
-[ext_resource type="Script" uid="uid://4lgtxb88n2kw" path="res://Scripts/window_contents.gd" id="2_afndr"]
-[ext_resource type="Texture2D" uid="uid://cqjuj1yq6dtil" path="res://Sprites/window_border_outer.png" id="3_vqywn"]
-[ext_resource type="Texture2D" uid="uid://dd5wo738wqfi1" path="res://Sprites/msn_bg.png" id="4_hkebb"]
-[ext_resource type="Texture2D" uid="uid://ddxi4ndpaj8xc" path="res://Sprites/froggy.png" id="5_nkoqe"]
-[ext_resource type="Texture2D" uid="uid://cc18exjf7ucg" path="res://Sprites/network-error.png" id="6_a4p8k"]
+[ext_resource type="Theme" uid="uid://dggnc44ywb5kn" path="res://myOStheme.tres" id="1_w48um"]
+[ext_resource type="Script" uid="uid://4lgtxb88n2kw" path="res://Scripts/window_contents.gd" id="2_jpcu3"]
+[ext_resource type="Texture2D" uid="uid://cqjuj1yq6dtil" path="res://Sprites/window_border_outer.png" id="3_wb726"]
+[ext_resource type="Texture2D" uid="uid://dd5wo738wqfi1" path="res://Sprites/msn_bg.png" id="4_vwgg7"]
+[ext_resource type="Texture2D" uid="uid://ddxi4ndpaj8xc" path="res://Sprites/froggy.png" id="5_c2e5g"]
+[ext_resource type="Texture2D" uid="uid://cc18exjf7ucg" path="res://Sprites/network-error.png" id="6_ccj87"]
+[ext_resource type="FontFile" uid="uid://xohm45b7njn7" path="res://monogram-extended.ttf" id="7_1h8sv"]
+[ext_resource type="Script" uid="uid://1ovow2y1rj46" path="res://Scripts/chat_open_button.gd" id="8_yo0vc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gs3ir"]
 content_margin_left = 10.0
@@ -13,15 +15,26 @@ content_margin_top = 10.0
 content_margin_right = 10.0
 content_margin_bottom = 10.0
 
-[node name="Window Contents" type="RichTextLabel"]
+[node name="MSN" type="RichTextLabel"]
 offset_top = 19.0
 offset_right = 213.0
 offset_bottom = 425.0
-theme = ExtResource("1_xbyvk")
+theme = ExtResource("1_w48um")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_gs3ir")
 bbcode_enabled = true
-script = ExtResource("2_afndr")
+script = ExtResource("2_jpcu3")
+
+[node name="BG" type="ColorRect" parent="."]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.929412, 0.929412, 0.929412, 1)
+metadata/_edit_lock_ = true
 
 [node name="MainBorder" type="NinePatchRect" parent="."]
 layout_mode = 1
@@ -34,7 +47,7 @@ offset_right = -1.0
 offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_vqywn")
+texture = ExtResource("3_wb726")
 region_rect = Rect2(0, 0, 16, 16)
 patch_margin_left = 10
 patch_margin_top = 10
@@ -42,18 +55,7 @@ patch_margin_right = 10
 patch_margin_bottom = 10
 metadata/_edit_lock_ = true
 
-[node name="ColorRect" type="ColorRect" parent="."]
-show_behind_parent = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.929412, 0.929412, 0.929412, 1)
-metadata/_edit_lock_ = true
-
-[node name="NinePatchRect2" type="NinePatchRect" parent="."]
+[node name="BlueBorder" type="NinePatchRect" parent="."]
 modulate = Color(0.19780003, 0.36335, 0.86, 1)
 layout_mode = 1
 anchors_preset = -1
@@ -65,28 +67,12 @@ offset_right = -6.0
 offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_hkebb")
+texture = ExtResource("4_vwgg7")
 region_rect = Rect2(0, 0, 16, 16)
 patch_margin_left = 10
 patch_margin_top = 10
 patch_margin_right = 10
 patch_margin_bottom = 10
-
-[node name="ColorRect3" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 9.0
-offset_top = 56.0
-offset_right = 36.0
-offset_bottom = 57.0
-color = Color(0.5370113, 0.5370113, 0.5370113, 1)
-
-[node name="ColorRect4" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 174.0
-offset_top = 56.0
-offset_right = 202.0
-offset_bottom = 57.0
-color = Color(0.5370113, 0.5370113, 0.5370113, 1)
 
 [node name="Pfp Area" type="Control" parent="."]
 anchors_preset = 0
@@ -138,7 +124,7 @@ layout_mode = 0
 offset_top = 2.0
 offset_right = 32.0
 offset_bottom = 34.0
-texture = ExtResource("5_nkoqe")
+texture = ExtResource("5_c2e5g")
 metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Pfp Area"]
@@ -147,7 +133,7 @@ offset_left = 1.0
 offset_top = 1.0
 offset_right = 33.0
 offset_bottom = 33.0
-texture = ExtResource("5_nkoqe")
+texture = ExtResource("5_c2e5g")
 metadata/_edit_lock_ = true
 
 [node name="Status" type="TextureRect" parent="."]
@@ -157,7 +143,7 @@ offset_top = 24.0
 offset_right = 213.0
 offset_bottom = 56.0
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("6_a4p8k")
+texture = ExtResource("6_ccj87")
 
 [node name="ColorRect4" type="ColorRect" parent="Status"]
 show_behind_parent = true
@@ -181,7 +167,7 @@ offset_right = 12.9999695
 offset_bottom = 10.499992
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_hkebb")
+texture = ExtResource("4_vwgg7")
 patch_margin_left = 10
 patch_margin_top = 10
 patch_margin_right = 10
@@ -207,16 +193,65 @@ offset_right = 17.0
 offset_bottom = -12.500008
 color = Color(0.19215687, 0.3647059, 0.85882354, 1)
 
-[node name="Label" type="Label" parent="."]
+[node name="ContactsHeader" type="Control" parent="."]
+anchors_preset = 0
+offset_top = 51.0
+offset_right = 206.0
+offset_bottom = 66.0
+
+[node name="ColorRect3" type="ColorRect" parent="ContactsHeader"]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 50.5
-offset_right = 289.42856
-offset_bottom = 69.5
+offset_left = 9.0
+offset_top = 8.0
+offset_right = 36.0
+offset_bottom = 9.0
+color = Color(0.5370113, 0.5370113, 0.5370113, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="ContactsHeader"]
+layout_mode = 0
+offset_left = 174.0
+offset_top = 8.0
+offset_right = 202.0
+offset_bottom = 9.0
+color = Color(0.5370113, 0.5370113, 0.5370113, 1)
+
+[node name="Label" type="Label" parent="ContactsHeader"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.999998
+offset_top = 2.9999998
+offset_right = 31.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.7, 0.7)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_1h8sv")
 text = "CONTACTS"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
-metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 74.0
+offset_right = 201.0
+offset_bottom = 208.0
+
+[node name="ChatOpenButton" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+script = ExtResource("8_yo0vc")
+
+[node name="Button" type="Button" parent="VBoxContainer/ChatOpenButton"]
+layout_mode = 0
+offset_right = 189.0
+offset_bottom = 21.0
+theme_override_fonts/font = ExtResource("7_1h8sv")
+theme_override_font_sizes/font_size = 16
+text = "TARA"
+
+[connection signal="button_up" from="VBoxContainer/ChatOpenButton/Button" to="VBoxContainer/ChatOpenButton" method="_on_button_button_up"]

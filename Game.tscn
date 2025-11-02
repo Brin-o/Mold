@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dl7u1gj7xawq2"]
+[gd_scene load_steps=14 format=3 uid="uid://dl7u1gj7xawq2"]
 
 [ext_resource type="Texture2D" uid="uid://d0bvppvbuguqk" path="res://Sprites/Wallpapers/128.png" id="1_gxmxl"]
 [ext_resource type="Script" uid="uid://66yaun8bbg7" path="res://Scripts/top_bar.gd" id="2_c6xj6"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://yonnipy72fjn" path="res://Scenes/folder_icon.tscn" id="6_kem5a"]
 [ext_resource type="PackedScene" uid="uid://8aua683p265y" path="res://Scenes/icon_decoder.tscn" id="7_d4o4o"]
 [ext_resource type="PackedScene" uid="uid://cb2g22pam50a8" path="res://Scenes/icon_log.tscn" id="8_gdsc3"]
+[ext_resource type="PackedScene" uid="uid://dois0ocshul16" path="res://Scenes/icon_msn.tscn" id="10_yyih5"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -52,9 +53,10 @@ script = ExtResource("2_c6xj6")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TopBar"]
 layout_mode = 0
-offset_left = 25.0
-offset_right = 838.0
-offset_bottom = 24.0
+offset_left = 24.0
+offset_top = 1.0
+offset_right = 835.0
+offset_bottom = 23.0
 vertical_scroll_mode = 0
 
 [node name="PillContainer" type="HBoxContainer" parent="TopBar/ScrollContainer"]
@@ -79,10 +81,11 @@ patch_margin_bottom = 3
 [node name="ConrerL" type="Control" parent="TopBar"]
 modulate = Color(0.29954746, 0.29954746, 0.29954743, 1)
 anchors_preset = 0
-offset_right = 35.0
+offset_right = 23.0
 offset_bottom = 24.0
 
 [node name="Triangle" type="TextureRect" parent="TopBar/ConrerL"]
+visible = false
 layout_mode = 0
 offset_left = 23.0
 offset_right = 36.0
@@ -112,6 +115,7 @@ grow_vertical = 2
 scale = Vector2(-1, 1)
 
 [node name="Triangle" type="TextureRect" parent="TopBar/ConrerR"]
+visible = false
 layout_mode = 0
 offset_left = 123.0
 offset_right = 136.0
@@ -126,15 +130,16 @@ metadata/_edit_lock_ = true
 
 [node name="Time" type="Label" parent="TopBar"]
 layout_mode = 0
-offset_left = 839.0
-offset_top = 6.0
-offset_right = 947.0
-offset_bottom = 19.0
+offset_left = 846.0
+offset_top = 5.0
+offset_right = 954.0
+offset_bottom = 18.0
 theme = ExtResource("4_yhmtn")
 text = "12:30 - 31.10.2025"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("5_gwjdr")
+time_scale = 45.0
 
 [node name="Desktop" type="GridContainer" parent="."]
 layout_mode = 0
@@ -146,6 +151,9 @@ columns = 4
 script = ExtResource("6_gxmxl")
 icon_scene = ExtResource("5_884kg")
 folder_scene = ExtResource("6_kem5a")
+
+[node name="msn" parent="Desktop" instance=ExtResource("10_yyih5")]
+layout_mode = 2
 
 [node name="decoder" parent="Desktop" instance=ExtResource("7_d4o4o")]
 layout_mode = 2

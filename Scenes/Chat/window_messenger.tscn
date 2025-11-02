@@ -1,0 +1,240 @@
+[gd_scene load_steps=9 format=3 uid="uid://b5gna1lh1b8h1"]
+
+[ext_resource type="Theme" uid="uid://dggnc44ywb5kn" path="res://myOStheme.tres" id="1_et1dk"]
+[ext_resource type="Texture2D" uid="uid://cqjuj1yq6dtil" path="res://Sprites/window_border_outer.png" id="3_o21by"]
+[ext_resource type="Texture2D" uid="uid://ck43j05056ff0" path="res://Sprites/window_border_outer_slim.png" id="4_pvgwq"]
+[ext_resource type="Script" uid="uid://ceoyim676rplw" path="res://Scripts/chat_container.gd" id="4_ydtst"]
+[ext_resource type="Texture2D" uid="uid://ddxi4ndpaj8xc" path="res://Sprites/froggy.png" id="7_pvgwq"]
+[ext_resource type="FontFile" uid="uid://b44i0myqd2ptc" path="res://m6x11plus.ttf" id="8_44uvd"]
+[ext_resource type="Texture2D" uid="uid://borln4l8g6uof" path="res://icon.svg" id="8_hj600"]
+[ext_resource type="FontFile" uid="uid://cbk5wc5cm0ybu" path="res://monogram-extended-italic.ttf" id="9_yrfma"]
+
+[node name="Chat" type="ColorRect"]
+offset_top = 11.0
+offset_right = 312.0
+offset_bottom = 485.0
+theme = ExtResource("1_et1dk")
+color = Color(0.92941177, 0.92941177, 0.92941177, 1)
+script = ExtResource("4_ydtst")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_o21by")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.929412, 0.929412, 0.929412, 1)
+metadata/_edit_lock_ = true
+
+[node name="HackyPixel" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 420.0
+offset_bottom = 1.0
+
+[node name="MsgWindow" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 50.0
+offset_right = 301.0
+offset_bottom = 391.0
+color = Color(0.7666196, 0.76661956, 0.76661956, 1)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MsgWindow"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_pvgwq")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MsgWindow"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = -1.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ChatContainer" type="ScrollContainer" parent="MsgWindow/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MsgWindow/MarginContainer/ChatContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 394.0
+offset_right = 301.0
+offset_bottom = 436.0
+theme = ExtResource("1_et1dk")
+placeholder_text = "Write a message here..."
+wrap_mode = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="TextEdit"]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_pvgwq")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 440.0
+offset_right = 300.0
+offset_bottom = 461.0
+disabled = true
+text = "SEND"
+
+[node name="PFP" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 383.0
+offset_right = 71.25
+offset_bottom = 437.0
+
+[node name="Border" type="NinePatchRect" parent="PFP"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_pvgwq")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+metadata/_edit_lock_ = true
+
+[node name="Icon" type="TextureRect" parent="PFP"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_pvgwq")
+
+[node name="ContactStatus" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 312.0
+offset_bottom = 75.0
+
+[node name="PFP" type="ColorRect" parent="ContactStatus"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 16.0
+offset_right = 71.25
+offset_bottom = 70.0
+
+[node name="Border" type="NinePatchRect" parent="ContactStatus/PFP"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_pvgwq")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+metadata/_edit_lock_ = true
+
+[node name="Icon" type="TextureRect" parent="ContactStatus/PFP"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_hj600")
+expand_mode = 1
+
+[node name="Name" type="Label" parent="ContactStatus"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 81.0
+offset_top = 17.0
+offset_right = 151.0
+offset_bottom = 35.0
+theme_override_fonts/font = ExtResource("8_44uvd")
+theme_override_font_sizes/font_size = 18
+text = "KAMILA_98"
+
+[node name="OnlineStatus" type="Label" parent="ContactStatus"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 81.0
+offset_top = 34.0
+offset_right = 279.0
+offset_bottom = 52.0
+theme_override_fonts/font = ExtResource("9_yrfma")
+theme_override_font_sizes/font_size = 16
+text = "OFFLINE (last online 2 years ago)"

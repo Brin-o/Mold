@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnjgj15h774vc"]
+
+[ext_resource type="Script" uid="uid://ceoyim676rplw" path="res://Scripts/chat_container.gd" id="1_jl7ak"]
+[ext_resource type="PackedScene" uid="uid://c3ys4kupyul5f" path="res://Scenes/Chat/person_1.tscn" id="1_y41k8"]
+[ext_resource type="PackedScene" uid="uid://33ppptaqgy5s" path="res://Scenes/Chat/person_2.tscn" id="2_jl7ak"]
+
+[node name="ChatTest" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ChatContainer" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 0
+follow_focus = true
+script = ExtResource("1_jl7ak")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChatContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="Person1" parent="ChatContainer/VBoxContainer" instance=ExtResource("1_y41k8")]
+layout_mode = 2
+
+[node name="Person2" parent="ChatContainer/VBoxContainer" instance=ExtResource("2_jl7ak")]
+layout_mode = 2

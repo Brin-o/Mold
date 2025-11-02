@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://dois0ocshul16"]
+
+[ext_resource type="Script" uid="uid://cwwovciohl3ox" path="res://Scripts/icon.gd" id="1_tf23r"]
+[ext_resource type="Texture2D" uid="uid://dlqqxf7ltwooj" path="res://Sprites/signal.png" id="2_tf23r"]
+[ext_resource type="Theme" uid="uid://dggnc44ywb5kn" path="res://myOStheme.tres" id="3_p8k0q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4edt4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7dxum"]
+bg_color = Color(0.482353, 0.501961, 0.866667, 0.729412)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.317647, 0.541176, 0.956863, 1)
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="msn" type="Button"]
+custom_minimum_size = Vector2(64, 64)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1536.0
+offset_bottom = -1136.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"Icon"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4edt4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7dxum")
+script = ExtResource("1_tf23r")
+icon_type = 4
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 14.5
+offset_top = 3.0
+offset_right = 46.5
+offset_bottom = 35.0
+texture = ExtResource("2_tf23r")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 2.5
+offset_top = 34.0
+offset_right = 62.5
+offset_bottom = 63.0
+theme = ExtResource("3_p8k0q")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -2
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 3
+text = "WeaveTalk®"
+horizontal_alignment = 1
+
+[connection signal="button_up" from="." to="." method="_on_button_up"]

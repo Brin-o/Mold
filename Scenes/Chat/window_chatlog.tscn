@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://gu0jw156uhsw"]
+
+[ext_resource type="Script" uid="uid://lhte85pynwcv" path="res://window_parent.gd" id="1_25o4v"]
+[ext_resource type="PackedScene" uid="uid://bhlf3cc2pe73e" path="res://Scenes/window_title.tscn" id="2_gn8mj"]
+[ext_resource type="PackedScene" uid="uid://b5gna1lh1b8h1" path="res://Scenes/Chat/window_messenger.tscn" id="3_emv0j"]
+[ext_resource type="Texture2D" uid="uid://bfjgume4y7tnj" path="res://Sprites/diagonal_pattern.png" id="3_hnoi5"]
+
+[node name="Chatlog" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = -641.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_25o4v")
+
+[node name="Titlebar" parent="." instance=ExtResource("2_gn8mj")]
+layout_mode = 0
+offset_left = -0.5
+offset_top = 1.0
+offset_right = 199.5
+offset_bottom = 19.0
+
+[node name="Title" parent="Titlebar" index="1"]
+text = "[WT] KAMILA_98"
+
+[node name="Shadow" type="Control" parent="."]
+show_behind_parent = true
+z_index = -1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Shadow"]
+modulate = Color(0.00351917, 0.00351917, 0.00351917, 1)
+layout_mode = 0
+offset_left = -5.0
+offset_top = 15.0
+offset_right = 318.0
+offset_bottom = 499.0
+texture = ExtResource("3_hnoi5")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="Shadow"]
+modulate = Color(0.00351917, 0.00351917, 0.00351917, 1)
+layout_mode = 0
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 247.0
+offset_bottom = 25.0
+texture = ExtResource("3_hnoi5")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Chat" parent="." instance=ExtResource("3_emv0j")]
+layout_mode = 0
+offset_top = 20.0
+offset_bottom = 494.0
+
+[editable path="Titlebar"]
