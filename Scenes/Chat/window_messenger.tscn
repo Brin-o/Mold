@@ -5,9 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://ck43j05056ff0" path="res://Sprites/window_border_outer_slim.png" id="4_pvgwq"]
 [ext_resource type="Script" uid="uid://ceoyim676rplw" path="res://Scripts/chat_container.gd" id="4_ydtst"]
 [ext_resource type="Texture2D" uid="uid://ddxi4ndpaj8xc" path="res://Sprites/froggy.png" id="7_pvgwq"]
-[ext_resource type="FontFile" uid="uid://b44i0myqd2ptc" path="res://m6x11plus.ttf" id="8_44uvd"]
+[ext_resource type="FontFile" uid="uid://b44i0myqd2ptc" path="res://Fonts/m6x11plus.ttf" id="8_44uvd"]
 [ext_resource type="Texture2D" uid="uid://borln4l8g6uof" path="res://icon.svg" id="8_hj600"]
-[ext_resource type="FontFile" uid="uid://cbk5wc5cm0ybu" path="res://monogram-extended-italic.ttf" id="9_yrfma"]
+[ext_resource type="FontFile" uid="uid://cbk5wc5cm0ybu" path="res://Fonts/monogram-extended-italic.ttf" id="9_yrfma"]
 
 [node name="Chat" type="ColorRect"]
 offset_top = 11.0
