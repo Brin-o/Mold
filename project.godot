@@ -28,6 +28,7 @@ window/stretch/scale_mode="integer"
 window_manager="a group to call the window manager"
 transcoder=""
 log=""
+date_time=""
 
 [input]
 
