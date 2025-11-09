@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dl7u1gj7xawq2"]
+[gd_scene load_steps=16 format=3 uid="uid://dl7u1gj7xawq2"]
 
 [ext_resource type="Texture2D" uid="uid://d0bvppvbuguqk" path="res://Sprites/Wallpapers/128.png" id="1_gxmxl"]
 [ext_resource type="Script" uid="uid://66yaun8bbg7" path="res://Scripts/top_bar.gd" id="2_c6xj6"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://8aua683p265y" path="res://Scenes/icon_decoder.tscn" id="7_d4o4o"]
 [ext_resource type="PackedScene" uid="uid://cb2g22pam50a8" path="res://Scenes/icon_log.tscn" id="8_gdsc3"]
 [ext_resource type="PackedScene" uid="uid://dois0ocshul16" path="res://Scenes/icon_msn.tscn" id="10_yyih5"]
+[ext_resource type="PackedScene" uid="uid://bw4yyqkj562ko" path="res://Scenes/icon_form.tscn" id="13_qjyg3"]
 [ext_resource type="PackedScene" uid="uid://povan1vb175h" path="res://Scenes/window_form.tscn" id="14_yyih5"]
 
 [node name="Control" type="Control"]
@@ -160,6 +161,9 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="log" parent="Desktop" instance=ExtResource("8_gdsc3")]
+layout_mode = 2
+
+[node name="msn2" parent="Desktop" instance=ExtResource("13_qjyg3")]
 layout_mode = 2
 
 [node name="ManagerWindows" type="Control" parent="." groups=["window_manager"]]

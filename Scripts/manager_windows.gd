@@ -7,6 +7,7 @@ var decoder_window = load("res://Scenes/window_decoder.tscn")
 var chatlog_window = load("res://Scenes/Chat/window_chatlog.tscn")
 var msn_window = load("res://Scenes/Chat/window_msn.tscn")
 var log_window = load("res://Scenes/window_log.tscn")
+var form_window = load("res://Scenes/window_form.tscn")
 @onready var tBar : tBar = $"../TopBar"
 
 func _ready():
@@ -114,4 +115,15 @@ func open_or_focus_msn():
 		tBar.populate_windows()
 	move_window_to_top(msn_w)
 	msn_w.center_to_screen()
+	pass
+
+func open_or_focus_form():
+	var form_w = get_node_or_null("WindowForm")
+	if(form_w == null):
+		form_w = form_window.instantiate()
+		add_child(form_w)
+		gather_click_singals()
+		tBar.populate_windows()
+	move_window_to_top(form_w)
+	form_w.center_to_screen()
 	pass
