@@ -104,6 +104,7 @@ offset_right = 420.0
 offset_bottom = 1.0
 
 [node name="Pages" type="Control" parent="Form"]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0

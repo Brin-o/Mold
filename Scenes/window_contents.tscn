@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dsw6bnsescj30"]
+[gd_scene load_steps=6 format=3 uid="uid://dsw6bnsescj30"]
 
 [ext_resource type="Theme" uid="uid://dggnc44ywb5kn" path="res://myOStheme.tres" id="1_7hr7s"]
 [ext_resource type="Script" uid="uid://4lgtxb88n2kw" path="res://Scripts/window_contents.gd" id="2_uvdp6"]
 [ext_resource type="Texture2D" uid="uid://cqjuj1yq6dtil" path="res://Sprites/window_border_outer.png" id="3_tkuyg"]
+[ext_resource type="Texture2D" uid="uid://ck43j05056ff0" path="res://Sprites/window_border_outer_slim.png" id="4_uvdp6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gs3ir"]
 content_margin_left = 10.0
@@ -11,9 +12,10 @@ content_margin_right = 10.0
 content_margin_bottom = 10.0
 
 [node name="Window Contents" type="RichTextLabel"]
-offset_top = 19.0
-offset_right = 420.0
-offset_bottom = 284.0
+offset_left = 29.0
+offset_top = 2.0
+offset_right = 449.0
+offset_bottom = 267.0
 theme = ExtResource("1_7hr7s")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_gs3ir")
@@ -58,3 +60,45 @@ metadata/_edit_lock_ = true
 layout_mode = 0
 offset_right = 420.0
 offset_bottom = 1.0
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 298.0
+offset_top = 11.0
+offset_right = -12.0
+offset_bottom = -230.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_uvdp6")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="ColorRect" type="ColorRect" parent="NinePatchRect2"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.7792914, 0.7792914, 0.7792913, 1)
+
+[node name="Label" type="Label" parent="NinePatchRect2/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_7hr7s")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "READ-ONLY MODE"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://3awu5twdedws"]
+
+[ext_resource type="Theme" uid="uid://dggnc44ywb5kn" path="res://myOStheme.tres" id="1_bhky3"]
+[ext_resource type="Script" uid="uid://bn0twp7puhbmp" path="res://Scripts/stylebox_disable.gd" id="2_8g1r5"]
+
+[node name="SpinBox" type="SpinBox"]
+offset_left = 26.0
+offset_top = 32.0
+offset_right = 91.0
+offset_bottom = 53.0
+theme = ExtResource("1_bhky3")
+max_value = 1.0
+step = 0.05
+alignment = 2
+editable = false
+script = ExtResource("2_8g1r5")
+ui_theme = ExtResource("1_bhky3")
