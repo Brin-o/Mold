@@ -5,7 +5,8 @@ class_name window_parent extends Control
 
 signal click (sending_window)
 var canMove : bool
-#var window_name = "GenericWindow"
+#var window_name = "GenericWindow@
+
 
 
 func _ready():
@@ -112,6 +113,9 @@ func _update_shadow_base_size() -> void:
 	base.size = new_size
 
 
+
+	
+
 func _paging_value_changed(value: float) -> void:
 	var log : decoded_log = get_tree().get_first_node_in_group("log")
 	if(log == null): 
@@ -140,3 +144,7 @@ func _get_inner_contents_control() -> Control:
 				stack.push_back(child)
 	# Fallback to the root contents control
 	return root
+
+
+func _on_movement_toggled(toggled_on: bool) -> void:
+	pass # Replace with function body.

@@ -2,44 +2,43 @@ class_name Transcoder extends Control
 
 
 var humidity = false
+var humidity_value = 4.8
 var movement = false
 var movement_set = ""
 @onready var error_label = $ErrorOutput/Margin/RichTextLabel
+
 
 func _ready():
 	pass
 
 func _on_button_button_down() -> void:
-	if movement != false:
+	var humidity_output = -99
+	if $Humidity/CheckBox.button_pressed:
+		humidity_output = humidity_value
+	var movement_output = "DISABLED"
+	movement_set = ""
+	if $Movement/CheckBox.button_pressed:
 		var options := $Movement/Options
-		movement_set = ""
 		for opt in options.get_children():
 			movement_set += opt.text
-		print(movement_set)
-	#print($Movement/Options/OptionButton.text)
-	
+		movement_output = movement_set
+		#print(movement_set)
 	var log : decoded_log = get_tree().get_first_node_in_group("log")
 	if(log == null): print("cant find log!"); return
 	else: 
-		log.transcode(humidity)
-	#transcode.emit(humidity)
+		set_paging_inputs(false)
+		log.transcode(humidity_output, movement_output)
+
 
 
 func _humidity_changed(value: float) -> void:
-	humidity = value
+	humidity_value = value
 
 
 func _humidity_toggled(toggled_on: bool) -> void:
 	humidity = false
 	$Humidity/SpinBox.editable = toggled_on
 
-# I put this in the parent
-#func _on_spin_box_value_changed(value: float) -> void:
-	#var log : decoded_log = get_tree().get_first_node_in_group("log")
-	#if(log == null): 
-		#print("cant find log!")
-		#return
-	#log.set_page(value, $Paging/SpinBox)
 func display_error(message):
 	error_label.text = message
 	pass
@@ -47,7 +46,13 @@ func display_error(message):
 
 
 
-func _on_check_box_toggled(toggled_on: bool) -> void:
+func set_paging_inputs(toggle := true):
+	print("Setting transcoder input to ", toggle)
+	$Paging/SpinBox.editable = toggle
+	$Button.disabled = !toggle
+
+
+func _on_movement_toggled(toggled_on: bool) -> void:
 	movement = toggled_on
 	var options := $Movement/Options
 	for opt in options.get_children():
