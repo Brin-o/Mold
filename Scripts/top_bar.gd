@@ -41,5 +41,5 @@ func _populate_pill_connections():
 func minimize_or_restore_window(btnSender:wButton):
 	#print("test")
 	#print("coming from ", btnSender)
-	wContainer.minimize_or_restore_window(btnSender.assingedWindow)
+	wContainer.minimize_restore_or_focus_window(btnSender.assingedWindow)
 	pass

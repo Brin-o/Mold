@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://8aua683p265y" path="res://Scenes/icon_decoder.tscn" id="7_d4o4o"]
 [ext_resource type="PackedScene" uid="uid://cb2g22pam50a8" path="res://Scenes/icon_log.tscn" id="8_gdsc3"]
 [ext_resource type="PackedScene" uid="uid://dois0ocshul16" path="res://Scenes/icon_msn.tscn" id="10_yyih5"]
-[ext_resource type="PackedScene" path="res://Scenes/icon_form.tscn" id="13_qjyg3"]
+[ext_resource type="PackedScene" uid="uid://bw4yyqkj562ko" path="res://Scenes/icon_form.tscn" id="13_qjyg3"]
 [ext_resource type="PackedScene" uid="uid://povan1vb175h" path="res://Scenes/window_form.tscn" id="14_yyih5"]
 
 [node name="Control" type="Control"]

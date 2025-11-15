@@ -37,7 +37,9 @@ func _on_close_button_up() -> void:
 
 
 func _on_minimize_button_up() -> void:
-	whole_window.visible = false
+	var wm : ManagerWindows = get_tree().get_first_node_in_group("window_manager")
+	wm.minimize_window(whole_window)
+	#whole_window.visible = false
 
 
 func _on_mouse_entered() -> void:

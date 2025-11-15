@@ -14,12 +14,16 @@ func highlight():
 	set_pill_name()
 	var new_stylebox_normal = get_theme_stylebox("normal").duplicate()
 	new_stylebox_normal.set("bg_color", Color.BLACK)
+	add_theme_color_override("font_color", Color.WHITE_SMOKE)
+	print(new_stylebox_normal)
 	add_theme_stylebox_override("normal", new_stylebox_normal)
 	pass
 	
 func clear_highlight():
 	set_pill_name()
+	print("Removing highlight on ", text)
 	remove_theme_stylebox_override("normal")
+	remove_theme_color_override("font_color")
 	pass
 	
 func set_pill_name():

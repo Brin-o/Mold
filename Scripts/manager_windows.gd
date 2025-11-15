@@ -9,6 +9,7 @@ var msn_window = load("res://Scenes/Chat/window_msn.tscn")
 var log_window = load("res://Scenes/window_log.tscn")
 var form_window = load("res://Scenes/window_form.tscn")
 @onready var tBar : tBar = $"../TopBar"
+var top_window
 
 func _ready():
 	gather_click_singals()
@@ -22,12 +23,20 @@ func move_window_to_top(window):
 			#TOP WINDOW
 			get_child(i).get_node("Shadow").visible = true
 			get_child(i).get_node("Titlebar").assignedPill.highlight()
+			top_window = window
 		else:
 			#NON TOP WINDOW
 			get_child(i).get_node("Titlebar").assignedPill.clear_highlight()
 			get_child(i).get_node("Shadow").visible = false
 	pass
 
+func clear_top_window():
+	top_window = null
+	for i in get_child_count():
+		get_child(i).z_index = i*2
+		get_child(i)
+		get_child(i).get_node("Titlebar").assignedPill.clear_highlight()
+		get_child(i).get_node("Shadow").visible = false
 
 func gather_click_singals():
 	for w in get_children():
@@ -48,6 +57,7 @@ func restore_window(window : Control):
 	
 func minimize_window(window:Control):
 	window.visible=false
+	clear_top_window()
 	pass
 	
 func create_new_folder_window(folder_path):
@@ -126,4 +136,14 @@ func open_or_focus_form():
 		tBar.populate_windows()
 	move_window_to_top(form_w)
 	form_w.center_to_screen()
+	pass
+
+func minimize_restore_or_focus_window(window):
+	if(window == top_window):
+		minimize_window(window)
+	elif window.visible == true:
+		move_window_to_top(window)
+	else: #not visible not in focus
+		restore_window(window)
+		move_window_to_top(window)
 	pass
