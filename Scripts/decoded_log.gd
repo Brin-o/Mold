@@ -238,6 +238,10 @@ func display_page(page, decoded := false):
 		rtl.text = section0
 		error_output("USE PG TO CHANGE PAGE")
 	else:
+		var _pager = "p" + str(page)
+		print("_pager is ", _pager)
+		decoded = decoded_dictonary[_pager]
+		
 		cancel_display = false
 		var currentPageCoded = get("section"+str(page)+"coded")
 		#print(currentPageCoded)
@@ -246,15 +250,12 @@ func display_page(page, decoded := false):
 		#var combined_string = String("\n").join(currentPageCoded)
 		for l in currentPageCoded:
 			rtl.text += l +"\n"
-			await get_tree().create_timer(0.1).timeout
+			if(!decoded):
+				await get_tree().create_timer(0.1).timeout
 			if cancel_display: return
-			pass
-		#text = combined_string
-		var _pager = "p" + str(page)
-		print("_pager is ", _pager)
-		decoded = decoded_dictonary[_pager]
+			pass		
 		if(decoded):
-			decode_whole_section(currentPageCoded, currentPageDecoded)
+			decode_whole_section(currentPageCoded, currentPageDecoded, false)
 
 	pass
 	
