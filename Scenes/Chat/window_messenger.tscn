@@ -1,18 +1,19 @@
-[gd_scene load_steps=9 format=3 uid="uid://b5gna1lh1b8h1"]
+[gd_scene load_steps=10 format=3 uid="uid://b5gna1lh1b8h1"]
 
 [ext_resource type="Theme" uid="uid://dggnc44ywb5kn" path="res://myOStheme.tres" id="1_et1dk"]
 [ext_resource type="Texture2D" uid="uid://cqjuj1yq6dtil" path="res://Sprites/window_border_outer.png" id="3_o21by"]
 [ext_resource type="Texture2D" uid="uid://ck43j05056ff0" path="res://Sprites/window_border_outer_slim.png" id="4_pvgwq"]
 [ext_resource type="Script" uid="uid://ceoyim676rplw" path="res://Scripts/chat_container.gd" id="4_ydtst"]
 [ext_resource type="Texture2D" uid="uid://ddxi4ndpaj8xc" path="res://Sprites/froggy.png" id="7_pvgwq"]
-[ext_resource type="FontFile" uid="uid://b44i0myqd2ptc" path="res://Fonts/m6x11plus.ttf" id="8_44uvd"]
+[ext_resource type="FontFile" uid="uid://b44i0myqd2ptc" path="res://m6x11plus.ttf" id="8_44uvd"]
 [ext_resource type="Texture2D" uid="uid://borln4l8g6uof" path="res://icon.svg" id="8_hj600"]
-[ext_resource type="FontFile" uid="uid://cbk5wc5cm0ybu" path="res://Fonts/monogram-extended-italic.ttf" id="9_yrfma"]
+[ext_resource type="FontFile" uid="uid://w8oys766o3vy" path="res://HeartbitXX2Px.ttf" id="9_wuvfg"]
+[ext_resource type="FontFile" uid="uid://cbk5wc5cm0ybu" path="res://monogram-extended-italic.ttf" id="9_yrfma"]
 
 [node name="Chat" type="ColorRect"]
 offset_top = 11.0
 offset_right = 312.0
-offset_bottom = 485.0
+offset_bottom = 493.0
 theme = ExtResource("1_et1dk")
 color = Color(0.92941177, 0.92941177, 0.92941177, 1)
 script = ExtResource("4_ydtst")
@@ -107,6 +108,7 @@ offset_right = 301.0
 offset_bottom = 436.0
 theme = ExtResource("1_et1dk")
 placeholder_text = "Write a message here..."
+editable = false
 wrap_mode = 1
 
 [node name="NinePatchRect" type="NinePatchRect" parent="TextEdit"]
@@ -131,7 +133,7 @@ layout_mode = 0
 offset_left = 255.0
 offset_top = 440.0
 offset_right = 300.0
-offset_bottom = 461.0
+offset_bottom = 469.0
 disabled = true
 text = "SEND"
 
@@ -238,3 +240,17 @@ offset_bottom = 52.0
 theme_override_fonts/font = ExtResource("9_yrfma")
 theme_override_font_sizes/font_size = 16
 text = "OFFLINE (last online 2 years ago)"
+
+[node name="Status" type="Label" parent="."]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 440.0
+offset_right = 255.0
+offset_bottom = 461.0
+theme = ExtResource("1_et1dk")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_wuvfg")
+theme_override_font_sizes/font_size = 16
+text = "Can not reach W_TALK.
+Reconnecting in 5"
+vertical_alignment = 1

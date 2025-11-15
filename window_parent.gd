@@ -58,9 +58,14 @@ func _input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		var top :Control= get_viewport().gui_get_hovered_control()
 		#print(top.get_parent_control())
-		if top == self or top.is_ancestor_of(self) or self.is_ancestor_of(top):
+	# Null-safe ancestor checks
+		var top_is_self := (top == self)
+		var top_is_ancestor := is_instance_valid(top) and top.is_ancestor_of(self)
+		var self_is_ancestor := is_instance_valid(top) and self.is_ancestor_of(top)
+
+		if top_is_self or top_is_ancestor or self_is_ancestor:
 			click.emit(self)
-			#emit_signal("click")
+
 
 
 func set_titlebar_label(label_text):

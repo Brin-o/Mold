@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bxb4qkrn3gtjc" path="res://Scripts/window_titlebar.gd" id="1_0xhjo"]
 [ext_resource type="Theme" uid="uid://dggnc44ywb5kn" path="res://myOStheme.tres" id="2_0slyu"]
 [ext_resource type="Texture2D" uid="uid://ck43j05056ff0" path="res://Sprites/window_border_outer_slim.png" id="2_ec1xs"]
-[ext_resource type="FontFile" uid="uid://xohm45b7njn7" path="res://Fonts/monogram-extended.ttf" id="3_0slyu"]
+[ext_resource type="FontFile" uid="uid://xohm45b7njn7" path="res://monogram-extended.ttf" id="3_0slyu"]
 [ext_resource type="StyleBox" uid="uid://c4v67pvjcdvrd" path="res://GUI Skin/button_style_normal.tres" id="4_gs3ir"]
 
 [node name="Titlebar" type="ColorRect"]
@@ -11,6 +11,7 @@ offset_left = 205.0
 offset_top = 280.0
 offset_right = 405.0
 offset_bottom = 298.0
+mouse_default_cursor_shape = 16
 script = ExtResource("1_0xhjo")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]

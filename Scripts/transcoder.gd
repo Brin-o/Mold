@@ -24,7 +24,10 @@ func _on_button_button_down() -> void:
 		movement_output = movement_set
 		#print(movement_set)
 	var log : decoded_log = get_tree().get_first_node_in_group("log")
-	if(log == null): print("cant find log!"); return
+	if(log == null):
+		display_error("No LOG to decode!") #why does this not work :(
+		print("cant find log!")
+		return
 	else: 
 		set_paging_inputs(false)
 		log.transcode(humidity_output, movement_output)

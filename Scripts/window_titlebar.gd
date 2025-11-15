@@ -50,6 +50,8 @@ func _on_mouse_exited() -> void:
 	
 func set_titlebar_label(label_text = "none"):
 	$Title.text = label_text
+	if(assignedPill != null):
+		assignedPill.set_pill_name()
 
 
 	

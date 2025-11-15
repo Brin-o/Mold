@@ -41,7 +41,7 @@ layout_mode = 0
 offset_left = -5.0
 offset_top = 15.0
 offset_right = 318.0
-offset_bottom = 499.0
+offset_bottom = 503.0
 texture = ExtResource("3_hnoi5")
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
@@ -60,6 +60,6 @@ axis_stretch_vertical = 1
 [node name="Chat" parent="." instance=ExtResource("3_emv0j")]
 layout_mode = 0
 offset_top = 20.0
-offset_bottom = 494.0
+offset_bottom = 499.0
 
 [editable path="Titlebar"]
