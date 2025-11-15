@@ -24,6 +24,7 @@ func clear_highlight():
 	print("Removing highlight on ", text)
 	remove_theme_stylebox_override("normal")
 	remove_theme_color_override("font_color")
+	release_focus()
 	pass
 	
 func set_pill_name():
