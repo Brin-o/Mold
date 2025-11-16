@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dl7u1gj7xawq2"]
+[gd_scene load_steps=21 format=3 uid="uid://dl7u1gj7xawq2"]
 
 [ext_resource type="Script" uid="uid://csu1peewerxb2" path="res://Scripts/main_tool.gd" id="1_bvhbk"]
 [ext_resource type="Texture2D" uid="uid://d0bvppvbuguqk" path="res://Sprites/Wallpapers/128.png" id="1_gxmxl"]
@@ -19,6 +19,14 @@
 [ext_resource type="PackedScene" uid="uid://cb2g22pam50a8" path="res://Scenes/icon_log.tscn" id="8_gdsc3"]
 [ext_resource type="PackedScene" uid="uid://dois0ocshul16" path="res://Scenes/icon_msn.tscn" id="10_yyih5"]
 [ext_resource type="PackedScene" uid="uid://bw4yyqkj562ko" path="res://Scenes/icon_form.tscn" id="13_qjyg3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bvhbk"]
+bg_color = Color(0.8, 0.8, 0.8, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.14509805, 0.14509805, 0.14509805, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -53,7 +61,6 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.067
 anchor_bottom = 0.044000003
-offset_left = 25.0
 offset_right = 24.699951
 offset_bottom = 1.2399979
 color = Color(0.925734, 0.925734, 0.925734, 1)
@@ -61,7 +68,8 @@ script = ExtResource("2_c6xj6")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TopBar"]
 layout_mode = 0
-offset_right = 783.0
+offset_left = 25.0
+offset_right = 806.0
 offset_bottom = 25.0
 vertical_scroll_mode = 0
 
@@ -120,9 +128,9 @@ stretch_mode = 4
 
 [node name="ColorRect" type="ColorRect" parent="TopBar"]
 layout_mode = 0
-offset_left = 784.0
+offset_left = 808.0
 offset_top = 1.0
-offset_right = 959.0928
+offset_right = 983.0928
 offset_bottom = 24.0
 color = Color(0.14406255, 0.14406255, 0.14406255, 1)
 
@@ -165,27 +173,37 @@ time_scale = 45.0
 
 [node name="iMenu" type="MenuButton" parent="."]
 layout_mode = 0
-offset_right = 25.0
-offset_bottom = 25.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 24.0
+offset_bottom = 24.0
 theme = ExtResource("4_yhmtn")
 theme_override_icons/icon = ExtResource("5_qjyg3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bvhbk")
 text = "
 "
 icon = ExtResource("5_qjyg3")
 flat = false
 icon_alignment = 1
 switch_on_hover = true
-item_count = 4
-popup/item_0/text = "WeaveTalk"
+item_count = 7
+popup/item_0/text = "WV-ID: 28062502-1"
 popup/item_0/id = 0
 popup/item_0/disabled = true
-popup/item_1/text = "settings"
+popup/item_1/text = "ACTIONS"
 popup/item_1/id = 3
 popup/item_1/separator = true
-popup/item_2/text = "Desktop "
+popup/item_2/text = "Close all windows"
 popup/item_2/id = 1
-popup/item_3/text = "WeaveWizard"
+popup/item_3/text = "Min. all windows"
 popup/item_3/id = 2
+popup/item_4/text = "SETTINGS"
+popup/item_4/id = 4
+popup/item_4/separator = true
+popup/item_5/text = "Wallpaper"
+popup/item_5/id = 5
+popup/item_6/text = "Weave® Wizard"
+popup/item_6/id = 6
 script = ExtResource("8_elkpi")
 
 [node name="Desktop" type="GridContainer" parent="."]

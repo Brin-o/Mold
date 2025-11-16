@@ -1,13 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://bqwtursr4vpra"]
+[gd_scene load_steps=9 format=3 uid="uid://bqwtursr4vpra"]
 
 [ext_resource type="Theme" uid="uid://dggnc44ywb5kn" path="res://myOStheme.tres" id="1_w48um"]
-[ext_resource type="Script" uid="uid://4lgtxb88n2kw" path="res://Scripts/window_contents.gd" id="2_jpcu3"]
+[ext_resource type="Script" uid="uid://c8bqnv84oaw83" path="res://Scripts/msn.gd" id="2_4c0qv"]
 [ext_resource type="Texture2D" uid="uid://cqjuj1yq6dtil" path="res://Sprites/window_border_outer.png" id="3_wb726"]
 [ext_resource type="Texture2D" uid="uid://dd5wo738wqfi1" path="res://Sprites/msn_bg.png" id="4_vwgg7"]
 [ext_resource type="Texture2D" uid="uid://ddxi4ndpaj8xc" path="res://Sprites/froggy.png" id="5_c2e5g"]
 [ext_resource type="Texture2D" uid="uid://cc18exjf7ucg" path="res://Sprites/network-error.png" id="6_ccj87"]
-[ext_resource type="FontFile" uid="uid://xohm45b7njn7" path="res://Fonts/monogram-extended.ttf" id="7_1h8sv"]
-[ext_resource type="Script" uid="uid://1ovow2y1rj46" path="res://Scripts/chat_open_button.gd" id="8_yo0vc"]
+[ext_resource type="FontFile" uid="uid://xohm45b7njn7" path="res://monogram-extended.ttf" id="7_1h8sv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gs3ir"]
 content_margin_left = 10.0
@@ -23,7 +22,7 @@ theme = ExtResource("1_w48um")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_gs3ir")
 bbcode_enabled = true
-script = ExtResource("2_jpcu3")
+script = ExtResource("2_4c0qv")
 
 [node name="BG" type="ColorRect" parent="."]
 show_behind_parent = true
@@ -239,19 +238,4 @@ layout_mode = 0
 offset_left = 12.0
 offset_top = 74.0
 offset_right = 201.0
-offset_bottom = 208.0
-
-[node name="ChatOpenButton" type="Control" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-script = ExtResource("8_yo0vc")
-
-[node name="Button" type="Button" parent="VBoxContainer/ChatOpenButton"]
-layout_mode = 0
-offset_right = 189.0
-offset_bottom = 21.0
-theme_override_fonts/font = ExtResource("7_1h8sv")
-theme_override_font_sizes/font_size = 16
-text = "TARA"
-
-[connection signal="button_up" from="VBoxContainer/ChatOpenButton/Button" to="VBoxContainer/ChatOpenButton" method="_on_button_button_up"]
+offset_bottom = 268.0

@@ -56,8 +56,9 @@ func get_seen_flag(key: String) -> bool:
 func load_chat(path):
 	var file = FileAccess.open(path, FileAccess.READ)
 	chat_name = path.get_file().get_basename()
+	$ContactStatus/Name.text = chat_name
 	set_chat_window_name(chat_name)
-	loaded = get_seen_flag(name)
+	loaded = get_seen_flag(chat_name)
 	var content = file.get_as_text()
 	texts = content.split("\n")
 	scrollPos = -size.y
@@ -82,7 +83,7 @@ func load_chat(path):
 
 
 	$TextEdit.editable = true
-	set_chat_seen_flag(name, true)
+	set_chat_seen_flag(chat_name, true)
 	pass
 	
 func set_pfp(name: String) -> void:
@@ -96,18 +97,15 @@ func set_pfp(name: String) -> void:
 		if ResourceLoader.exists(try_path):
 			pfp_path = try_path
 			break
-
 	# If no file found → error
 	if pfp_path == "":
 		printerr("PFP ERROR: No profile picture found for '" + name + "' in res://PFPs/")
 		return
-
 	# Load the texture (export-safe)
 	var texture := load(pfp_path)
 	if texture == null:
 		printerr("PFP ERROR: Failed to load texture at: " + pfp_path)
 		return
-
 	# Assign the texture
 	$ContactStatus/PFP/Icon.texture = texture
 	

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3c0ywngd0gad"]
+
+[ext_resource type="FontFile" uid="uid://xohm45b7njn7" path="res://monogram-extended.ttf" id="1_yi6i1"]
+[ext_resource type="Script" uid="uid://1ovow2y1rj46" path="res://Scripts/chat_open_button.gd" id="2_o825g"]
+
+[node name="OpenChatButton" type="Button"]
+theme_override_fonts/font = ExtResource("1_yi6i1")
+theme_override_font_sizes/font_size = 16
+text = "TARA"
+script = ExtResource("2_o825g")
+
+[connection signal="button_up" from="." to="." method="_on_button_up"]

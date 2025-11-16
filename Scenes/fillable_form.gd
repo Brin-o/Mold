@@ -26,6 +26,7 @@ func set_active_page():
 	var page = $Pages.get_node(str(display_page))
 	page.reparent($ScrollContainer)
 	page.visible = true
+	$ScrollContainer.scroll_vertical = 0
 	pass
 	
 

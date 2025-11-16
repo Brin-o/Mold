@@ -62,6 +62,7 @@ offset_right = 420.0
 offset_bottom = 1.0
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="."]
+visible = false
 z_index = 1
 layout_mode = 1
 anchors_preset = 15
