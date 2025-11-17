@@ -61,7 +61,7 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.067
 anchor_bottom = 0.044000003
-offset_right = 24.699951
+offset_right = -0.30004883
 offset_bottom = 1.2399979
 color = Color(0.925734, 0.925734, 0.925734, 1)
 script = ExtResource("2_c6xj6")
@@ -69,7 +69,7 @@ script = ExtResource("2_c6xj6")
 [node name="ScrollContainer" type="ScrollContainer" parent="TopBar"]
 layout_mode = 0
 offset_left = 25.0
-offset_right = 806.0
+offset_right = 781.0
 offset_bottom = 25.0
 vertical_scroll_mode = 0
 
@@ -128,9 +128,9 @@ stretch_mode = 4
 
 [node name="ColorRect" type="ColorRect" parent="TopBar"]
 layout_mode = 0
-offset_left = 808.0
+offset_left = 783.0
 offset_top = 1.0
-offset_right = 983.0928
+offset_right = 958.0928
 offset_bottom = 24.0
 color = Color(0.14406255, 0.14406255, 0.14406255, 1)
 
@@ -169,7 +169,7 @@ text = "12:30 - 31.10.2025"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("5_gwjdr")
-time_scale = 45.0
+time_scale = 10.0
 
 [node name="iMenu" type="MenuButton" parent="."]
 layout_mode = 0
@@ -209,9 +209,9 @@ script = ExtResource("8_elkpi")
 [node name="Desktop" type="GridContainer" parent="."]
 layout_direction = 3
 layout_mode = 0
-offset_left = -78.0
+offset_left = -30.0
 offset_top = 35.0
-offset_right = 150.0
+offset_right = 198.0
 offset_bottom = 430.0
 columns = 2
 script = ExtResource("6_gxmxl")
