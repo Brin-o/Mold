@@ -78,7 +78,7 @@ func load_chat(path):
 		dot_count = (dot_count + 1) % 4  # cycles 0..3
 		$Status.text = "Chat loading" + ".".repeat(dot_count)
 		if(!loaded):
-			await get_tree().create_timer(0.5).timeout
+			await get_tree().create_timer(3).timeout
 	$Status.text = "Can not reach [WT] ORB!"
 
 

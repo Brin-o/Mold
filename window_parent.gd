@@ -5,6 +5,7 @@ class_name window_parent extends Control
 
 signal click (sending_window)
 var canMove : bool
+
 #var window_name = "GenericWindow@
 
 
@@ -122,7 +123,7 @@ func _update_shadow_base_size() -> void:
 	
 
 func _paging_value_changed(value: float) -> void:
-	var log : decoded_log = get_tree().get_first_node_in_group("log")
+	var log = get_tree().get_first_node_in_group("log")
 	if(log == null): 
 		print("cant find log!")
 		return

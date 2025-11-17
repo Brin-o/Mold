@@ -6,9 +6,13 @@ var humidity_value = 4.8
 var movement = false
 var movement_set = ""
 @onready var error_label = $ErrorOutput/Margin/RichTextLabel
+var log : decoded_log
+var log_connected = true
+var _current_error_anim_id : int = 0
 
 
 func _ready():
+	check_for_active_log(true)
 	pass
 
 func _on_button_button_down() -> void:
@@ -23,7 +27,7 @@ func _on_button_button_down() -> void:
 			movement_set += opt.text
 		movement_output = movement_set
 		#print(movement_set)
-	var log : decoded_log = get_tree().get_first_node_in_group("log")
+	log  = get_tree().get_first_node_in_group("log")
 	if(log == null):
 		display_error("No LOG to decode!") #why does this not work :(
 		print("cant find log!")
@@ -42,9 +46,43 @@ func _humidity_toggled(toggled_on: bool) -> void:
 	humidity = false
 	$Humidity/SpinBox.editable = toggled_on
 
-func display_error(message):
-	error_label.text = message
+func _safe_wait(time: float, id: int) -> void:
+	var timer := get_tree().create_timer(time)
+	await timer.timeout
+	if id != _current_error_anim_id:
+		# Animation was cancelled; stop coroutine here
+		return
+
+func display_error(message: String) -> void:
+	# Increment animation ID — this cancels the previous one
+	_current_error_anim_id += 1  
+	var my_id = _current_error_anim_id
+	var label = error_label
+	# Start animation
+	label.text = "..."
+	# Each "await" checks if animation is still valid
+	await _safe_wait(0.1, my_id)
+	label.text = ".."
+	await _safe_wait(0.1, my_id)
+	label.text = "."
+	await _safe_wait(0.1, my_id)
+	label.text = message
+	await _safe_wait(0.5, my_id)
+	label.text = ""
+	await _safe_wait(0.5, my_id)
+	label.text = message
+	await _safe_wait(0.5, my_id)
+	label.text = ""
+	await _safe_wait(0.5, my_id)
+	label.text = message
+
+
+func blinking_colored_error(message, color):
+	
+	
 	pass
+	
+	
 
 
 
@@ -61,3 +99,64 @@ func _on_movement_toggled(toggled_on: bool) -> void:
 	for opt in options.get_children():
 		opt.disabled = !toggled_on
 	pass # Replace with function body.
+
+func _process(delta: float) -> void:
+	check_for_active_log()
+	pass
+	
+func check_for_active_log(instant = false):
+	log = get_tree().get_first_node_in_group("log")
+	if log != null and !log_connected: 
+		log_connected = true
+		log_connection_sequence(instant)
+	if log == null and log_connected:
+		log_connected = false
+		log_disconnect_sequence(instant)
+	pass
+	
+func log_connection_sequence(instant = false):
+	var wait_time = 0.4
+	enable_element($Paging)
+	$Paging/SpinBox.editable = true
+	if(!instant): await get_tree().create_timer(wait_time).timeout
+	enable_element($Humidity)
+	$Humidity/CheckBox.disabled = false
+	if(!instant): await get_tree().create_timer(wait_time).timeout
+	enable_element($Movement)
+	$Movement/CheckBox.disabled = false
+	if(!instant): await get_tree().create_timer(wait_time).timeout
+	display_error("LOG CONNECTED
+	FUNCTIONS ONLINE")
+	pass
+
+func log_disconnect_sequence(instant = false):
+	var wait_time = 0.4
+	disable_element($Paging)
+	$Paging/SpinBox.editable = false
+	if(!instant): await get_tree().create_timer(wait_time).timeout
+	disable_element($Humidity)
+	$Humidity/CheckBox.disabled = true
+	if(!instant): await get_tree().create_timer(wait_time).timeout
+	disable_element($Movement)
+	$Movement/CheckBox.disabled = true
+	if(!instant): await get_tree().create_timer(wait_time).timeout
+	display_error("NO LOG TO DECODE, OPEN A LOG")
+	pass
+
+
+func disable_element(element : Control):
+	element.modulate = Color(1,1,1,0.2)
+	recursive_mouse_filter_set(element, Control.MOUSE_FILTER_IGNORE)
+	pass
+	
+func recursive_mouse_filter_set(element:Control, mouse_filter):
+	mouse_filter = mouse_filter
+	for c in element.get_children():
+		recursive_mouse_filter_set(c, mouse_filter)
+
+
+
+func enable_element(element : Control):
+	element.modulate = Color(1,1,1)
+	recursive_mouse_filter_set(element, Control.MOUSE_FILTER_STOP)
+	pass

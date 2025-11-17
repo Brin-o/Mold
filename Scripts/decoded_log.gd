@@ -3,14 +3,20 @@ class_name decoded_log extends Control
 @onready var rtl = $ColorRect2/MarginContainer/RichTextLabel
 var decoder_step = 0
 var decoded_dictonary = {"p1" = false, "p2" = false, "p3" = false, "p4" = false, "p5" = false}
+var loaded = false
 
-@export_multiline var section0 = "CONTEXT: Signal recording from a mold colony from the genus Stachybotrys, species S. chartarum, inhabiting the walls of Osmo/Za. Observations began on 02012010. Signals are provided SANS interpretation.
+@export_multiline var section0 = "CONTEXT: Signal recording from a mold colony from the genus Stachybotrys, species S. Chartarum, inhabiting the walls of Osmo/za. Observations began on 02012010. Signals are provided SANS interpretation.
 
-LOCATION: Slovenska cesta 52, 1000 Ljubljana.
+LOCATION: Slovenska cesta 54, 1000 Ljubljana.
+DATE: 23092024 
+"
+@export_multiline var section0blinking = "
+====IMPORTANT!====
+Please use the program DE <-> CODE (version 3 of higher) and use the PAGING, HUMIDITY CHANGE and ODOR DIRECTION values provided in the log to translate the recorded signals of the genus into a human interpretable language.
+=================="
+@export_multiline var section0blinkingNoLines = "
 
-DATE: 23092024
-
->> Connect the log to an TRANSCOFER, version 0.32 or higher to move to next page.
+Please use the program DE <-> CODE (version 3 of higher) and use the PAGING, HUMIDITY CHANGE and ODOR DIRECTION values provided in the log to translate the recorded signals of the genus into a human interpretable language.
 "
 
 @export_multiline var section1coded: Array[String] = [
@@ -224,25 +230,41 @@ func _ready():
 	var combined_string = String("\n").join(section1coded)
 	rtl.text = combined_string
 	display_page(0)
+	loaded = true
 	
 
 
-var cancel_display = false
+var _timer := 0.0
+var _blink_time := 1.0
+var _display_time := 1.0
+var step = "DISPLAY"
 
 func _process(delta: float) -> void:
-	pass
+	if decoder_step == 0 and loaded:
+		_timer+=delta
+		if step == "DISPLAY" and _timer > _display_time:
+			step = "BLINK"
+			_timer = 0.0
+			rtl.text = section0 + section0blinkingNoLines
+		if step == "BLINK" and _timer > _blink_time:
+			step = "DISPLAY"
+			_timer = 0.0
+			rtl.text = section0 + section0blinking
+			
+		pass
+	else:
+		_timer = 0
 	
 func display_page(page, decoded := false):
 	rtl.text=""
 	if page == 0:
-		rtl.text = section0
+		rtl.text = section0 + section0blinking
 		error_output("USE PG TO CHANGE PAGE")
 	else:
 		var _pager = "p" + str(page)
 		print("_pager is ", _pager)
 		decoded = decoded_dictonary[_pager]
 		
-		cancel_display = false
 		var currentPageCoded = get("section"+str(page)+"coded")
 		#print(currentPageCoded)
 		var currentPageDecoded = get("section"+str(page)+"decoded")
@@ -252,7 +274,6 @@ func display_page(page, decoded := false):
 			rtl.text += l +"\n"
 			if(!decoded):
 				await get_tree().create_timer(0.1).timeout
-			if cancel_display: return
 			pass		
 		if(decoded):
 			decode_whole_section(currentPageCoded, currentPageDecoded, false)
@@ -282,19 +303,19 @@ func insert_decoded_msg(target, insert_txt):
 
 
 func set_page(value, spinbox : SpinBox) -> void:
+	loaded = false
 	print("setting page ", value)
 	decoder_step = int(value)
 	spinbox.editable = false
 	rtl.text = "..."
-	error_output("LOADING NEW PAGE.")
+	error_output("LOADING NEW PAGE")
 	await get_tree().create_timer(0.2).timeout
 	rtl.text = ".."
-	error_output("LOADING NEW PAGE..")
 	await get_tree().create_timer(0.2).timeout
 	rtl.text = "."
-	error_output("LOADING NEW PAGE...")
 	await get_tree().create_timer(0.2).timeout
 	display_page(decoder_step)
+	loaded = true
 	var s = "PAGE " + str(decoder_step) +" LOADED"
 	error_output(s)
 

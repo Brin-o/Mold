@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://dl7u1gj7xawq2"]
 
 [ext_resource type="Script" uid="uid://csu1peewerxb2" path="res://Scripts/main_tool.gd" id="1_bvhbk"]
-[ext_resource type="Texture2D" uid="uid://d0bvppvbuguqk" path="res://Sprites/Wallpapers/128.png" id="1_gxmxl"]
+[ext_resource type="Texture2D" uid="uid://cnqfnn2u44kdl" path="res://Sprites/Wallpapers/10042.png" id="2_bvhbk"]
 [ext_resource type="Script" uid="uid://66yaun8bbg7" path="res://Scripts/top_bar.gd" id="2_c6xj6"]
 [ext_resource type="Script" uid="uid://dg6utj5k25ubf" path="res://Scripts/manager_windows.gd" id="2_m0rpm"]
 [ext_resource type="Texture2D" uid="uid://ck43j05056ff0" path="res://Sprites/window_border_outer_slim.png" id="3_6bw2v"]
@@ -42,7 +42,7 @@ layout_mode = 0
 offset_right = 1544.0
 offset_bottom = 1267.0
 mouse_filter = 2
-texture = ExtResource("1_gxmxl")
+texture = ExtResource("2_bvhbk")
 stretch_mode = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -230,13 +230,13 @@ columns = 2
 [node name="msn" parent="Apps" instance=ExtResource("10_yyih5")]
 layout_mode = 2
 
+[node name="form" parent="Apps" instance=ExtResource("13_qjyg3")]
+layout_mode = 2
+
 [node name="decoder" parent="Apps" instance=ExtResource("7_d4o4o")]
 layout_mode = 2
 
 [node name="log" parent="Apps" instance=ExtResource("8_gdsc3")]
-layout_mode = 2
-
-[node name="form" parent="Apps" instance=ExtResource("13_qjyg3")]
 layout_mode = 2
 
 [node name="ManagerWindows" type="Control" parent="." groups=["window_manager"]]
