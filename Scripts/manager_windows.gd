@@ -8,6 +8,7 @@ var chatlog_window = load("res://Scenes/Chat/window_chatlog.tscn")
 var msn_window = load("res://Scenes/Chat/window_msn.tscn")
 var log_window = load("res://Scenes/window_log.tscn")
 var form_window = load("res://Scenes/window_form.tscn")
+var wallpicker_window = load("res://Scenes/window_wallpicker.tscn")
 @onready var tBar : tBar = $"../TopBar"
 var top_window
 
@@ -137,6 +138,19 @@ func open_or_focus_form():
 	move_window_to_top(form_w)
 	form_w.center_to_screen()
 	pass
+	
+
+func open_or_focus_wallpicker():
+	var wp_w = get_node_or_null("Wallpicker")
+	if(wp_w == null):
+		wp_w = wallpicker_window.instantiate()
+		add_child(wp_w)
+		gather_click_singals()
+		tBar.populate_windows()
+	move_window_to_top(wp_w)
+	wp_w.center_to_screen()
+	pass
+
 
 func minimize_restore_or_focus_window(window):
 	if(window == top_window):

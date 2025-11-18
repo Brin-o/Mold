@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccd6ypl6u2xix"
-path="res://.godot/imported/MO_WALL.JPG-3fdf01850d69bbbb44117d45dfe7a99e.ctex"
+uid="uid://dpv1nmiksr57v"
+path="res://.godot/imported/tractor.png-7b223b4e2158cedb797c83f825ddb585.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Wallpapers/MO_WALL.JPG"
-dest_files=["res://.godot/imported/MO_WALL.JPG-3fdf01850d69bbbb44117d45dfe7a99e.ctex"]
+source_file="res://Sprites/Wallpapers/tractor.png"
+dest_files=["res://.godot/imported/tractor.png-7b223b4e2158cedb797c83f825ddb585.ctex"]
 
 [params]
 

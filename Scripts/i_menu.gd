@@ -10,3 +10,6 @@ func _ready():
 
 func _on_menu_item_pressed(id):
 	print("Menu item pressed with id:", id)
+	match id:
+		5: #wallpicker
+			%ManagerWindows.open_or_focus_wallpicker()

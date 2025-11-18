@@ -1,8 +1,8 @@
 [gd_scene load_steps=21 format=3 uid="uid://dl7u1gj7xawq2"]
 
 [ext_resource type="Script" uid="uid://csu1peewerxb2" path="res://Scripts/main_tool.gd" id="1_bvhbk"]
-[ext_resource type="Texture2D" uid="uid://cnqfnn2u44kdl" path="res://Sprites/Wallpapers/10042.png" id="2_bvhbk"]
 [ext_resource type="Script" uid="uid://66yaun8bbg7" path="res://Scripts/top_bar.gd" id="2_c6xj6"]
+[ext_resource type="Texture2D" uid="uid://cxhugs7xjon6b" path="res://Sprites/Wallpapers/purple.png" id="2_cpsxm"]
 [ext_resource type="Script" uid="uid://dg6utj5k25ubf" path="res://Scripts/manager_windows.gd" id="2_m0rpm"]
 [ext_resource type="Texture2D" uid="uid://ck43j05056ff0" path="res://Sprites/window_border_outer_slim.png" id="3_6bw2v"]
 [ext_resource type="Theme" uid="uid://dggnc44ywb5kn" path="res://myOStheme.tres" id="4_yhmtn"]
@@ -42,7 +42,7 @@ layout_mode = 0
 offset_right = 1544.0
 offset_bottom = 1267.0
 mouse_filter = 2
-texture = ExtResource("2_bvhbk")
+texture = ExtResource("2_cpsxm")
 stretch_mode = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

@@ -1,0 +1,282 @@
+[gd_scene load_steps=10 format=3 uid="uid://c5fwdupwtytun"]
+
+[ext_resource type="Script" uid="uid://lhte85pynwcv" path="res://window_parent.gd" id="1_r0x52"]
+[ext_resource type="PackedScene" uid="uid://bhlf3cc2pe73e" path="res://Scenes/window_title.tscn" id="2_k4ux2"]
+[ext_resource type="Texture2D" uid="uid://bfjgume4y7tnj" path="res://Sprites/diagonal_pattern.png" id="3_lfcey"]
+[ext_resource type="Theme" uid="uid://dggnc44ywb5kn" path="res://myOStheme.tres" id="4_h8nq3"]
+[ext_resource type="Script" uid="uid://bljjygdncptvb" path="res://Scripts/wallpicker.gd" id="5_r0x52"]
+[ext_resource type="Texture2D" uid="uid://cqjuj1yq6dtil" path="res://Sprites/window_border_outer.png" id="6_mch6i"]
+[ext_resource type="FontFile" uid="uid://dotcvql6pw35s" path="res://NewsgeekSerif.ttf" id="7_fvgsi"]
+[ext_resource type="Texture2D" uid="uid://ck43j05056ff0" path="res://Sprites/window_border_outer_slim.png" id="8_5j5ax"]
+[ext_resource type="FontFile" uid="uid://cbk5wc5cm0ybu" path="res://monogram-extended-italic.ttf" id="8_tbqiy"]
+
+[node name="Wallpicker" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 93.0
+offset_top = 41.0
+offset_right = -1606.0
+offset_bottom = -874.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r0x52")
+
+[node name="Titlebar" parent="." instance=ExtResource("2_k4ux2")]
+layout_mode = 0
+offset_left = -0.5
+offset_top = 1.0
+offset_right = 199.5
+offset_bottom = 19.0
+metadata/_edit_lock_ = true
+
+[node name="Title" parent="Titlebar" index="1"]
+text = "Wallpaper Picker"
+
+[node name="Minimize" parent="Titlebar" index="3"]
+visible = false
+
+[node name="Shadow" type="Control" parent="."]
+show_behind_parent = true
+z_index = -1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Shadow"]
+modulate = Color(0.00351917, 0.00351917, 0.00351917, 1)
+layout_mode = 0
+offset_left = -5.0
+offset_top = 15.0
+offset_right = 226.0
+offset_bottom = 199.0
+texture = ExtResource("3_lfcey")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="Shadow"]
+modulate = Color(0.00351917, 0.00351917, 0.00351917, 1)
+layout_mode = 0
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 226.0
+offset_bottom = 25.0
+texture = ExtResource("3_lfcey")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Wallpicker" type="Control" parent="." groups=["transcoder"]]
+self_modulate = Color(0, 0, 0, 1)
+anchors_preset = 0
+offset_top = 19.0
+offset_right = 221.0
+offset_bottom = 194.0
+theme = ExtResource("4_h8nq3")
+script = ExtResource("5_r0x52")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Wallpicker"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_mch6i")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Wallpicker"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.929412, 0.929412, 0.929412, 1)
+metadata/_edit_lock_ = true
+
+[node name="Wallpaper" type="Control" parent="Wallpicker"]
+anchors_preset = 0
+offset_left = 12.0
+offset_top = 78.0
+offset_right = 210.0
+offset_bottom = 98.0
+
+[node name="ColorRect" type="ColorRect" parent="Wallpicker/Wallpaper"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -3.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.344076, 0.344076, 0.344076, 1)
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Wallpicker/Wallpaper"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 99.0
+offset_bottom = 19.0
+theme_override_fonts/font = ExtResource("7_fvgsi")
+text = "Wallpaper"
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="Wallpicker/Wallpaper"]
+layout_mode = 0
+offset_left = 94.0
+offset_top = -1.0
+offset_right = 196.0
+offset_bottom = 20.0
+theme = ExtResource("4_h8nq3")
+expand_icon = true
+allow_reselect = true
+
+[node name="Mode" type="Control" parent="Wallpicker"]
+anchors_preset = 0
+offset_left = 12.0
+offset_top = 110.0
+offset_right = 210.0
+offset_bottom = 130.0
+
+[node name="ColorRect" type="ColorRect" parent="Wallpicker/Mode"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -3.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.344076, 0.344076, 0.344076, 1)
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Wallpicker/Mode"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 99.0
+offset_bottom = 19.0
+theme_override_fonts/font = ExtResource("7_fvgsi")
+text = "Mode"
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="Wallpicker/Mode"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = -1.0
+offset_right = 196.0
+offset_bottom = 20.0
+theme = ExtResource("4_h8nq3")
+icon_alignment = 1
+allow_reselect = true
+item_count = 4
+popup/item_0/text = "SCALE"
+popup/item_0/id = 0
+popup/item_1/text = "TILE"
+popup/item_1/id = 1
+popup/item_2/text = "KEEP"
+popup/item_2/id = 2
+popup/item_3/text = "CENTERED"
+popup/item_3/id = 3
+
+[node name="NinePatchRect3" type="NinePatchRect" parent="Wallpicker"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = 48.0
+offset_right = -22.0
+offset_bottom = -98.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_5j5ax")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="ColorRect" type="ColorRect" parent="Wallpicker/NinePatchRect3"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.958157, 0.958157, 0.958157, 1)
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="Wallpicker"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 139.0
+offset_right = 210.0
+offset_bottom = 164.0
+text = "APPLY CHANGES"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Wallpicker/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_5j5ax")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Wallpicker"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 17.0
+offset_right = 195.0
+offset_bottom = 46.0
+theme = ExtResource("4_h8nq3")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_tbqiy")
+text = "Change your looks, change your life."
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="Wallpicker"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 48.0
+offset_right = 205.0
+offset_bottom = 64.0
+theme = ExtResource("4_h8nq3")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_tbqiy")
+text = "- Weckard Westrøm"
+horizontal_alignment = 2
+autowrap_mode = 2
+
+[connection signal="button_down" from="Wallpicker/Button" to="Wallpicker" method="_on_button_button_down"]
+
+[editable path="Titlebar"]

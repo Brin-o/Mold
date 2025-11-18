@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://benuo4rvcemhx"
-path="res://.godot/imported/bg_yellowpeachflowers.png-4d1cbc0f055aadc3ad0fd967ef80b486.ctex"
+uid="uid://cnpj5onr7e3tu"
+path="res://.godot/imported/biochemestry.png-73d1d060c58fce5eedc96b464e9ada60.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Wallpapers/bg_yellowpeachflowers.png"
-dest_files=["res://.godot/imported/bg_yellowpeachflowers.png-4d1cbc0f055aadc3ad0fd967ef80b486.ctex"]
+source_file="res://Sprites/biochemestry.png"
+dest_files=["res://.godot/imported/biochemestry.png-73d1d060c58fce5eedc96b464e9ada60.ctex"]
 
 [params]
 
