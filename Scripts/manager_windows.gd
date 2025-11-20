@@ -136,7 +136,8 @@ func open_or_focus_form():
 		gather_click_singals()
 		tBar.populate_windows()
 	move_window_to_top(form_w)
-	form_w.center_to_screen()
+	#form_w.center_to_screen()
+	form_w.position = Vector2(0, 100)
 	pass
 	
 

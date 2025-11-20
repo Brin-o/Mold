@@ -25,10 +25,12 @@ func _ready():
 func center_to_screen():
 	var vSize = get_viewport_rect().size
 	print(size)
-	var rr = 100
-	var randomisation = Vector2(randi_range(-rr,rr),randi_range(0,rr))
+	var rr = 50
+	var randomisation = Vector2(randi_range(-rr,rr),randi_range(10,rr))
 	position = vSize/2 - size/2 + randomisation
 	pass
+	
+
 
 func fit_to_children():
 	var rect := Rect2()

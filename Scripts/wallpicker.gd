@@ -1,5 +1,6 @@
 extends Control
 
+
 func _ready():
 	add_wallpapers_to_list()
 	$Wallpaper/OptionButton.select(-1)
@@ -27,6 +28,11 @@ func set_wallpaper():
 	var new_wallpaper = load(selected_wall_path)
 	var bg_node:TextureRect = $"../../../BG"
 	if(bg_node == null): print("No BG node found."); return;
-	bg_node.texture = new_wallpaper
+	
+	
+	var image := Image.load_from_file(selected_wall_path)
+	var tex := ImageTexture.create_from_image(image)
+	bg_node.texture = tex
+	#bg_node.texture = new_wallpaper
 	bg_node.stretch_mode = $Mode/OptionButton.selected
 	pass

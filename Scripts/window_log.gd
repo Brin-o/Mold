@@ -9,3 +9,7 @@ func _on_visibility_changed() -> void:
 		pass
 	else:
 		pass
+
+
+func _ready():
+	pass

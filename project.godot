@@ -18,10 +18,9 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
+window/size/viewport_width=2560
+window/size/viewport_height=2048
 window/size/resizable=false
-window/stretch/scale=2.0
 window/stretch/scale_mode="integer"
 mouse_cursor/custom_image="uid://dqvll80w04skd"
 
@@ -50,4 +49,5 @@ screenshot={
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
 2d/snap/snap_2d_transforms_to_pixel=true
