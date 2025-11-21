@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://pd8l3h1dpsob"]
+[gd_scene load_steps=7 format=3 uid="uid://pd8l3h1dpsob"]
 
 [ext_resource type="Texture2D" uid="uid://dmjqqv4b1x54f" path="res://Sprites/Wallpapers/trees.png" id="1_cuumh"]
 [ext_resource type="Script" uid="uid://bnu06mtj80c7" path="res://Scripts/lockscreen.gd" id="1_utlod"]
 [ext_resource type="PackedScene" uid="uid://qisfklo20d7g" path="res://Scenes/window_lock.tscn" id="2_8lyek"]
 [ext_resource type="FontFile" uid="uid://djeey6tj1tae1" path="res://Newsgeek.ttf" id="3_n7dxt"]
 [ext_resource type="FontFile" uid="uid://cbk5wc5cm0ybu" path="res://monogram-extended-italic.ttf" id="4_xclpf"]
+[ext_resource type="Script" uid="uid://b0x46pi5laqfg" path="res://Scripts/analogue_clock.gd" id="6_f0ux8"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -51,10 +52,11 @@ layout_mode = 0
 offset_left = 17.0
 offset_top = 54.0
 offset_right = 282.0
-offset_bottom = 90.0
+offset_bottom = 102.0
 theme_override_colors/font_color = Color(1, 1, 1, 0.74509805)
 theme_override_fonts/font = ExtResource("4_xclpf")
 text = "Computing of the future, today."
+autowrap_mode = 3
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(17, 19)
@@ -71,6 +73,25 @@ text = "WeaveOS"
 [node name="Node2D2" type="Node2D" parent="."]
 position = Vector2(17, 19)
 skew = 0.14660765
+
+[node name="Clock" type="Node2D" parent="."]
+position = Vector2(1170, 124)
+script = ExtResource("6_f0ux8")
+
+[node name="HH" type="Line2D" parent="Clock"]
+points = PackedVector2Array(0, 0, 0, -100)
+width = 6.0
+default_color = Color(0.20784314, 0.23921569, 0.8039216, 1)
+
+[node name="MM" type="Line2D" parent="Clock"]
+points = PackedVector2Array(0, 0, 25, -75)
+width = 6.0
+default_color = Color(0, 0.57254905, 0, 1)
+
+[node name="SS" type="Line2D" parent="Clock"]
+points = PackedVector2Array(0, 0, 0, -100)
+width = 4.0
+default_color = Color(1, 0, 0, 1)
 
 [connection signal="button_down" from="Lock/Lock/Button" to="." method="_on_button_button_down"]
 

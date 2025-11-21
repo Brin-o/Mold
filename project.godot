@@ -16,6 +16,10 @@ run/main_scene="uid://dl7u1gj7xawq2"
 config/features=PackedStringArray("4.5")
 config/icon="res://icon.svg"
 
+[autoload]
+
+WeaveTime="*res://Scripts/weave_time.gd"
+
 [display]
 
 window/size/viewport_width=2560

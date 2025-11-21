@@ -1,8 +1,20 @@
 extends Control
 @export var lock = "4725"
-var slogans = ["Nature in Digital", "Computing the future, today.", "Skate your dreams.", "One click away.", "Click, connect, create.", "Inspire, create, be you.", "The future is digital.", "Compatible with all WVdevices.", "In memorium of Barandishan Bu.", "Plug into the WEAVE®", ""]
-
+var slogans = [
+	"Nature in Digital",
+ 	"Computing the future, today.", 
+	"Skate your dreams.",
+	"One click away.",
+	"Click, connect, create.",
+	"Inspire, create, be you.",
+	"The future is digital.",
+	"Compatible with all WVdevices.",
+	"In memorium of Barandishan Bu.",
+	"Plug into the WEAVE®",]
+var prev_slogan = ""
 func _ready():
+	WeaveTime.set_start_time()
+	WeaveTime.time_scale
 	get_lock_values()
 	set_random_slogan()
 	pass
@@ -10,8 +22,13 @@ func _ready():
 
 
 func set_random_slogan():
-	$Slogan.text = slogans.pick_random()
+	var new_slogan = prev_slogan
+	while new_slogan == prev_slogan:
+		new_slogan = slogans.pick_random()
+	$Slogan.text = new_slogan
+	prev_slogan = new_slogan
 	pass
+
 
 
 func get_lock_values() -> String:
@@ -25,6 +42,8 @@ func try_to_login():
 	var current_value = get_lock_values()
 	if current_value == lock:
 		print("login")
+		WeaveTime.set_start_time()
+		WeaveTime.time_scale = 6
 		get_tree().change_scene_to_file("res://Game.tscn")
 		pass
 	else:
@@ -34,3 +53,8 @@ func try_to_login():
 
 func _on_button_button_down() -> void:
 	try_to_login()
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("ui_accept"):
+		set_random_slogan()
+	pass
