@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=3 uid="uid://pd8l3h1dpsob"]
+
+[ext_resource type="Texture2D" uid="uid://dmjqqv4b1x54f" path="res://Sprites/Wallpapers/trees.png" id="1_cuumh"]
+[ext_resource type="Script" uid="uid://bnu06mtj80c7" path="res://Scripts/lockscreen.gd" id="1_utlod"]
+[ext_resource type="PackedScene" uid="uid://qisfklo20d7g" path="res://Scenes/window_lock.tscn" id="2_8lyek"]
+[ext_resource type="FontFile" uid="uid://djeey6tj1tae1" path="res://Newsgeek.ttf" id="3_n7dxt"]
+[ext_resource type="FontFile" uid="uid://cbk5wc5cm0ybu" path="res://monogram-extended-italic.ttf" id="4_xclpf"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_utlod")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_cuumh")
+stretch_mode = 1
+
+[node name="Lock" parent="." instance=ExtResource("2_8lyek")]
+layout_mode = 1
+offset_left = 145.0
+offset_top = 163.0
+offset_right = -2175.0
+offset_bottom = -1670.0
+center_on_ready = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = -23.0
+offset_right = 267.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 0.74509805)
+theme_override_fonts/font = ExtResource("3_n7dxt")
+text = "Regional Integration Solutions, LLC"
+
+[node name="Slogan" type="Label" parent="."]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 54.0
+offset_right = 282.0
+offset_bottom = 90.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.74509805)
+theme_override_fonts/font = ExtResource("4_xclpf")
+text = "Computing of the future, today."
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(17, 19)
+scale = Vector2(2, 2)
+skew = 0.14660765
+
+[node name="Label" type="Label" parent="Node2D"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.74509805)
+theme_override_fonts/font = ExtResource("3_n7dxt")
+text = "WeaveOS"
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2(17, 19)
+skew = 0.14660765
+
+[connection signal="button_down" from="Lock/Lock/Button" to="." method="_on_button_button_down"]
+
+[editable path="Lock"]
+[editable path="Lock/Titlebar"]

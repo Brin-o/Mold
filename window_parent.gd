@@ -2,7 +2,7 @@ class_name window_parent extends Control
 
 @export var auto_fit_height: bool = true
 @export var auto_fit_on_ready: bool = true
-
+@export var center_on_ready: bool = false
 signal click (sending_window)
 var canMove : bool
 
@@ -20,7 +20,8 @@ func _ready():
 		inner.resized.connect(_on_contents_resized)
 		inner.minimum_size_changed.connect(_on_contents_minimum_size_changed)
 		call_deferred("_update_shadow_base_size")
-
+	if center_on_ready:
+		center_to_screen()
 
 func center_to_screen():
 	var vSize = get_viewport_rect().size

@@ -10,6 +10,25 @@ func _ready():
 	# Check if running in the editor (tool scripts run in editor too)
 	if Engine.is_editor_hint():
 		print("Tool script loaded in editor.")
+		
+	#hide things
+	$TopBar.visible = false
+	$TopBar/Details.visible = false
+	$iMenu.visible = false
+	$Desktop.visible = false
+	$Apps.visible = false
+	var t = 0.4
+	await get_tree().create_timer(t).timeout
+	$TopBar.visible = true
+	await get_tree().create_timer(t).timeout
+	$TopBar/Details.visible = true
+	await get_tree().create_timer(t).timeout
+	$iMenu.visible = true
+	await get_tree().create_timer(t).timeout
+	$Desktop.visible = true
+	await get_tree().create_timer(t).timeout
+	$Apps.visible = true
+	
 
 # Function to delete the file
 func delete_save_file():

@@ -5,7 +5,7 @@ var display_page = 1
 @onready var page_spinner = $"../SpinBox"
 
 func _ready() -> void:
-	export_form()
+	#export_form()
 	#debug_print_tree()
 	page_spinner.max_value = $Pages.get_child_count() + $ScrollContainer.get_child_count()
 	display_page = int(page_spinner.value)
@@ -31,70 +31,18 @@ func set_active_page():
 	page.visible = true
 	$ScrollContainer.scroll_vertical = 0
 	pass
-	
 
-func capture_scrollcontainer(scroll_container: ScrollContainer, output_path := "user://scroll_capture.png") -> void:
-	var content := scroll_container.get_child(0) as Control
-	if content == null:
-		push_error("❌ ScrollContainer has no child Control.")
-		return
-
-	var full_size := content.get_combined_minimum_size()
-	if full_size == Vector2.ZERO:
-		full_size = content.size
-	full_size = full_size.round()
-	print("📏 Full content size:", full_size)
-
-	if full_size.x <= 0 or full_size.y <= 0:
-		push_error("❌ Invalid size.")
-		return
-
-	# --- SubViewport setup ---
-	var sv := SubViewport.new()
-	sv.disable_3d = true
-	sv.transparent_bg = false
-	sv.render_target_clear_mode = SubViewport.CLEAR_MODE_ALWAYS
-	sv.render_target_update_mode = SubViewport.UPDATE_ONCE
-	sv.size = full_size
-	add_child(sv)
-
-	# --- Duplicate content ---
-	content.reparent(sv)
-	content.position = Vector2.ZERO
-
-	# Wait for render
-	await RenderingServer.frame_post_draw
-	await get_tree().process_frame
-
-	var tex := sv.get_texture()
-	if tex == null:
-		push_error("❌ No texture generated.")
-		sv.queue_free()
-		return
-
-	var img := tex.get_image()
-	if img == null:
-		push_error("❌ No image from texture.")
-		sv.queue_free()
-		return
-
-	print("🖼️ Image size:", img.get_size(), " Empty?:", img.is_empty())
-	print("📂 Saving to:", ProjectSettings.globalize_path(output_path))
-
-	var err := img.save_png(output_path)
-	if err != OK:
-		push_error("❌ save_png failed with code: %s" % err)
-	else:
-		print("✅ Saved ScrollContainer capture to:", ProjectSettings.globalize_path(output_path))
-		
-	content.reparent(scroll_container)
-	sv.queue_free()
-	
 
 
 
 @export var pages_parent: Node
 var output_lines: Array[String] = []
+
+func print_file(file_path):
+	# 1. Convert to absolute OS path
+	var abs_path = ProjectSettings.globalize_path(file_path)
+	# 2. Print the file using lp (CUPS)
+	OS.execute("lp", [abs_path])
 
 
 func export_form():
@@ -107,7 +55,8 @@ func export_form():
 		_process_page(pages[i])
 		output_lines.append("")
 
-	_save_output_file()
+	var p = _save_output_file()
+	print_file(p)
 	print("Form exported.")
 
 
@@ -287,18 +236,20 @@ func _find_lineedit_under_node(node: Node) -> String:
 # SAVE FILE
 # -------------------------------------------------------
 
-func _save_output_file():
+func _save_output_file() -> String:
 	var index := 1
 	while FileAccess.file_exists("user://form_export_%s.txt" % index):
 		index += 1
 
 	var path := "user://form_export_%s.txt" % index
+	print("Saved at: ", ProjectSettings.globalize_path(path))
 	var file := FileAccess.open(path, FileAccess.WRITE)
 
 	for line in output_lines:
 		file.store_line(line)
 
 	file.close()
+	return path
 	print("Saved: ", path)
 	
 func debug_print_tree():

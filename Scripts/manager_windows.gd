@@ -162,3 +162,20 @@ func minimize_restore_or_focus_window(window):
 		restore_window(window)
 		move_window_to_top(window)
 	pass
+	
+func close_all_windows():
+	print("closing all windows")
+	for c in get_children():
+		
+		var t = c.get_node("Titlebar")
+		print("Closing window ", t)
+		if t!=null:
+			t.close_window()
+		pass
+	pass
+
+func min_all_windows():
+	for c in get_children():
+		minimize_window(c)
+	pass
+	

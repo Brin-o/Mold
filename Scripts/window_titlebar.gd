@@ -30,10 +30,14 @@ func _input(event):
 
 
 func _on_close_button_up() -> void:
+	close_window()
+	pass # Replace with function body.
+
+func close_window():
 	whole_window.queue_free()
 	if assignedPill != null:
 		assignedPill.queue_free()
-	pass # Replace with function body.
+	pass
 
 
 func _on_minimize_button_up() -> void:

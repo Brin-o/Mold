@@ -1,0 +1,250 @@
+[gd_scene load_steps=9 format=3 uid="uid://qisfklo20d7g"]
+
+[ext_resource type="Script" uid="uid://lhte85pynwcv" path="res://window_parent.gd" id="1_a5tps"]
+[ext_resource type="PackedScene" uid="uid://bhlf3cc2pe73e" path="res://Scenes/window_title.tscn" id="2_w6exm"]
+[ext_resource type="Texture2D" uid="uid://bfjgume4y7tnj" path="res://Sprites/diagonal_pattern.png" id="3_56b5k"]
+[ext_resource type="Theme" uid="uid://dggnc44ywb5kn" path="res://myOStheme.tres" id="4_a66bk"]
+[ext_resource type="Texture2D" uid="uid://cqjuj1yq6dtil" path="res://Sprites/window_border_outer.png" id="6_2w6wl"]
+[ext_resource type="FontFile" uid="uid://dklpk3oabpidu" path="res://m6x11.ttf" id="8_hqavk"]
+[ext_resource type="Texture2D" uid="uid://ck43j05056ff0" path="res://Sprites/window_border_outer_slim.png" id="8_pyt5s"]
+[ext_resource type="FontFile" uid="uid://djeey6tj1tae1" path="res://Newsgeek.ttf" id="9_1h22f"]
+
+[node name="Lock" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 93.0
+offset_top = 41.0
+offset_right = -2227.0
+offset_bottom = -1792.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a5tps")
+
+[node name="Titlebar" parent="." instance=ExtResource("2_w6exm")]
+layout_mode = 0
+offset_left = -0.5
+offset_top = 1.0
+offset_right = 92.0
+offset_bottom = 19.0
+
+[node name="Title" parent="Titlebar" index="1"]
+text = "WeaveOS LogIn"
+
+[node name="Close" parent="Titlebar" index="2"]
+visible = false
+
+[node name="Minimize" parent="Titlebar" index="3"]
+visible = false
+
+[node name="Shadow" type="Control" parent="."]
+show_behind_parent = true
+z_index = -1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Shadow"]
+modulate = Color(0.00351917, 0.00351917, 0.00351917, 1)
+layout_mode = 0
+offset_left = -5.0
+offset_top = 15.0
+offset_right = 246.0
+offset_bottom = 220.0
+texture = ExtResource("3_56b5k")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="Shadow"]
+modulate = Color(0.00351917, 0.00351917, 0.00351917, 1)
+layout_mode = 0
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 100.0
+offset_bottom = 25.0
+texture = ExtResource("3_56b5k")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Lock" type="Control" parent="." groups=["transcoder"]]
+self_modulate = Color(0, 0, 0, 1)
+anchors_preset = 0
+offset_top = 19.0
+offset_right = 240.0
+offset_bottom = 215.0
+theme = ExtResource("4_a66bk")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Lock"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_2w6wl")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Lock"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.929412, 0.929412, 0.929412, 1)
+metadata/_edit_lock_ = true
+
+[node name="NinePatchRect3" type="NinePatchRect" parent="Lock"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = 48.0
+offset_right = -22.0
+offset_bottom = -98.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_pyt5s")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="ColorRect" type="ColorRect" parent="Lock/NinePatchRect3"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.958157, 0.958157, 0.958157, 1)
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="Lock"]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 155.0
+offset_right = 163.0
+offset_bottom = 179.0
+text = "LOG-IN"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Lock/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_pyt5s")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Lock"]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 28.0
+offset_right = 186.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_1h22f")
+theme_override_font_sizes/font_size = 32
+text = "WELCOME"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Lock"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 63.0
+offset_right = 182.0
+offset_bottom = 95.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_hqavk")
+text = "USER-ID:432918"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Lock"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 83.0
+offset_right = 228.0
+offset_bottom = 115.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Please enter your
+4 digit lock-code."
+horizontal_alignment = 1
+
+[node name="Code" type="Control" parent="Lock"]
+anchors_preset = 0
+offset_left = 3.0
+offset_right = 43.0
+offset_bottom = 40.0
+
+[node name="SpinBox" type="SpinBox" parent="Lock/Code"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 127.0
+offset_right = 63.0
+offset_bottom = 148.0
+max_value = 9.0
+rounded = true
+alignment = 1
+
+[node name="SpinBox2" type="SpinBox" parent="Lock/Code"]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 127.0
+offset_right = 118.0
+offset_bottom = 148.0
+max_value = 9.0
+rounded = true
+alignment = 1
+
+[node name="SpinBox3" type="SpinBox" parent="Lock/Code"]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 127.0
+offset_right = 175.0
+offset_bottom = 148.0
+max_value = 9.0
+rounded = true
+alignment = 1
+
+[node name="SpinBox4" type="SpinBox" parent="Lock/Code"]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 127.0
+offset_right = 230.0
+offset_bottom = 148.0
+max_value = 9.0
+rounded = true
+alignment = 1
+
+[connection signal="button_down" from="Lock/Button" to="Lock" method="_on_button_button_down"]
+
+[editable path="Titlebar"]

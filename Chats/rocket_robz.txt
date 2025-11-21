@@ -1,0 +1,48 @@
+1: Hey Rob
+2: ah my favourite researcher
+2: what can i help you wih during these dull office hours :)?
+1: Not dull for me lol
+1: We just got a new recording with the mold
+1: it’s in a LOG file
+1: I want to decode it
+1: Can you remind me how this stuff works?
+2: Ah yea
+2: Is your log on the computer yet or do you still have it on your loGadet?
+1: it’s on the computer
+1: I put it right on the desktop
+1: i remembered that part :)
+2: Haha, i’m glad SOMETHING was remembered from the tutorial
+2: Anyway
+2: If you click it, it will open with an auto-generated preamble
+1: Ok, but you know what I want to know
+2: Yea, you forgot how to use the decoder, didn’t you
+1: Yea….
+2: No worries
+2: Look, I’m here to help with this sort of stuff
+2: So don’t worry about msging me 
+2: Anyway
+2: There should be a DE<->CODE icon on your desktop
+2: Do you see it?
+1: Yea
+2: Is it version 3?
+1: Yea
+2: Perfect
+2: Open it, and on it, you will see the options for transcoding
+2: In the PAGING section up top, you can change what page you are on
+2: Then hit transcode and it shoulda attempt to transcode
+2: BUT
+2: IMPORTNATN!!!
+2: If the section includes HUMIDITY CHANGES
+2: or ODOR EMISSIONS
+2: Then you will need to input the final humidity (just calculate it)
+2: or the ODOR EMISSION sequence 
+1: Ughhhh
+1: Math >:(
+1: Why can’t the machine figure that out on its own
+2: Idk, i didn’t make it
+2: But someone told me that it's a security measure or something like that
+1: Ah
+1: Ok
+1: Thanks a bunch
+1: I owe you one
+2: NP :)

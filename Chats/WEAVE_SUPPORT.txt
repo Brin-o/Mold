@@ -1,5 +1,5 @@
 [ICON:duck]
-2: Welcome to WEAVE®-Help! My name is Horge, assistant of Dr. Jub Jubbard. What may we help you with today?
+2: Welcome to WEAVE®-Help! My name is Horge, assistant to Dr. Jub Jubbard. What may we help you with today?
 1: hi, the weave net connection in our office is weird
 1: connecting to external orbs is not working
 1: but the local orbs are ok
@@ -8,12 +8,14 @@
 2: I will need the Weave®INDENTIFIER of the WVDevice that you are using.
 1: uhhh
 1: ok
-1: it’s the thing in the eye-menu right? 
-2: Yes that is correct, if you click on the eye in the top right, you should be able to see your WVDevice ID at the very top.
-2: Below it you will see convenient features and shortcuts to use on your system :)
+1: it’s the thing in the eye menu, right? 
+2: Yes, that is correct. If you click on the eye in the top left, you should be able to see your WVDevice ID at the very top.
+2: Below it, you will see convenient features and shortcuts to use on your system :)
 1: ok
 1: 28062502-1
 2: Thank you.
 2: I will now remotely analyse your WVDevice.
 2: Please give me a moment.
 2: You might be disconnected from WV-Net in the meantime.
+2: In case it fails to reconnect after 10 minutes, please call us on the currently relevant customer support number.
+2: It should be written on the last page of the current (73rd) edition of the manual that was sent to you when the system was upgraded.

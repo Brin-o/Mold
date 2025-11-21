@@ -21,6 +21,7 @@ config/icon="res://icon.svg"
 window/size/viewport_width=2560
 window/size/viewport_height=2048
 window/size/resizable=false
+window/stretch/scale=2.0
 window/stretch/scale_mode="integer"
 mouse_cursor/custom_image="uid://dqvll80w04skd"
 
