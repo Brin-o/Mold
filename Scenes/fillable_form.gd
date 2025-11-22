@@ -42,7 +42,7 @@ func print_file(file_path):
 	# 1. Convert to absolute OS path
 	var abs_path = ProjectSettings.globalize_path(file_path)
 	# 2. Print the file using lp (CUPS)
-	OS.execute("lp", [abs_path])
+	OS.execute("lp -d LQ-680", [abs_path])
 
 
 func export_form():

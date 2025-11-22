@@ -12,7 +12,7 @@ config_version=5
 
 config/name="WeaveOS"
 config/description="A state of the art, professional software, created for the tinkers, creatives and goal oriented professionals alike.	"
-run/main_scene="uid://dl7u1gj7xawq2"
+run/main_scene="uid://clibplygc2cp6"
 config/features=PackedStringArray("4.5")
 config/icon="res://icon.svg"
 
@@ -22,10 +22,9 @@ WeaveTime="*res://Scripts/weave_time.gd"
 
 [display]
 
-window/size/viewport_width=2560
-window/size/viewport_height=2048
+window/size/viewport_width=1024
+window/size/viewport_height=768
 window/size/resizable=false
-window/stretch/scale=2.0
 window/stretch/scale_mode="integer"
 mouse_cursor/custom_image="uid://dqvll80w04skd"
 

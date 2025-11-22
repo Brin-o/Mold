@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://povan1vb175h"]
+[gd_scene load_steps=17 format=3 uid="uid://povan1vb175h"]
 
 [ext_resource type="Script" uid="uid://lhte85pynwcv" path="res://window_parent.gd" id="1_veglq"]
 [ext_resource type="PackedScene" uid="uid://bhlf3cc2pe73e" path="res://Scenes/window_title.tscn" id="2_s7rkc"]
@@ -14,6 +14,7 @@
 [ext_resource type="FontFile" uid="uid://w8oys766o3vy" path="res://HeartbitXX2Px.ttf" id="10_k4e05"]
 [ext_resource type="FontFile" uid="uid://b5osnwycghr7a" path="res://HeartbitXX.ttf" id="12_ienpx"]
 [ext_resource type="FontFile" uid="uid://dklpk3oabpidu" path="res://m6x11.ttf" id="13_ienpx"]
+[ext_resource type="Script" uid="uid://dlff2064luiw4" path="res://Scripts/form_submit.gd" id="14_oymcq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d7b42"]
 bg_color = Color(0.6603956, 0.66039556, 0.6603955, 1)
@@ -138,6 +139,7 @@ offset_right = 420.0
 offset_bottom = 1.0
 
 [node name="Pages" type="Control" parent="Form"]
+visible = false
 anchors_preset = 0
 offset_left = 9.0
 offset_top = 6.0
@@ -145,6 +147,7 @@ offset_right = 429.0
 offset_bottom = 600.0
 
 [node name="1" type="Control" parent="Form/Pages"]
+visible = false
 custom_minimum_size = Vector2(420, 594)
 anchors_preset = 0
 offset_right = 420.0
@@ -2671,11 +2674,11 @@ placeholder_text = "Write your answer here."
 wrap_mode = 1
 
 [node name="9" type="Control" parent="Form/Pages"]
-visible = false
 custom_minimum_size = Vector2(420, 594)
 anchors_preset = 0
 offset_right = 420.0
 offset_bottom = 594.0
+script = ExtResource("14_oymcq")
 metadata/_edit_lock_ = true
 
 [node name="WhiteBG" type="ColorRect" parent="Form/Pages/9"]
@@ -2902,6 +2905,7 @@ patch_margin_bottom = 10
 metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="Form/Pages/9"]
+visible = false
 layout_mode = 0
 offset_left = 168.0
 offset_top = 257.0
@@ -2913,6 +2917,7 @@ text = "Your submission has been sent.
 Please await any further notice."
 
 [node name="Print" type="Button" parent="Form/Pages/9"]
+visible = false
 layout_mode = 0
 offset_left = 289.0
 offset_top = 304.0
@@ -2939,7 +2944,8 @@ patch_margin_right = 10
 patch_margin_bottom = 10
 metadata/_edit_lock_ = true
 
-[node name="Label2" type="Label" parent="Form/Pages/9"]
+[node name="Label_Print" type="Label" parent="Form/Pages/9"]
+visible = false
 layout_mode = 0
 offset_left = 168.0
 offset_top = 336.0
@@ -5066,5 +5072,7 @@ axis_stretch_vertical = 1
 metadata/_edit_lock_ = true
 
 [connection signal="value_changed" from="SpinBox" to="Form" method="_on_spin_box_value_changed"]
+[connection signal="button_up" from="Form/Pages/9/Submit" to="Form/Pages/9" method="_on_submit_button_up"]
+[connection signal="button_up" from="Form/Pages/9/Print" to="Form/Pages/9" method="_on_print_button_up"]
 
 [editable path="Titlebar"]

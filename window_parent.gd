@@ -5,6 +5,8 @@ class_name window_parent extends Control
 @export var center_on_ready: bool = false
 signal click (sending_window)
 var canMove : bool
+@export var custom_start_pos_active = false
+@export var customPos = Vector2(512, 344)
 
 #var window_name = "GenericWindow@
 
@@ -22,6 +24,8 @@ func _ready():
 		call_deferred("_update_shadow_base_size")
 	if center_on_ready:
 		center_to_screen()
+	if custom_start_pos_active:
+		position = customPos
 
 func center_to_screen():
 	var vSize = get_viewport_rect().size

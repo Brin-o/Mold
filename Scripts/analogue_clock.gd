@@ -1,8 +1,8 @@
 extends Node2D
 
 enum {HOUR, MINUTE, SECONDS}
-const HOUR_HAND_LENGHT = 60
-const MINUTE_HAND_LENGHT = 100
+const HOUR_HAND_LENGHT = 30
+const MINUTE_HAND_LENGHT = 50
 
 func _process(delta)->void:
 	$HH.points[1] = calculate_hand_tip_location(HOUR)

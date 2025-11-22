@@ -62,7 +62,7 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.067
 anchor_bottom = 0.044000003
-offset_right = 319.69995
+offset_right = 63.69995
 offset_bottom = 1.2399979
 color = Color(0.925734, 0.925734, 0.925734, 1)
 script = ExtResource("2_c6xj6")
@@ -70,7 +70,7 @@ script = ExtResource("2_c6xj6")
 [node name="ScrollContainer" type="ScrollContainer" parent="TopBar"]
 layout_mode = 0
 offset_left = 25.0
-offset_right = 1103.0
+offset_right = 846.0
 offset_bottom = 25.0
 vertical_scroll_mode = 0
 
@@ -212,11 +212,11 @@ script = ExtResource("8_elkpi")
 
 [node name="Desktop" type="GridContainer" parent="."]
 layout_direction = 3
-layout_mode = 0
-offset_left = -367.0
-offset_top = 35.0
-offset_right = -139.0
-offset_bottom = 430.0
+layout_mode = 1
+offset_left = -116.0
+offset_top = 33.0
+offset_right = 112.0
+offset_bottom = 428.0
 columns = 2
 script = ExtResource("6_gxmxl")
 icon_scene = ExtResource("5_884kg")
@@ -225,10 +225,10 @@ folder_scene = ExtResource("6_kem5a")
 [node name="Apps" type="GridContainer" parent="."]
 layout_direction = 2
 layout_mode = 0
-offset_left = 9.0
-offset_top = 35.0
-offset_right = 237.0
-offset_bottom = 430.0
+offset_left = 8.0
+offset_top = 33.0
+offset_right = 236.0
+offset_bottom = 428.0
 columns = 2
 
 [node name="msn" parent="Apps" instance=ExtResource("10_yyih5")]

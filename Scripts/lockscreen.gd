@@ -17,6 +17,8 @@ func _ready():
 	WeaveTime.time_scale
 	get_lock_values()
 	set_random_slogan()
+	await get_tree().process_frame
+	$Lock.position.y -= 80
 	pass
 
 
