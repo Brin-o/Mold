@@ -57,14 +57,28 @@ func _trigger_parent_fit():
 
 
 func try_to_add_image(image_path):
-	var img_file = FileAccess.open(image_path , FileAccess.READ)
-	if img_file == null:
-		printerr("no image")
-	else:
-		#print("Adding image at the front of the text!")
-		text += "[img={315}]" + image_path + "[/img]" 
-		text += "\n"
-		set_window_name(image_path)
+	# Check if the image resource exists (works in both editor and exported builds)
+	if not ResourceLoader.exists(image_path):
+		printerr("Image resource does not exist: ", image_path)
+		# Try fallback: maybe it's a file path that needs to be loaded differently
+		var image := Image.load_from_file(image_path)
+		if image != null:
+			# If we can load it as a file, create a texture and add it manually
+			var image_texture := ImageTexture.create_from_image(image)
+			if image_texture != null:
+				# For RichTextLabel, we can't directly add textures via BBCode in this way
+				# So we'll use the file path approach
+				text += "[img={315}]" + image_path + "[/img]"
+				text += "\n"
+				set_window_name(image_path)
+				return
+		return
+	
+	# Resource exists - use it directly in BBCode (works in exported builds)
+	# RichTextLabel's [img] tag can load resources by path
+	text += "[img={315}]" + image_path + "[/img]"
+	text += "\n"
+	set_window_name(image_path)
 	pass
 	
 func _input(event):
