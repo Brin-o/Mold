@@ -41,8 +41,14 @@ var output_lines: Array[String] = []
 func print_file(file_path):
 	# 1. Convert to absolute OS path
 	var abs_path = ProjectSettings.globalize_path(file_path)
+	print("Preparing to print file at" , file_path, " abs path: ", abs_path)
+	var cmd = "lp"
+	var args = ["-d", "LQ-680", abs_path]
+	await get_tree().process_frame
 	# 2. Print the file using lp (CUPS)
-	OS.execute("lp -d LQ-680", [abs_path])
+	var output = []
+	var result = OS.execute(cmd, args, output, true)
+	print("Command result: ", result, " Output: ", output)
 
 
 func export_form():
@@ -187,6 +193,7 @@ func _process_question_block(block: Node):
 				output_lines.append("%s %s" % [mark, text])
 
 		output_lines.append("")
+
 
 # -------------------------------------------------------
 # HELPERS FOR EXTRACTING INPUT NODES
