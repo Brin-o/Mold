@@ -66,6 +66,7 @@ func export_form():
 	print("Form exported.")
 
 
+
 # -------------------------------------------------------
 # PAGE HEADER
 # -------------------------------------------------------
@@ -150,16 +151,17 @@ func _process_question_block(block: Node):
 	if question != "":
 		output_lines.append(question)
 
-	# --- DATE SPECIAL CASE ---
-	if spinboxes.size() == 3 and question.to_lower() == "date":
+# --- DATE SPECIAL CASE (any 3 SpinBoxes) ---
+	if spinboxes.size() == 3:
+		#if question != "":
+			#output_lines.append(question)  # write the question label
 		var year := int(spinboxes[0].value)
 		var month := int(spinboxes[1].value)
 		var day := int(spinboxes[2].value)
-		output_lines.append(
-			"%04d / %02d / %02d" % [year, month, day]
-		)
+		output_lines.append("%04d / %02d / %02d" % [year, month, day])
 		output_lines.append("")
 		return
+
 
 	# --- WRITE RICHTEXT ANSWERS ---
 	for rt in richtexts:
@@ -193,7 +195,6 @@ func _process_question_block(block: Node):
 				output_lines.append("%s %s" % [mark, text])
 
 		output_lines.append("")
-
 
 # -------------------------------------------------------
 # HELPERS FOR EXTRACTING INPUT NODES
@@ -243,21 +244,20 @@ func _find_lineedit_under_node(node: Node) -> String:
 # SAVE FILE
 # -------------------------------------------------------
 
-func _save_output_file() -> String:
+func _save_output_file():
 	var index := 1
 	while FileAccess.file_exists("user://form_export_%s.txt" % index):
 		index += 1
 
 	var path := "user://form_export_%s.txt" % index
-	print("Saved at: ", ProjectSettings.globalize_path(path))
 	var file := FileAccess.open(path, FileAccess.WRITE)
 
 	for line in output_lines:
 		file.store_line(line)
 
 	file.close()
-	return path
 	print("Saved: ", path)
+	return path
 	
 func debug_print_tree():
 	print("\n===== DEBUG TREE START =====\n")
