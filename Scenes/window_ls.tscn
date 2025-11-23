@@ -84,12 +84,15 @@ patch_margin_right = 10
 patch_margin_bottom = 10
 metadata/_edit_lock_ = true
 
-[node name="GridContainer" type="GridContainer" parent="WindowBG"]
+[node name="ScrollContainer" type="ScrollContainer" parent="WindowBG"]
 layout_mode = 0
-offset_left = 11.0
-offset_top = 11.0
-offset_right = 279.0
-offset_bottom = 143.0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 282.0
+offset_bottom = 147.0
+
+[node name="GridContainer" type="GridContainer" parent="WindowBG/ScrollContainer"]
+layout_mode = 2
 columns = 4
 script = ExtResource("4_00loy")
 icon_scene = ExtResource("6_ktkx8")

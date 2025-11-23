@@ -46,6 +46,7 @@ theme = ExtResource("2_0slyu")
 theme_type_variation = &"HeaderLarge"
 text = "drag medrag medrag medrag me"
 vertical_alignment = 1
+text_overrun_behavior = 1
 
 [node name="Close" type="Button" parent="."]
 layout_mode = 0
