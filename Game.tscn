@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dl7u1gj7xawq2"]
+[gd_scene load_steps=24 format=3 uid="uid://dl7u1gj7xawq2"]
 
 [ext_resource type="Script" uid="uid://csu1peewerxb2" path="res://Scripts/main_tool.gd" id="1_bvhbk"]
 [ext_resource type="Script" uid="uid://66yaun8bbg7" path="res://Scripts/top_bar.gd" id="2_c6xj6"]
@@ -20,6 +20,8 @@
 [ext_resource type="Script" uid="uid://cmafswkhppyl4" path="res://Scripts/WeaveTalkLauncher.gd" id="9_cpsxm"]
 [ext_resource type="PackedScene" uid="uid://dois0ocshul16" path="res://Scenes/icon_msn.tscn" id="10_yyih5"]
 [ext_resource type="PackedScene" uid="uid://bw4yyqkj562ko" path="res://Scenes/icon_form.tscn" id="13_qjyg3"]
+[ext_resource type="Script" uid="uid://dlcqj1te4nin4" path="res://Scripts/logoffer.gd" id="21_hmewc"]
+[ext_resource type="FontFile" uid="uid://dotcvql6pw35s" path="res://NewsgeekSerif.ttf" id="22_7ged1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bvhbk"]
 bg_color = Color(0.8, 0.8, 0.8, 1)
@@ -259,5 +261,62 @@ offset_bottom = 40.0
 mouse_filter = 2
 script = ExtResource("2_m0rpm")
 metadata/_edit_lock_ = true
+
+[node name="Log-offer" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 124.0
+offset_bottom = 228.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("21_hmewc")
+
+[node name="ColorRect" type="ColorRect" parent="Log-offer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.003921569, 0.003921569, 0.003921569, 0.54901963)
+
+[node name="Label" type="Label" parent="Log-offer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("22_7ged1")
+text = "Inactive USER.
+
+
+- 
+
+Press ANY button to cancel."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Label" parent="Log-offer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.0
+offset_top = -26.0
+offset_right = 71.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("22_7ged1")
+text = "Logging off in 15"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="button_down" from="TopBar/Details/HBoxContainer/UserID" to="TopBar/Details/HBoxContainer/UserID" method="_on_button_down"]

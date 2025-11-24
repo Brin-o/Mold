@@ -52,25 +52,7 @@ offset_left = 346.0
 offset_top = -8.0
 offset_right = 435.0
 offset_bottom = 39.0
-color = Color(0.27387273, 0.27387273, 0.27387273, 1)
-
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 344.0
-offset_top = -10.0
-offset_right = -4.0
-offset_bottom = -609.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_oymcq")
-region_rect = Rect2(0, 0, 16, 16)
-patch_margin_left = 3
-patch_margin_top = 3
-patch_margin_right = 3
-patch_margin_bottom = 10
+color = Color(0.92941177, 0.92941177, 0.92941177, 1)
 
 [node name="SpinBox" type="SpinBox" parent="."]
 layout_mode = 0

@@ -35,6 +35,9 @@ offset_bottom = -576.0
 custom_start_pos_active = true
 customPos = Vector2(386, 344)
 
+[node name="SpinBox" parent="Lock/Lock/Code" index="0"]
+update_on_text_changed = true
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 2

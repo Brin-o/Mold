@@ -3,8 +3,10 @@ extends Control
 
 var display_page = 1
 @onready var page_spinner = $"../SpinBox"
+var max_page
 
 func _ready() -> void:
+	max_page = $Pages.get_child_count()
 	#export_form()
 	#debug_print_tree()
 	page_spinner.max_value = $Pages.get_child_count() + $ScrollContainer.get_child_count()
@@ -16,6 +18,8 @@ func _ready() -> void:
 	pass
 
 func _on_spin_box_value_changed(value: float) -> void:
+	if(value > max_page): 
+		value = max_page
 	display_page = int(value)
 	set_active_page()
 
@@ -27,6 +31,7 @@ func set_active_page():
 		page_to_hide.reparent($Pages)
 		page_to_hide.visible = false
 	var page = $Pages.get_node(str(display_page))
+	if(page == null): return
 	page.reparent($ScrollContainer)
 	page.visible = true
 	$ScrollContainer.scroll_vertical = 0
@@ -39,13 +44,11 @@ func set_active_page():
 var output_lines: Array[String] = []
 
 func print_file(file_path):
-	# 1. Convert to absolute OS path
 	var abs_path = ProjectSettings.globalize_path(file_path)
 	print("Preparing to print file at" , file_path, " abs path: ", abs_path)
-	var cmd = "lp"
-	var args = ["-d", "LQ-680", abs_path]
+	var cmd = "cp"
+	var args = [abs_path, "/dev/usb/lp0"]
 	await get_tree().process_frame
-	# 2. Print the file using lp (CUPS)
 	var output = []
 	var result = OS.execute(cmd, args, output, true)
 	print("Command result: ", result, " Output: ", output)
@@ -185,7 +188,7 @@ func _process_question_block(block: Node):
 	# --- WRITE CHECKBOXES ---
 	if not checkboxes.is_empty():
 		for cb in checkboxes:
-			var mark := "[x]" if cb.button_pressed else "[ ]"
+			var mark := "(x)" if cb.button_pressed else "( )"
 			var text := cb.text.strip_edges()
 			var other := _find_lineedit_under_node(cb)
 
@@ -252,7 +255,10 @@ func _save_output_file():
 	var path := "user://form_export_%s.txt" % index
 	var file := FileAccess.open(path, FileAccess.WRITE)
 
-	for line in output_lines:
+	# Apply folding to your existing output_lines
+	var folded_lines = fold_lines_soft(output_lines, 70)
+
+	for line in folded_lines:
 		file.store_line(line)
 
 	file.close()
@@ -294,3 +300,27 @@ func _find_all_richtext(node: Node) -> Array[RichTextLabel]:
 		else:
 			arr += _find_all_richtext(c)
 	return arr
+
+
+func fold_lines_soft(lines: Array[String], width: int) -> Array[String]:
+	var result: Array[String] = []
+
+	for original_line in lines:
+		var words := original_line.split(" ")
+		var current_line := ""
+
+		for word in words:
+			var extra := (1 if current_line != "" else 0) + word.length()
+			if current_line.length() + extra > width:
+				result.append(current_line)
+				current_line = word
+			else:
+				if current_line == "":
+					current_line = word
+				else:
+					current_line += " " + word
+
+		if current_line != "":
+			result.append(current_line)
+
+	return result
