@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dl7u1gj7xawq2"]
+[gd_scene load_steps=22 format=3 uid="uid://dl7u1gj7xawq2"]
 
 [ext_resource type="Script" uid="uid://csu1peewerxb2" path="res://Scripts/main_tool.gd" id="1_bvhbk"]
 [ext_resource type="Script" uid="uid://66yaun8bbg7" path="res://Scripts/top_bar.gd" id="2_c6xj6"]
@@ -12,11 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://bghveff46eo" path="res://Sprites/triangle_24px.png" id="6_gwjdr"]
 [ext_resource type="Script" uid="uid://cbled8p3xi4ts" path="res://ls.gd" id="6_gxmxl"]
 [ext_resource type="PackedScene" uid="uid://yonnipy72fjn" path="res://Scenes/folder_icon.tscn" id="6_kem5a"]
-[ext_resource type="Texture2D" uid="uid://bliwr8o7r6ljp" path="res://Sprites/Icons/network-workgroup.png" id="6_wuoie"]
 [ext_resource type="Texture2D" uid="uid://cle7m8a0q10ok" path="res://Sprites/Icons/network-error.png" id="7_bvhbk"]
 [ext_resource type="PackedScene" uid="uid://8aua683p265y" path="res://Scenes/icon_decoder.tscn" id="7_d4o4o"]
+[ext_resource type="Texture2D" uid="uid://cfoovt5gmoa2t" path="res://Sprites/kdmconfig.png" id="8_bvhbk"]
 [ext_resource type="Script" uid="uid://c3ths6x15e7ee" path="res://Scripts/i_menu.gd" id="8_elkpi"]
 [ext_resource type="PackedScene" uid="uid://cb2g22pam50a8" path="res://Scenes/icon_log.tscn" id="8_gdsc3"]
+[ext_resource type="Script" uid="uid://cmafswkhppyl4" path="res://Scripts/WeaveTalkLauncher.gd" id="9_cpsxm"]
 [ext_resource type="PackedScene" uid="uid://dois0ocshul16" path="res://Scenes/icon_msn.tscn" id="10_yyih5"]
 [ext_resource type="PackedScene" uid="uid://bw4yyqkj562ko" path="res://Scenes/icon_form.tscn" id="13_qjyg3"]
 
@@ -150,19 +151,26 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="UserID" type="TextureRect" parent="TopBar/Details/HBoxContainer"]
+[node name="UserID" type="Button" parent="TopBar/Details/HBoxContainer"]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("6_wuoie")
-stretch_mode = 2
+tooltip_text = "There are 0 friends on WeaveTalk®."
+theme = ExtResource("4_yhmtn")
+icon = ExtResource("8_bvhbk")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("9_cpsxm")
 
 [node name="WeaveNet" type="TextureRect" parent="TopBar/Details/HBoxContainer"]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+tooltip_text = "You are not connected to The Weave®."
+theme = ExtResource("4_yhmtn")
 texture = ExtResource("7_bvhbk")
 stretch_mode = 2
 
@@ -251,3 +259,5 @@ offset_bottom = 40.0
 mouse_filter = 2
 script = ExtResource("2_m0rpm")
 metadata/_edit_lock_ = true
+
+[connection signal="button_down" from="TopBar/Details/HBoxContainer/UserID" to="TopBar/Details/HBoxContainer/UserID" method="_on_button_down"]

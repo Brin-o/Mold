@@ -12,6 +12,14 @@ var slogans = [
 	"In memorium of Barandishan Bu.",
 	"Plug into the WEAVE®",]
 var prev_slogan = ""
+
+const CODE_ENTER_HIDDEN = 170.0
+const CODE_ENTER_VISIBLE = 204.0
+var lock_target = 170.0
+var lock_t = 4.0
+var lock_timer = 0.0
+var is_lock_visible = false
+
 func _ready():
 	WeaveTime.set_start_time()
 	WeaveTime.time_scale
@@ -49,7 +57,10 @@ func try_to_login():
 		get_tree().change_scene_to_file("res://Game.tscn")
 		pass
 	else:
-		print("failed")
+		lock_target = CODE_ENTER_VISIBLE
+		is_lock_visible = true
+		lock_timer = 0
+		#print("failed")
 	
 
 
@@ -59,4 +70,8 @@ func _on_button_button_down() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		set_random_slogan()
+	$Lock/IncorrectCode.position.y = lerp($Lock/IncorrectCode.position.y, lock_target, delta*12)
+	lock_timer += delta
+	if(lock_timer > lock_t):
+		lock_target = CODE_ENTER_HIDDEN
 	pass

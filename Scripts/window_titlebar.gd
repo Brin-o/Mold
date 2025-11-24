@@ -11,6 +11,8 @@ var canMove : bool
 var assignedPill : wButton
 
 
+
+
 func _ready():
 	wSize = size
 	pass

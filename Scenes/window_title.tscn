@@ -11,7 +11,7 @@ offset_left = 205.0
 offset_top = 280.0
 offset_right = 405.0
 offset_bottom = 298.0
-mouse_default_cursor_shape = 16
+mouse_default_cursor_shape = 6
 script = ExtResource("1_0xhjo")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]

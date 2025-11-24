@@ -1,12 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://bqwtursr4vpra"]
+[gd_scene load_steps=11 format=3 uid="uid://bqwtursr4vpra"]
 
 [ext_resource type="Theme" uid="uid://dggnc44ywb5kn" path="res://myOStheme.tres" id="1_w48um"]
 [ext_resource type="Script" uid="uid://c8bqnv84oaw83" path="res://Scripts/msn.gd" id="2_4c0qv"]
 [ext_resource type="Texture2D" uid="uid://cqjuj1yq6dtil" path="res://Sprites/window_border_outer.png" id="3_wb726"]
 [ext_resource type="Texture2D" uid="uid://dd5wo738wqfi1" path="res://Sprites/msn_bg.png" id="4_vwgg7"]
+[ext_resource type="FontFile" uid="uid://b5osnwycghr7a" path="res://HeartbitXX.ttf" id="5_4c0qv"]
 [ext_resource type="Texture2D" uid="uid://ddxi4ndpaj8xc" path="res://Sprites/froggy.png" id="5_c2e5g"]
 [ext_resource type="Texture2D" uid="uid://cc18exjf7ucg" path="res://Sprites/network-error.png" id="6_ccj87"]
-[ext_resource type="FontFile" uid="uid://xohm45b7njn7" path="res://monogram-extended.ttf" id="7_1h8sv"]
+[ext_resource type="FontFile" uid="uid://dotcvql6pw35s" path="res://NewsgeekSerif.ttf" id="8_4c0qv"]
+[ext_resource type="FontFile" uid="uid://w8oys766o3vy" path="res://HeartbitXX2Px.ttf" id="9_cygk1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gs3ir"]
 content_margin_left = 10.0
@@ -84,28 +86,27 @@ offset_bottom = 50.0
 layout_mode = 0
 offset_left = 30.0
 offset_top = 9.0
-offset_right = 76.0
+offset_right = 95.0
 offset_bottom = 17.0
 color = Color(0.5370113, 0.5370113, 0.5370113, 1)
-metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="Pfp Area/Mode"]
 layout_mode = 0
-offset_left = 7.0
-offset_right = 79.0
-offset_bottom = 13.0
-scale = Vector2(0.5, 0.5)
+offset_left = 4.0
+offset_top = -4.0
+offset_right = 76.0
+offset_bottom = 9.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_4c0qv")
 text = "offline mode"
 
 [node name="UserID" type="ColorRect" parent="Pfp Area"]
 layout_mode = 0
 offset_left = 30.0
 offset_top = 18.0
-offset_right = 97.0
+offset_right = 102.0
 offset_bottom = 28.0
 color = Color(0.5370113, 0.5370113, 0.5370113, 1)
-metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="Pfp Area/UserID"]
 layout_mode = 0
@@ -114,7 +115,7 @@ offset_top = -3.0
 offset_right = 77.0
 offset_bottom = 10.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "ID:432918"
+text = "ID:28062502"
 metadata/_edit_lock_ = true
 
 [node name="PFP" type="TextureRect" parent="Pfp Area"]
@@ -194,9 +195,9 @@ color = Color(0.19215687, 0.3647059, 0.85882354, 1)
 
 [node name="ContactsHeader" type="Control" parent="."]
 anchors_preset = 0
-offset_top = 51.0
-offset_right = 206.0
-offset_bottom = 66.0
+offset_top = 83.0
+offset_right = 203.0
+offset_bottom = 98.0
 
 [node name="ColorRect3" type="ColorRect" parent="ContactsHeader"]
 layout_mode = 0
@@ -204,38 +205,112 @@ offset_left = 9.0
 offset_top = 8.0
 offset_right = 36.0
 offset_bottom = 9.0
-color = Color(0.5370113, 0.5370113, 0.5370113, 1)
+color = Color(0.060530387, 0.06053035, 0.060530297, 1)
 
 [node name="ColorRect4" type="ColorRect" parent="ContactsHeader"]
 layout_mode = 0
-offset_left = 174.0
+offset_left = 91.0
 offset_top = 8.0
 offset_right = 202.0
 offset_bottom = 9.0
-color = Color(0.5370113, 0.5370113, 0.5370113, 1)
+color = Color(0.060530387, 0.06053035, 0.060530297, 1)
 
 [node name="Label" type="Label" parent="ContactsHeader"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 30.999998
-offset_top = 2.9999998
-offset_right = 31.0
-offset_bottom = 3.0
+offset_left = 38.0
+offset_top = 2.5
+offset_right = -92.14285
+offset_bottom = 3.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.7, 0.7)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("7_1h8sv")
-text = "CONTACTS"
+theme_override_colors/font_color = Color(0.05882353, 0.05882353, 0.05882353, 1)
+theme_override_fonts/font = ExtResource("8_4c0qv")
+text = "OFFLINE"
 horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ColorRect5" type="ColorRect" parent="ContactsHeader"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 8.0
+offset_right = 21.0
+offset_bottom = 18.0
+color = Color(0.060530387, 0.06053035, 0.060530297, 1)
+
+[node name="ContactsHeader2" type="Control" parent="."]
+anchors_preset = 0
+offset_top = 51.0
+offset_right = 203.0
+offset_bottom = 66.0
+
+[node name="ColorRect3" type="ColorRect" parent="ContactsHeader2"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 8.0
+offset_right = 36.0
+offset_bottom = 9.0
+color = Color(0.060530387, 0.06053035, 0.060530297, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="ContactsHeader2"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 8.0
+offset_right = 21.0
+offset_bottom = 18.0
+color = Color(0.060530387, 0.06053035, 0.060530297, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="ContactsHeader2"]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 8.0
+offset_right = 202.0
+offset_bottom = 9.0
+color = Color(0.060530387, 0.06053035, 0.060530297, 1)
+
+[node name="Label" type="Label" parent="ContactsHeader2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 38.0
+offset_top = 2.5
+offset_right = -92.14285
+offset_bottom = 3.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+theme_override_colors/font_color = Color(0.05882353, 0.05882353, 0.05882353, 1)
+theme_override_fonts/font = ExtResource("8_4c0qv")
+text = "ONLINE"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="ContactsHeader2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 17.999998
+offset_top = 14.0
+offset_right = 62.142853
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.05882353, 0.05882353, 0.05882353, 1)
+theme_override_fonts/font = ExtResource("9_cygk1")
+text = "There are no contacts online."
 vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 12.0
-offset_top = 74.0
+offset_top = 105.0
 offset_right = 201.0
 offset_bottom = 268.0

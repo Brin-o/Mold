@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://qisfklo20d7g"]
+[gd_scene load_steps=9 format=3 uid="uid://drlglvfnf2ml2"]
 
 [ext_resource type="Script" uid="uid://lhte85pynwcv" path="res://window_parent.gd" id="1_a5tps"]
 [ext_resource type="PackedScene" uid="uid://bhlf3cc2pe73e" path="res://Scenes/window_title.tscn" id="2_w6exm"]
@@ -67,7 +67,57 @@ texture = ExtResource("3_56b5k")
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 
-[node name="Lock" type="Control" parent="." groups=["transcoder"]]
+[node name="IncorrectCode" type="Control" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+anchors_preset = 0
+offset_top = 170.0
+offset_right = 240.0
+offset_bottom = 213.0
+theme = ExtResource("4_a66bk")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="IncorrectCode"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_2w6wl")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="IncorrectCode"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.105882354, 0.12941177, 0.15686275, 1)
+metadata/_edit_lock_ = true
+
+[node name="Label2" type="Label" parent="IncorrectCode"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 14.0
+offset_right = 231.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_hqavk")
+text = "INCORRECT LOCK CODE!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Lock" type="Control" parent="."]
 self_modulate = Color(0, 0, 0, 1)
 anchors_preset = 0
 offset_top = 19.0
