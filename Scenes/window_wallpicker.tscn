@@ -277,6 +277,7 @@ text = "- Weckard Westrøm"
 horizontal_alignment = 2
 autowrap_mode = 2
 
+[connection signal="item_selected" from="Wallpicker/Wallpaper/OptionButton" to="Wallpicker" method="_on_wallpaper_button_item_selected"]
 [connection signal="button_down" from="Wallpicker/Button" to="Wallpicker" method="_on_button_button_down"]
 
 [editable path="Titlebar"]

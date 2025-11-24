@@ -58,6 +58,7 @@ func add_folder_files(dir_path = "res://Texts", icon_parent = self):
 		var added_files = {}
 		
 		for file: String in files:
+			if file.contains(".DS_Store"): return
 			# Handle .import files (metadata for imported resources like PNGs)
 			if file.ends_with(".import"):
 				var file_name = file.replace(".import", "")
