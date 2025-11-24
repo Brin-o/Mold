@@ -1,4 +1,4 @@
-[u]Interface Credits[/i]
+[u]Interface Credits[/u]
  
 Lead Developer: Institute for Mold Preservation
 Collaborator(s): Lara Reichmann, Jan Krek

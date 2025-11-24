@@ -57,6 +57,17 @@ func _trigger_parent_fit():
 
 
 func try_to_add_image(image_path):
+	# Enable fit_content so RichTextLabel resizes to fit the image
+	fit_content = true
+	
+	# Set a minimum width for the RichTextLabel to accommodate the 400px image
+	# Account for content margins (left + right = 20px total from StyleBoxEmpty)
+	# So we need at least 400 + 20 = 420px for the RichTextLabel
+	var image_width = 400
+	var min_width = image_width + 20  # 400px image + 20px margins (10px each side)
+	custom_minimum_size.x = min_width
+	size.x = min_width
+	
 	# Check if the image resource exists (works in both editor and exported builds)
 	if not ResourceLoader.exists(image_path):
 		printerr("Image resource does not exist: ", image_path)
@@ -68,18 +79,60 @@ func try_to_add_image(image_path):
 			if image_texture != null:
 				# For RichTextLabel, we can't directly add textures via BBCode in this way
 				# So we'll use the file path approach
-				text += "[img={315}]" + image_path + "[/img]"
+				# BBCode syntax: [img=width]path[/img] or [img=widthxheight]path[/img]
+				text += "[img=" + str(image_width) + "]" + image_path + "[/img]"
 				text += "\n"
 				set_window_name(image_path)
+				# Wait for RichTextLabel to process the image, then resize window
+				call_deferred("_fit_window_to_image")
 				return
 		return
 	
 	# Resource exists - use it directly in BBCode (works in exported builds)
 	# RichTextLabel's [img] tag can load resources by path
-	text += "[img={315}]" + image_path + "[/img]"
+	# BBCode syntax: [img=width]path[/img] - no curly braces!
+	text += "[img=" + str(image_width) + "]" + image_path + "[/img]"
 	text += "\n"
 	set_window_name(image_path)
+	# Wait for RichTextLabel to process the image, then resize window
+	call_deferred("_fit_window_to_image")
 	pass
+
+func _fit_window_to_image():
+	# Wait a couple frames to ensure RichTextLabel has fully processed the image
+	await get_tree().process_frame
+	await get_tree().process_frame
+	
+	# Force RichTextLabel to recalculate its size
+	queue_redraw()
+	
+	# Get the parent window and fit it to the content
+	var parent = get_parent()
+	if parent and parent is window_parent:
+		# Enable auto-fit height if it's not already enabled
+		if parent.has_method("set_auto_fit_height"):
+			parent.set_auto_fit_height(true)
+		
+		# Ensure the Contents node (this RichTextLabel) has the right size
+		# The RichTextLabel should now have the correct minimum size
+		var min_size = get_minimum_size()
+		if min_size.x > 0:
+			size.x = max(size.x, min_size.x)
+		if min_size.y > 0:
+			size.y = max(size.y, min_size.y)
+		
+		# Fit the window to its children (which includes this RichTextLabel)
+		if parent.has_method("fit_to_children"):
+			parent.fit_to_children()
+		# Also try fit_height which handles the Contents node specifically
+		if parent.has_method("fit_height"):
+			parent.fit_height()
+		
+		# Force another update after fitting
+		await get_tree().process_frame
+		if parent.has_method("fit_to_children"):
+			parent.fit_to_children()
+	
 	
 func _input(event):
 	if event.is_action_released("ui_accept"):
