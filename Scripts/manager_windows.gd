@@ -9,6 +9,7 @@ var msn_window = load("res://Scenes/Chat/window_msn.tscn")
 var log_window = load("res://Scenes/window_log.tscn")
 var form_window = load("res://Scenes/window_form.tscn")
 var wallpicker_window = load("res://Scenes/window_wallpicker.tscn")
+var ttt_window = load("res://Scenes/window_tictactoe.tscn")
 @onready var tBar : tBar = $"../TopBar"
 var top_window
 
@@ -102,7 +103,8 @@ func open_or_focus_log():
 		gather_click_singals()
 		tBar.populate_windows()
 	move_window_to_top(log_w)
-	log_w.center_to_screen()
+	#log_w.center_to_screen()
+	log_w.position = Vector2(600, 300)
 	pass
 	
 func open_chatlog(path):
@@ -136,8 +138,20 @@ func open_or_focus_form():
 		gather_click_singals()
 		tBar.populate_windows()
 	move_window_to_top(form_w)
-	#form_w.center_to_screen()
-	form_w.position = Vector2(0, 100)
+	form_w.center_to_screen()
+	#form_w.position = Vector2(0, 100)
+	pass
+
+func open_or_focus_ttt():
+	var form_t = get_node_or_null("TicTacToe")
+	if(form_t == null):
+		form_t = ttt_window.instantiate()
+		add_child(form_t)
+		gather_click_singals()
+		tBar.populate_windows()
+	move_window_to_top(form_t)
+	form_t.center_to_screen()
+	#form_w.position = Vector2(0, 100)
 	pass
 	
 
@@ -178,4 +192,6 @@ func min_all_windows():
 	for c in get_children():
 		minimize_window(c)
 	pass
+	
+	
 	
