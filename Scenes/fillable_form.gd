@@ -227,10 +227,13 @@ func _find_all_checkboxes(node: Node) -> Array[CheckBox]:
 	var arr: Array[CheckBox] = []
 	for c in node.get_children():
 		if c is CheckBox:
+			# Replace hard brackets with soft brackets
+			c.text = c.text.replace("[", "❲").replace("]", "❳")
 			arr.append(c)
 		else:
 			arr += _find_all_checkboxes(c)
 	return arr
+
 
 
 func _find_lineedit_under_node(node: Node) -> String:

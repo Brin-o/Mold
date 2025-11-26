@@ -7,6 +7,8 @@ var time_scale: float = 2
 var game_time: Dictionary
 var base_unix_time: float
 var time_str := ""
+var time_no_sec_str := ""
+
 var date_str := ""
 
 var current_hour: float = 0.0
@@ -37,3 +39,4 @@ func _process(delta: float) -> void:
 
 	date_str = "%04d-%02d-%02d" % [new_time.year, new_time.month, new_time.day]
 	time_str = "%02d:%02d:%02d" % [new_time.hour, new_time.minute, new_time.second]
+	time_no_sec_str = "%02d:%02d" % [new_time.hour, new_time.minute]

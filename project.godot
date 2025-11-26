@@ -22,8 +22,8 @@ WeaveTime="*res://Scripts/weave_time.gd"
 
 [display]
 
-window/size/viewport_width=1024
-window/size/viewport_height=768
+window/size/viewport_width=2048
+window/size/viewport_height=1536
 window/size/resizable=false
 window/stretch/scale=2.0
 window/stretch/scale_mode="integer"

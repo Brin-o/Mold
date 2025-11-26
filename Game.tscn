@@ -17,11 +17,11 @@
 [ext_resource type="Texture2D" uid="uid://cfoovt5gmoa2t" path="res://Sprites/kdmconfig.png" id="8_bvhbk"]
 [ext_resource type="Script" uid="uid://c3ths6x15e7ee" path="res://Scripts/i_menu.gd" id="8_elkpi"]
 [ext_resource type="PackedScene" uid="uid://cb2g22pam50a8" path="res://Scenes/icon_log.tscn" id="8_gdsc3"]
-[ext_resource type="Script" uid="uid://cmafswkhppyl4" path="res://Scripts/WeaveTalkLauncher.gd" id="9_cpsxm"]
+[ext_resource type="Script" path="res://Scripts/WeaveTalkLauncher.gd" id="9_cpsxm"]
 [ext_resource type="PackedScene" uid="uid://dois0ocshul16" path="res://Scenes/icon_msn.tscn" id="10_yyih5"]
 [ext_resource type="PackedScene" uid="uid://bw4yyqkj562ko" path="res://Scenes/icon_form.tscn" id="13_qjyg3"]
-[ext_resource type="PackedScene" uid="uid://k2ivjcq7raop" path="res://Scenes/icon_ttt.tscn" id="20_0mevm"]
-[ext_resource type="Script" uid="uid://dlcqj1te4nin4" path="res://Scripts/logoffer.gd" id="21_hmewc"]
+[ext_resource type="PackedScene" path="res://Scenes/icon_ttt.tscn" id="20_0mevm"]
+[ext_resource type="Script" path="res://Scripts/logoffer.gd" id="21_hmewc"]
 [ext_resource type="FontFile" uid="uid://dotcvql6pw35s" path="res://NewsgeekSerif.ttf" id="22_7ged1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bvhbk"]
@@ -255,6 +255,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="tic-tac" parent="Apps" instance=ExtResource("20_0mevm")]
+visible = false
 layout_mode = 2
 
 [node name="ManagerWindows" type="Control" parent="." groups=["window_manager"]]

@@ -2,7 +2,14 @@ extends Control
 
 const WALLPAPER_PATH := "res://Sprites/Wallpapers/"
 const IMAGE_FORMATS := ["png", "jpg", "jpeg", "bmp", "webp"]
-
+var wallpapers := [
+	load("res://Sprites/Wallpapers/biochemestry.png"), 
+	load("res://Sprites/Wallpapers/chess.png"),
+	load("res://Sprites/Wallpapers/flowers.png"),
+	load("res://Sprites/Wallpapers/noise.png"),
+	load("res://Sprites/Wallpapers/purple.png"),
+	load("res://Sprites/Wallpapers/tractor.png"),
+	load("res://Sprites/Wallpapers/trees.png")]
 # Names that should use TILE mode
 const TILE_NAMES := ["flowers", "noise", "purple", "trees"]
 # Names that should use SCALE mode
@@ -14,25 +21,17 @@ func _ready():
 
 
 func add_wallpapers_to_list():
-	var dir := DirAccess.open(WALLPAPER_PATH)
-	if dir == null:
-		printerr("Could not open folder in dir ... ", WALLPAPER_PATH)
-		return
+	#var dir := DirAccess.open(WALLPAPER_PATH)
+	#if dir == null:
+		#printerr("Could not open folder in dir ... ", WALLPAPER_PATH)
+		#return
 
 	var i := 0
-	for file: String in dir.get_files():
-		# Skip .import files
-		if file.ends_with(".import"):
-			continue
-
-		var ext := file.get_extension().to_lower()
-		if not IMAGE_FORMATS.has(ext):
-			continue
-
-		var display_name := file.get_file().get_basename()
+	for wall in wallpapers:
+		var display_name = wall.get_path().get_file().get_basename()
 		$Wallpaper/OptionButton.add_item(display_name, i)
 		# Store the full filename (with extension) as metadata
-		$Wallpaper/OptionButton.set_item_metadata(i, file)
+		$Wallpaper/OptionButton.set_item_metadata(i, wall)
 		i += 1
 
 
@@ -47,12 +46,8 @@ func set_wallpaper():
 		return
 
 	# Prefer metadata (full filename), fall back to assuming .png
-	var file_name = $Wallpaper/OptionButton.get_item_metadata(selected)
-	if typeof(file_name) != TYPE_STRING or file_name == "":
-		file_name = $Wallpaper/OptionButton.get_item_text(selected) + ".png"
-
-	var selected_wall_path = WALLPAPER_PATH + file_name
-	print("Trying to load wallpaper: ", selected_wall_path)
+	var tex: Texture2D = null
+	tex = $Wallpaper/OptionButton.get_item_metadata(selected)
 
 	## --- AUTO-SET STRETCH MODE OPTION BASED ON WALLPAPER NAME ---
 	#_auto_set_stretch_mode_for_wallpaper(file_name)
@@ -62,20 +57,6 @@ func set_wallpaper():
 	if bg_node == null:
 		printerr("No BG node found.")
 		return
-
-	var tex: Texture2D = null
-
-	# 1) Try as a resource (works in editor + exported builds)
-	if ResourceLoader.exists(selected_wall_path):
-		tex = load(selected_wall_path)
-	else:
-		# 2) Fallback: try as a file path (similar to your RichTextLabel script)
-		var image := Image.load_from_file(selected_wall_path)
-		if image != null:
-			tex = ImageTexture.create_from_image(image)
-		else:
-			printerr("Failed to load wallpaper image from: ", selected_wall_path)
-			return
 
 	bg_node.texture = tex
 	# Use whatever the Mode OptionButton is currently set to (we just auto-updated it)
